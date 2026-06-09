@@ -116,7 +116,8 @@ function strike(x, y) {
 }
 
 function drawBolt(b) {
-  const alpha = b.life * (0.65 + Math.random() * 0.35); // flicker
+  // intensidade contida: o raio é cenário, passa atrás do conteúdo
+  const alpha = b.life * (0.42 + Math.random() * 0.22);
 
   // passada de glow
   ctx.save();
@@ -194,7 +195,7 @@ function frame(now) {
 
   // flash global
   if (flash > 0.01) {
-    ctx.fillStyle = `rgba(180, 225, 255, ${flash * 0.1})`;
+    ctx.fillStyle = `rgba(180, 225, 255, ${flash * 0.06})`;
     ctx.fillRect(0, 0, W, H);
     flash *= 0.86;
   }
@@ -253,6 +254,8 @@ const nav = document.getElementById("nav");
 const progressBar = document.getElementById("scrollProgress");
 const circuitPath = document.getElementById("circuitPath");
 const processSvg = document.getElementById("processSvg");
+const heroInner = document.getElementById("heroInner");
+const orbs = Array.from(document.querySelectorAll(".orb"));
 
 let pathLength = 0;
 if (circuitPath) {
@@ -267,6 +270,21 @@ function onScroll() {
   progressBar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
 
   nav.classList.toggle("scrolled", window.scrollY > 30);
+
+  if (!reducedMotion) {
+    // hero esvanece e sobe conforme o scroll sai dele
+    const hp = Math.min(1, window.scrollY / (window.innerHeight * 0.9));
+    heroInner.style.opacity = (1 - hp * 0.9).toFixed(3);
+    heroInner.style.transform = `translateY(${(-48 * hp).toFixed(1)}px)`;
+
+    // orbs com parallax: cada um deriva num ritmo próprio
+    for (const orb of orbs) {
+      const r = orb.parentElement.getBoundingClientRect();
+      const p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      const speed = parseFloat(orb.dataset.speed || "0.4");
+      orb.style.transform = `translateY(${((p - 0.5) * -340 * speed).toFixed(1)}px)`;
+    }
+  }
 
   // pathtrace: o circuito se desenha conforme a seção entra na viewport
   if (circuitPath && !reducedMotion && processSvg) {

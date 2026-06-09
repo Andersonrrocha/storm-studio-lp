@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storm Studio — Software, IA &amp; Agents</title>
+  <meta name="description" content="Storm Studio é um estúdio de engenharia criativa: sites, apps, ferramentas de IA e agents autônomos — do conceito ao deploy." />
+  <meta name="theme-color" content="#05060a" />
+
+  <meta property="og:title" content="Storm Studio — Software, IA & Agents" />
+  <meta property="og:description" content="Software com a energia de uma tempestade. Sites, apps, ferramentas de IA e agents autônomos." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2322d3ee' d='M13 2 4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- intro: raio que rasga a tela no load -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <svg class="intro-bolt" viewBox="0 0 200 800" fill="none" preserveAspectRatio="xMidYMid meet">
+      <path id="introPath" d="M104 0 L86 160 L122 180 L74 360 L118 380 L62 580 L106 600 L80 800"
+            stroke="url(#boltGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs>
+        <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#e0f2ff"/>
+          <stop offset=".5" stop-color="#22d3ee"/>
+          <stop offset="1" stop-color="#8b5cf6"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="intro-flash"></div>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Storm Studio — início">
+      <svg class="brand-bolt" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/>
+      </svg>
+      <span class="brand-name">STORM<em>·</em>STUDIO</span>
+    </a>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#lab">Lab</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-ghost btn-small" href="mailto:Andersonrocha.rs@live.com?subject=Projeto%20com%20a%20Storm%20Studio">Iniciar projeto</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <canvas id="storm" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner" id="heroInner">
+        <p class="eyebrow mono">
+          <span class="eyebrow-dot"></span>
+          dev studio — web · apps · ia · agents
+        </p>
+
+        <h1 class="hero-title">
+          <span class="line"><span class="word">Software</span> <span class="word">com</span> <span class="word">a</span></span>
+          <span class="line"><span class="word">energia</span> <span class="word">de</span> <span class="word">uma</span></span>
+          <span class="line"><span class="word electric">tempestade.</span></span>
+        </h1>
+
+        <p class="hero-sub">
+          Storm Studio é um estúdio de engenharia criativa.
+          Sites, apps, ferramentas de IA e agents autônomos —
+          construídos do conceito ao deploy, com obsessão por detalhe.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:Andersonrocha.rs@live.com?subject=Projeto%20com%20a%20Storm%20Studio">
+            Iniciar um projeto
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#lab">Ver o lab</a>
+        </div>
+
+        <p class="hero-hint mono" id="heroHint">⚡ clique em qualquer lugar para invocar um raio</p>
+      </div>
+
+      <div class="hero-foot mono">
+        <span>scroll ↓</span>
+        <span>based in Brazil 🇧🇷</span>
+        <span>est. 2026</span>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section class="section services" id="servicos">
+      <div class="section-head reveal">
+        <p class="section-label mono">// 01 — serviços</p>
+        <h2>O que sai<br/>do <span class="electric-inline">laboratório</span></h2>
+      </div>
+
+      <ol class="service-list">
+        <li class="service reveal">
+          <span class="service-num mono">01</span>
+          <div class="service-body">
+            <h3>Web &amp; Produtos Digitais</h3>
+            <p>Sites, landing pages e web apps completos. Frontend afiado, backend sólido, performance de verdade — não template requentado.</p>
+          </div>
+          <span class="service-tags mono">React · Next.js · NestJS · Node</span>
+        </li>
+        <li class="service reveal">
+          <span class="service-num mono">02</span>
+          <div class="service-body">
+            <h3>Apps Multiplataforma</h3>
+            <p>Desktop e mobile com uma base de código pensada para durar. Arquitetura em camadas, API como fonte única da verdade.</p>
+          </div>
+          <span class="service-tags mono">Electron · React Native · Expo</span>
+        </li>
+        <li class="service reveal">
+          <span class="service-num mono">03</span>
+          <div class="service-body">
+            <h3>Ferramentas de IA</h3>
+            <p>Integrações com LLMs, pipelines de geração de conteúdo, processamento de dados e produtos nativos de IA — além do hype.</p>
+          </div>
+          <span class="service-tags mono">LLM APIs · RAG · Pipelines</span>
+        </li>
+        <li class="service reveal">
+          <span class="service-num mono">04</span>
+          <div class="service-body">
+            <h3>Agents &amp; Automação</h3>
+            <p>Workflows autônomos com humano no loop. Orquestração multi-agent, filas, observabilidade — agents que trabalham enquanto você dorme.</p>
+          </div>
+          <span class="service-tags mono">Orchestration · Queues · HITL</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ LAB / PROJETOS ============ -->
+    <section class="section lab" id="lab">
+      <div class="section-head reveal">
+        <p class="section-label mono">// 02 — lab</p>
+        <h2>Construído com as<br/>próprias <span class="electric-inline">mãos</span></h2>
+        <p class="section-sub">Produtos reais, em uso real. O lab é onde a Storm testa o que depois entrega para clientes.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" tabindex="0">
+          <div class="card-glow" aria-hidden="true"></div>
+          <header class="card-head">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.3A4.5 4.5 0 0 1 7.5 7.6a6 6 0 0 1 11.3 2A4 4 0 0 1 18 17.5"/><path d="m13 11-3 5h4l-3 5"/></svg>
+            </span>
+            <span class="card-status mono">in design</span>
+          </header>
+          <h3>Storm Engine</h3>
+          <p>Pipeline semi-autônomo de produção de vídeo para YouTube: agents monitoram trends, geram roteiro, narração e render — com humano no loop via Telegram.</p>
+          <footer class="card-tags mono">
+            <span>Multi-agent</span><span>Remotion</span><span>BullMQ</span><span>LLM Router</span>
+          </footer>
+        </article>
+
+        <article class="card reveal" tabindex="0">
+          <div class="card-glow" aria-hidden="true"></div>
+          <header class="card-head">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.3a2.4 2.4 0 0 0-2.3-1.3c-1.4 0-2.5.8-2.5 2 0 2.8 5 1.4 5 4 0 1.2-1.1 2-2.5 2a2.6 2.6 0 0 1-2.6-1.5"/><path d="M12 6.2v1.8M12 16v1.8"/></svg>
+            </span>
+            <span class="card-status mono">in production</span>
+          </header>
+          <h3>WIMM</h3>
+          <p>Where is your money? Finanças pessoais com visão real do ciclo de fatura do cartão. Import-based, privado por design — sem Open Finance, sem scraping.</p>
+          <footer class="card-tags mono">
+            <span>NestJS</span><span>Electron</span><span>Expo</span><span>Prisma</span>
+          </footer>
+        </article>
+
+        <article class="card reveal" tabindex="0">
+          <div class="card-glow" aria-hidden="true"></div>
+          <header class="card-head">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="2.6" height="5" rx="0.8"/><rect x="19.4" y="9.5" width="2.6" height="5" rx="0.8"/><rect x="5.6" y="7" width="3" height="10" rx="0.9"/><rect x="15.4" y="7" width="3" height="10" rx="0.9"/><path d="M8.6 12h6.8"/></svg>
+            </span>
+            <span class="card-status mono">in development</span>
+          </header>
+          <h3>GymFlow</h3>
+          <p>Tracking de treinos com arquitetura limpa de ponta a ponta. Domínio isolado, GraphQL, pensado para evoluir por anos — não um MVP descartável.</p>
+          <footer class="card-tags mono">
+            <span>Next.js</span><span>GraphQL</span><span>NestJS</span><span>PostgreSQL</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>TypeScript</span><i>⚡</i><span>React</span><i>⚡</i><span>Next.js</span><i>⚡</i>
+        <span>NestJS</span><i>⚡</i><span>PostgreSQL</span><i>⚡</i><span>Prisma</span><i>⚡</i>
+        <span>GraphQL</span><i>⚡</i><span>Electron</span><i>⚡</i><span>Expo</span><i>⚡</i>
+        <span>Remotion</span><i>⚡</i><span>Redis</span><i>⚡</i><span>LLM&nbsp;APIs</span><i>⚡</i>
+        <span>TypeScript</span><i>⚡</i><span>React</span><i>⚡</i><span>Next.js</span><i>⚡</i>
+        <span>NestJS</span><i>⚡</i><span>PostgreSQL</span><i>⚡</i><span>Prisma</span><i>⚡</i>
+        <span>GraphQL</span><i>⚡</i><span>Electron</span><i>⚡</i><span>Expo</span><i>⚡</i>
+        <span>Remotion</span><i>⚡</i><span>Redis</span><i>⚡</i><span>LLM&nbsp;APIs</span><i>⚡</i>
+      </div>
+    </div>
+
+    <!-- ============ PROCESSO ============ -->
+    <section class="section process" id="processo">
+      <div class="section-head reveal">
+        <p class="section-label mono">// 03 — processo</p>
+        <h2>Da nuvem ao <span class="electric-inline">raio</span></h2>
+      </div>
+
+      <div class="process-wrap">
+        <svg class="process-path" id="processSvg" viewBox="0 0 1000 520" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path id="circuitPath"
+            d="M20 60 H 310 L 350 100 V 180 L 310 220 H 120 L 80 260 V 320 L 120 360 H 640 L 680 320 V 240 L 720 200 H 940 M 680 320 L 680 420 L 640 460 H 200"
+            stroke="url(#pgrad)" stroke-width="2"/>
+          <defs>
+            <linearGradient id="pgrad" x1="0" y1="0" x2="1000" y2="520" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#22d3ee"/>
+              <stop offset="1" stop-color="#8b5cf6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num mono">α</span>
+            <h3>Descobrir</h3>
+            <p>Entender o problema de verdade antes de escrever uma linha de código. Escopo claro, expectativa alinhada.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num mono">β</span>
+            <h3>Desenhar</h3>
+            <p>Arquitetura e design caminham juntos. Decisões documentadas, trade-offs explícitos.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num mono">γ</span>
+            <h3>Construir</h3>
+            <p>Iteração rápida com qualidade de produção. Entregas frequentes, nada de caixa-preta.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num mono">⚡</span>
+            <h3>Lançar</h3>
+            <p>Deploy, observabilidade e suporte. O lançamento é o começo, não o fim.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="section contact" id="contato">
+      <div class="contact-inner reveal">
+        <p class="section-label mono">// 04 — contato</p>
+        <h2 class="contact-title">Vamos construir<br/>algo <span class="electric-inline">elétrico</span>?</h2>
+        <p class="contact-sub">Tem uma ideia, um problema ou um produto travado? Manda um sinal — a resposta chega antes do trovão.</p>
+        <div class="contact-cta">
+          <a class="btn btn-primary btn-big" href="mailto:Andersonrocha.rs@live.com?subject=Projeto%20com%20a%20Storm%20Studio">
+            Andersonrocha.rs@live.com
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/Andersonrrocha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="mono">© 2026 Storm Studio — Anderson Rocha</span>
+    <span class="mono footer-right">feito durante uma tempestade ⚡</span>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

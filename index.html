@@ -17,7 +17,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
   <link rel="stylesheet" href="./styles.css" />
+
+  <!-- progressive enhancement: motion só liga com JS e sem prefers-reduced-motion -->
+  <script>
+    document.documentElement.classList.add('js');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('motion');
+    }
+  </script>
 </head>
 <body>
 
@@ -36,6 +45,10 @@
     </svg>
     <div class="intro-flash"></div>
   </div>
+
+  <!-- storm canvas: layer fixo atrás de TODA a página (a câmera voa pela tempestade) -->
+  <canvas id="storm" aria-hidden="true"></canvas>
+  <div class="storm-vignette" aria-hidden="true"></div>
 
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
@@ -61,7 +74,6 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
-      <canvas id="storm" aria-hidden="true"></canvas>
       <div class="hero-grid" aria-hidden="true"></div>
 
       <div class="hero-inner" id="heroInner">
@@ -90,58 +102,79 @@
           <a class="btn btn-ghost" href="#lab">Ver o lab</a>
         </div>
 
-        <p class="hero-hint mono" id="heroHint">clique no fundo e veja o que acontece</p>
+        <p class="hero-hint mono" id="heroHint">role para entrar na tempestade — ou clique no fundo</p>
       </div>
 
       <div class="hero-foot mono">
-        <span>scroll ↓</span>
+        <span class="scroll-cue"><span class="scroll-cue-line"></span> scroll</span>
         <span>based in Brazil 🇧🇷</span>
         <span>est. 2026</span>
+      </div>
+    </section>
+
+    <!-- ============ MANIFESTO (beat pinado) ============ -->
+    <section class="manifesto" id="manifesto" aria-label="Manifesto">
+      <div class="manifesto-inner">
+        <p class="manifesto-label mono">// o que nos move</p>
+        <p class="manifesto-line" aria-label="A diferença está nos detalhes que ninguém vê — e que todo mundo sente.">
+          <span class="mword">A</span> <span class="mword">diferença</span> <span class="mword">está</span>
+          <span class="mword">nos</span> <span class="mword">detalhes</span> <span class="mword">que</span>
+          <span class="mword">ninguém</span> <span class="mword">vê</span> <span class="mword mdash">—</span>
+          <span class="mword">e</span> <span class="mword">que</span> <span class="mword">todo</span>
+          <span class="mword">mundo</span> <span class="mword electric-inline">sente.</span>
+        </p>
       </div>
     </section>
 
     <!-- ============ SERVIÇOS ============ -->
     <section class="section services" id="servicos">
       <div class="orb" data-speed="0.5" style="width:480px;height:480px;background:rgba(139,92,246,0.10);top:-8%;right:-150px;" aria-hidden="true"></div>
-      <div class="section-head reveal">
-        <p class="section-label mono">// 01 — serviços</p>
-        <h2>O que sai<br/>do <span class="electric-inline">laboratório</span></h2>
-      </div>
 
-      <ol class="service-list">
-        <li class="service reveal" data-reveal="left">
-          <span class="service-num mono">01</span>
-          <div class="service-body">
-            <h3>Web &amp; Produtos Digitais</h3>
-            <p>Sites, landing pages e web apps completos. Frontend afiado, backend sólido, performance de verdade — não template requentado.</p>
+      <div class="services-layout">
+        <div class="services-aside">
+          <div class="section-head reveal">
+            <p class="section-label mono">// 01 — serviços</p>
+            <h2>O que sai<br/>do <span class="electric-inline">laboratório</span></h2>
+            <p class="section-sub">Quatro frentes, uma mesma obsessão: software que dura.</p>
           </div>
-          <span class="service-tags mono">React · Next.js · NestJS · Node</span>
-        </li>
-        <li class="service reveal" data-reveal="left">
-          <span class="service-num mono">02</span>
-          <div class="service-body">
-            <h3>Apps Multiplataforma</h3>
-            <p>Desktop e mobile com uma base de código pensada para durar. Arquitetura em camadas, API como fonte única da verdade.</p>
-          </div>
-          <span class="service-tags mono">Electron · React Native · Expo</span>
-        </li>
-        <li class="service reveal" data-reveal="left">
-          <span class="service-num mono">03</span>
-          <div class="service-body">
-            <h3>Ferramentas de IA</h3>
-            <p>Integrações com LLMs, pipelines de geração de conteúdo, processamento de dados e produtos nativos de IA — além do hype.</p>
-          </div>
-          <span class="service-tags mono">LLM APIs · RAG · Pipelines</span>
-        </li>
-        <li class="service reveal" data-reveal="left">
-          <span class="service-num mono">04</span>
-          <div class="service-body">
-            <h3>Agents &amp; Automação</h3>
-            <p>Workflows autônomos com humano no loop. Orquestração multi-agent, filas, observabilidade — agents que trabalham enquanto você dorme.</p>
-          </div>
-          <span class="service-tags mono">Orchestration · Queues · HITL</span>
-        </li>
-      </ol>
+        </div>
+
+        <ol class="service-list" id="serviceList">
+          <span class="service-spine" aria-hidden="true"><i></i></span>
+          <li class="service" data-reveal="left">
+            <span class="service-num mono">01</span>
+            <div class="service-body">
+              <h3>Web &amp; Produtos Digitais</h3>
+              <p>Sites, landing pages e web apps completos. Frontend afiado, backend sólido, performance de verdade — não template requentado.</p>
+            </div>
+            <span class="service-tags mono">React · Next.js · NestJS · Node</span>
+          </li>
+          <li class="service" data-reveal="left">
+            <span class="service-num mono">02</span>
+            <div class="service-body">
+              <h3>Apps Multiplataforma</h3>
+              <p>Desktop e mobile com uma base de código pensada para durar. Arquitetura em camadas, API como fonte única da verdade.</p>
+            </div>
+            <span class="service-tags mono">Electron · React Native · Expo</span>
+          </li>
+          <li class="service" data-reveal="left">
+            <span class="service-num mono">03</span>
+            <div class="service-body">
+              <h3>Ferramentas de IA</h3>
+              <p>Integrações com LLMs, pipelines de geração de conteúdo, processamento de dados e produtos nativos de IA — além do hype.</p>
+            </div>
+            <span class="service-tags mono">LLM APIs · RAG · Pipelines</span>
+          </li>
+          <li class="service" data-reveal="left">
+            <span class="service-num mono">04</span>
+            <div class="service-body">
+              <h3>Agents &amp; Automação</h3>
+              <p>Workflows autônomos com humano no loop. Orquestração multi-agent, filas, observabilidade — agents que trabalham enquanto você dorme.</p>
+            </div>
+            <span class="service-tags mono">Orchestration · Queues · HITL</span>
+          </li>
+        </ol>
+      </div>
     </section>
 
     <!-- ============ LAB / PROJETOS ============ -->
@@ -153,69 +186,84 @@
         <p class="section-sub">Produtos reais, em uso real. O lab é onde a Storm testa o que depois entrega para clientes.</p>
       </div>
 
-      <div class="cards">
-        <article class="card reveal" data-reveal="zoom" tabindex="0">
+      <div class="cards" id="cards">
+        <article class="card" tabindex="0">
+          <div class="card-shine" aria-hidden="true"></div>
           <div class="card-glow" aria-hidden="true"></div>
-          <header class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.3A4.5 4.5 0 0 1 7.5 7.6a6 6 0 0 1 11.3 2A4 4 0 0 1 18 17.5"/><path d="m13 11-3 5h4l-3 5"/></svg>
-            </span>
-            <span class="card-status mono">in design</span>
-          </header>
-          <h3>Storm Engine</h3>
-          <p>Pipeline semi-autônomo de produção de vídeo para YouTube: agents monitoram trends, geram roteiro, narração e render — com humano no loop via Telegram.</p>
-          <footer class="card-tags mono">
-            <span>Multi-agent</span><span>Remotion</span><span>BullMQ</span><span>LLM Router</span>
-          </footer>
+          <div class="card-content">
+            <header class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.3A4.5 4.5 0 0 1 7.5 7.6a6 6 0 0 1 11.3 2A4 4 0 0 1 18 17.5"/><path d="m13 11-3 5h4l-3 5"/></svg>
+              </span>
+              <span class="card-status mono">in design</span>
+            </header>
+            <h3>Storm Engine</h3>
+            <p>Pipeline semi-autônomo de produção de vídeo para YouTube: agents monitoram trends, geram roteiro, narração e render — com humano no loop via Telegram.</p>
+            <footer class="card-tags mono">
+              <span>Multi-agent</span><span>Remotion</span><span>BullMQ</span><span>LLM Router</span>
+            </footer>
+          </div>
         </article>
 
-        <article class="card reveal" data-reveal="zoom" tabindex="0">
+        <article class="card" tabindex="0">
+          <div class="card-shine" aria-hidden="true"></div>
           <div class="card-glow" aria-hidden="true"></div>
-          <header class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.3a2.4 2.4 0 0 0-2.3-1.3c-1.4 0-2.5.8-2.5 2 0 2.8 5 1.4 5 4 0 1.2-1.1 2-2.5 2a2.6 2.6 0 0 1-2.6-1.5"/><path d="M12 6.2v1.8M12 16v1.8"/></svg>
-            </span>
-            <span class="card-status mono">in production</span>
-          </header>
-          <h3>WIMM</h3>
-          <p>Where is your money? Finanças pessoais com visão real do ciclo de fatura do cartão. Import-based, privado por design — sem Open Finance, sem scraping.</p>
-          <footer class="card-tags mono">
-            <span>NestJS</span><span>Electron</span><span>Expo</span><span>Prisma</span>
-          </footer>
+          <div class="card-content">
+            <header class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.3a2.4 2.4 0 0 0-2.3-1.3c-1.4 0-2.5.8-2.5 2 0 2.8 5 1.4 5 4 0 1.2-1.1 2-2.5 2a2.6 2.6 0 0 1-2.6-1.5"/><path d="M12 6.2v1.8M12 16v1.8"/></svg>
+              </span>
+              <span class="card-status mono">in production</span>
+            </header>
+            <h3>WIMM</h3>
+            <p>Where is your money? Finanças pessoais com visão real do ciclo de fatura do cartão. Import-based, privado por design — sem Open Finance, sem scraping.</p>
+            <footer class="card-tags mono">
+              <span>NestJS</span><span>Electron</span><span>Expo</span><span>Prisma</span>
+            </footer>
+          </div>
         </article>
 
-        <article class="card reveal" data-reveal="zoom" tabindex="0">
+        <article class="card" tabindex="0">
+          <div class="card-shine" aria-hidden="true"></div>
           <div class="card-glow" aria-hidden="true"></div>
-          <header class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="2.6" height="5" rx="0.8"/><rect x="19.4" y="9.5" width="2.6" height="5" rx="0.8"/><rect x="5.6" y="7" width="3" height="10" rx="0.9"/><rect x="15.4" y="7" width="3" height="10" rx="0.9"/><path d="M8.6 12h6.8"/></svg>
-            </span>
-            <span class="card-status mono">in development</span>
-          </header>
-          <h3>GymFlow</h3>
-          <p>Tracking de treinos com arquitetura limpa de ponta a ponta. Domínio isolado, GraphQL, pensado para evoluir por anos — não um MVP descartável.</p>
-          <footer class="card-tags mono">
-            <span>Next.js</span><span>GraphQL</span><span>NestJS</span><span>PostgreSQL</span>
-          </footer>
+          <div class="card-content">
+            <header class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="2.6" height="5" rx="0.8"/><rect x="19.4" y="9.5" width="2.6" height="5" rx="0.8"/><rect x="5.6" y="7" width="3" height="10" rx="0.9"/><rect x="15.4" y="7" width="3" height="10" rx="0.9"/><path d="M8.6 12h6.8"/></svg>
+              </span>
+              <span class="card-status mono">in development</span>
+            </header>
+            <h3>GymFlow</h3>
+            <p>Tracking de treinos com arquitetura limpa de ponta a ponta. Domínio isolado, GraphQL, pensado para evoluir por anos — não um MVP descartável.</p>
+            <footer class="card-tags mono">
+              <span>Next.js</span><span>GraphQL</span><span>NestJS</span><span>PostgreSQL</span>
+            </footer>
+          </div>
         </article>
       </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
+    <!-- ============ MARQUEE (duas linhas, moduladas pela velocidade) ============ -->
     <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>TypeScript</span><i>⚡</i><span>React</span><i>⚡</i><span>Next.js</span><i>⚡</i>
-        <span>NestJS</span><i>⚡</i><span>PostgreSQL</span><i>⚡</i><span>Prisma</span><i>⚡</i>
-        <span>GraphQL</span><i>⚡</i><span>Electron</span><i>⚡</i><span>Expo</span><i>⚡</i>
-        <span>Remotion</span><i>⚡</i><span>Redis</span><i>⚡</i><span>LLM&nbsp;APIs</span><i>⚡</i>
-        <span>TypeScript</span><i>⚡</i><span>React</span><i>⚡</i><span>Next.js</span><i>⚡</i>
-        <span>NestJS</span><i>⚡</i><span>PostgreSQL</span><i>⚡</i><span>Prisma</span><i>⚡</i>
-        <span>GraphQL</span><i>⚡</i><span>Electron</span><i>⚡</i><span>Expo</span><i>⚡</i>
-        <span>Remotion</span><i>⚡</i><span>Redis</span><i>⚡</i><span>LLM&nbsp;APIs</span><i>⚡</i>
+      <div class="marquee-row" data-marquee="1">
+        <div class="marquee-track">
+          <span>TypeScript</span><i>⚡</i><span>React</span><i>⚡</i><span>Next.js</span><i>⚡</i>
+          <span>NestJS</span><i>⚡</i><span>PostgreSQL</span><i>⚡</i><span>Prisma</span><i>⚡</i>
+          <span>GraphQL</span><i>⚡</i><span>Electron</span><i>⚡</i><span>Expo</span><i>⚡</i>
+          <span>Remotion</span><i>⚡</i><span>Redis</span><i>⚡</i><span>LLM&nbsp;APIs</span><i>⚡</i>
+        </div>
+      </div>
+      <div class="marquee-row marquee-row--alt" data-marquee="-1">
+        <div class="marquee-track">
+          <span>Multi-agent</span><i>◇</i><span>RAG</span><i>◇</i><span>Pipelines</span><i>◇</i>
+          <span>Observability</span><i>◇</i><span>Queues</span><i>◇</i><span>HITL</span><i>◇</i>
+          <span>Clean Architecture</span><i>◇</i><span>DDD</span><i>◇</i><span>CI/CD</span><i>◇</i>
+          <span>Edge</span><i>◇</i><span>WebGL</span><i>◇</i><span>Realtime</span><i>◇</i>
+        </div>
       </div>
     </div>
 
-    <!-- ============ PROCESSO ============ -->
+    <!-- ============ PROCESSO (circuito pinado, desenhado pelo scroll) ============ -->
     <section class="section process" id="processo">
       <div class="orb" data-speed="0.45" style="width:420px;height:420px;background:rgba(139,92,246,0.09);top:28%;right:-130px;" aria-hidden="true"></div>
       <div class="section-head reveal">
@@ -223,11 +271,17 @@
         <h2>Do esboço ao <span class="electric-inline">deploy</span></h2>
       </div>
 
-      <div class="process-wrap">
+      <div class="process-wrap" id="processWrap">
         <svg class="process-path" id="processSvg" viewBox="0 0 1000 520" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path id="circuitTrack"
+            d="M20 60 H 310 L 350 100 V 180 L 310 220 H 120 L 80 260 V 320 L 120 360 H 640 L 680 320 V 240 L 720 200 H 940 M 680 320 L 680 420 L 640 460 H 200"
+            stroke="rgba(140,160,220,0.10)" stroke-width="2"/>
           <path id="circuitPath"
             d="M20 60 H 310 L 350 100 V 180 L 310 220 H 120 L 80 260 V 320 L 120 360 H 640 L 680 320 V 240 L 720 200 H 940 M 680 320 L 680 420 L 640 460 H 200"
             stroke="url(#pgrad)" stroke-width="2"/>
+          <path id="circuitPulse"
+            d="M20 60 H 310 L 350 100 V 180 L 310 220 H 120 L 80 260 V 320 L 120 360 H 640 L 680 320 V 240 L 720 200 H 940 M 680 320 L 680 420 L 640 460 H 200"
+            stroke="#e0f2ff" stroke-width="3" stroke-linecap="round"/>
           <defs>
             <linearGradient id="pgrad" x1="0" y1="0" x2="1000" y2="520" gradientUnits="userSpaceOnUse">
               <stop offset="0" stop-color="#22d3ee"/>
@@ -237,22 +291,22 @@
         </svg>
 
         <ol class="steps">
-          <li class="step reveal" data-reveal="zoom">
+          <li class="step" data-step="0">
             <span class="step-num mono">α</span>
             <h3>Descobrir</h3>
             <p>Entender o problema de verdade antes de escrever uma linha de código. Escopo claro, expectativa alinhada.</p>
           </li>
-          <li class="step reveal" data-reveal="zoom">
+          <li class="step" data-step="1">
             <span class="step-num mono">β</span>
             <h3>Desenhar</h3>
             <p>Arquitetura e design caminham juntos. Decisões documentadas, trade-offs explícitos.</p>
           </li>
-          <li class="step reveal" data-reveal="zoom">
+          <li class="step" data-step="2">
             <span class="step-num mono">γ</span>
             <h3>Construir</h3>
             <p>Iteração rápida com qualidade de produção. Entregas frequentes, nada de caixa-preta.</p>
           </li>
-          <li class="step reveal" data-reveal="zoom">
+          <li class="step" data-step="3">
             <span class="step-num mono">δ</span>
             <h3>Lançar</h3>
             <p>Deploy, observabilidade e suporte. O lançamento é o começo, não o fim.</p>
@@ -261,7 +315,7 @@
       </div>
     </section>
 
-    <!-- ============ CONTATO ============ -->
+    <!-- ============ CONTATO (clímax da tempestade) ============ -->
     <section class="section contact" id="contato">
       <div class="contact-inner reveal">
         <p class="section-label mono">// 04 — contato</p>
@@ -280,9 +334,13 @@
 
   <footer class="footer">
     <span class="mono">© 2026 Storm Studio — Anderson Rocha</span>
-    <span class="mono footer-right">feito à mão — sem templates</span>
+    <span class="mono footer-right">feito à mão — com voltagem</span>
   </footer>
 
-  <script src="./script.js"></script>
+  <!-- motion stack: GSAP + ScrollTrigger + Lenis (via CDN, sem build) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js" defer></script>
+  <script src="./script.js" defer></script>
 </body>
 </html>

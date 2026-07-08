@@ -1,5 +1,5 @@
 /* ============================================================
-   STORM STUDIO v2 — scroll cinematográfico
+   STORM STUDIO — handoff design × v2 motor cinematográfico
    storm global reativo à velocidade + GSAP/ScrollTrigger + Lenis
    ============================================================ */
 
@@ -9,24 +9,8 @@ const finePointer = window.matchMedia("(pointer: fine)").matches;
 /* estado de scroll compartilhado entre os sistemas */
 const scrollState = { velocity: 0, progress: 0, y: 0 };
 
-/* ---------- intro: raio de abertura ---------- */
-
-const intro = document.getElementById("intro");
-
-function finishIntro() {
-  if (intro) intro.classList.add("done");
-  document.body.classList.add("loaded");
-}
-
-if (reducedMotion) {
-  finishIntro();
-} else {
-  setTimeout(finishIntro, 1050);
-}
-
-document.querySelectorAll(".hero-title .word").forEach((w, i) => {
-  w.style.setProperty("--wi", i);
-});
+document.body.classList.add("loaded");
+document.querySelectorAll(".hero-title .word").forEach((w, i) => w.style.setProperty("--wi", i));
 
 /* ============================================================
    STORM — canvas fixo full-page, partículas + raios procedurais
@@ -73,7 +57,6 @@ const StormField = (() => {
     }));
   }
 
-  /* --- geração de um raio: caminho irregular com ramificações --- */
   function makeBolt(x, targetY, opts = {}) {
     const segs = [];
     const branches = [];
@@ -93,21 +76,14 @@ const StormField = (() => {
       if (!opts.isBranch && Math.random() < 0.18 && segs.length > 2) {
         branches.push(
           makeBolt(cx, Math.min(cy + 60 + Math.random() * 120, targetY), {
-            startY: cy,
-            wander: wander * 0.8,
-            stepMin: 12,
-            stepMax: 30,
-            isBranch: true,
+            startY: cy, wander: wander * 0.8, stepMin: 12, stepMax: 30, isBranch: true,
           })
         );
       }
     }
 
     return {
-      segs,
-      branches,
-      life: 1,
-      decay: 0.04 + Math.random() * 0.03,
+      segs, branches, life: 1, decay: 0.04 + Math.random() * 0.03,
       width: opts.isBranch ? 1 : 1.6 + Math.random() * 0.9,
       color: Math.random() < 0.75 ? "34, 211, 238" : "167, 139, 250",
       intensity: opts.intensity ?? 1,
@@ -121,16 +97,12 @@ const StormField = (() => {
     flash = Math.min(1.2, flash + (opts.flash ?? 0.85));
   }
 
-  /* descarga forte e central — usada nos clímaxes (manifesto, contato) */
+  /* descarga forte e central — usada nos clímaxes (contato) */
   function discharge(intensity = 1.4) {
     const now = performance.now();
     if (now - lastForcedStrike < 520) return;
     lastForcedStrike = now;
-    strike(W * (0.35 + Math.random() * 0.3), H * (0.7 + Math.random() * 0.2), {
-      intensity,
-      flash: 1.0,
-      wander: 30,
-    });
+    strike(W * (0.35 + Math.random() * 0.3), H * (0.7 + Math.random() * 0.2), { intensity, flash: 1.0, wander: 30 });
   }
 
   function setChargeTarget(v) { chargeTarget = Math.max(0, Math.min(1, v)); }
@@ -145,18 +117,12 @@ const StormField = (() => {
     ctx.lineWidth = b.width * 2.6;
     ctx.lineJoin = "round";
     strokePath(b.segs);
-
     ctx.shadowBlur = 8;
     ctx.strokeStyle = `rgba(224, 242, 255, ${alpha})`;
     ctx.lineWidth = b.width;
     strokePath(b.segs);
     ctx.restore();
-
-    b.branches.forEach((br) => {
-      br.life = b.life * 0.8;
-      br.intensity = b.intensity;
-      drawBolt(br);
-    });
+    b.branches.forEach((br) => { br.life = b.life * 0.8; br.intensity = b.intensity; drawBolt(br); });
   }
 
   function strokePath(segs) {
@@ -171,11 +137,9 @@ const StormField = (() => {
     rafId = requestAnimationFrame(frame);
     if (document.hidden) return;
 
-    // suaviza a carga em direção ao alvo (vindo da velocidade do scroll)
     charge += (chargeTarget - charge) * 0.06;
-    chargeTarget *= 0.94; // decai sozinho quando o scroll para
+    chargeTarget *= 0.94;
 
-    // publica a carga p/ o CSS (throttle a cada ~4 frames)
     if (++cssVarTick % 4 === 0) {
       document.documentElement.style.setProperty("--storm-charge", charge.toFixed(3));
     }
@@ -196,7 +160,6 @@ const StormField = (() => {
       ctx.strokeStyle = ctx.fillStyle = `rgba(${p.hue}, ${Math.min(1, twinkle)})`;
 
       if (streak > 1.5) {
-        // partícula vira risco vertical conforme a carga sobe (sensação de velocidade)
         ctx.lineWidth = p.r;
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
@@ -222,10 +185,7 @@ const StormField = (() => {
     }
 
     bolts = bolts.filter((b) => b.life > 0);
-    for (const b of bolts) {
-      drawBolt(b);
-      b.life -= b.decay;
-    }
+    for (const b of bolts) { drawBolt(b); b.life -= b.decay; }
 
     if (flash > 0.01) {
       ctx.fillStyle = `rgba(180, 225, 255, ${flash * 0.05})`;
@@ -233,7 +193,6 @@ const StormField = (() => {
       flash *= 0.86;
     }
 
-    // raios automáticos: mais frequentes quando a tempestade está carregada
     if (now > nextAutoStrike) {
       const charged = charge > 0.45;
       strike(W * (0.1 + Math.random() * 0.8), null, { intensity: charged ? 1.1 : 0.85 });
@@ -258,8 +217,6 @@ const StormField = (() => {
     resize();
     window.addEventListener("resize", resize);
     rafId = requestAnimationFrame(frame);
-
-    // mouse move global p/ as linhas das partículas
     window.addEventListener("pointermove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
     window.addEventListener("pointerleave", () => { mouse.x = -9999; mouse.y = -9999; });
   }
@@ -269,13 +226,11 @@ const StormField = (() => {
 
 StormField.init();
 
-/* clique no hero invoca um raio (preserva o easter-egg da v1) */
-const heroEl = document.getElementById("hero");
-if (heroEl && !reducedMotion) {
-  heroEl.addEventListener("click", (e) => {
-    if (e.target.closest("a, button")) return;
+/* clique invoca um raio (easter-egg) */
+if (!reducedMotion) {
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("a, button, input, select, textarea, label")) return;
     StormField.strike(e.clientX, e.clientY, { flash: 0.9 });
-    document.getElementById("heroHint")?.classList.add("spent");
   });
 }
 
@@ -290,40 +245,29 @@ if (hasGSAP && !reducedMotion) {
   gsap.registerPlugin(ScrollTrigger);
   initCinematic();
 } else {
-  // sem GSAP (CDN bloqueado) ou movimento reduzido: tudo visível, scroll nativo
   document.documentElement.classList.remove("motion");
   initFallback();
 }
 
-/* ------------------------------------------------------------
-   versão cinematográfica
-   ------------------------------------------------------------ */
 function initCinematic() {
   let lenis = null;
 
-  /* ---- Lenis smooth scroll sincronizado com o ticker do GSAP ---- */
   if (hasLenis) {
     lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      syncTouch: false, // toque usa scroll nativo (mais previsível no mobile)
+      syncTouch: false,
     });
-
     lenis.on("scroll", (e) => {
       ScrollTrigger.update();
       scrollState.velocity = e.velocity || 0;
       scrollState.y = e.scroll || window.scrollY;
     });
-
     gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
+    window.lenis = lenis;
 
-    window.lenis = lenis; // exposto p/ debug e navegação por âncora
-  }
-
-  /* âncoras do nav usam o scroll suave do Lenis */
-  if (lenis) {
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href");
@@ -335,7 +279,6 @@ function initCinematic() {
       });
     });
   } else {
-    // velocidade a partir do scroll nativo
     let lastY = window.scrollY, lastT = performance.now();
     window.addEventListener("scroll", () => {
       const now = performance.now();
@@ -347,10 +290,9 @@ function initCinematic() {
     }, { passive: true });
   }
 
-  /* ---- progresso, nav, e carga da tempestade pela velocidade ---- */
+  /* progresso, nav e carga da tempestade pela velocidade */
   const nav = document.getElementById("nav");
   const progressBar = document.getElementById("scrollProgress");
-
   ScrollTrigger.create({
     start: 0, end: "max",
     onUpdate: (self) => {
@@ -359,20 +301,15 @@ function initCinematic() {
       nav.classList.toggle("scrolled", self.scroll() > 30);
     },
   });
+  gsap.ticker.add(() => StormField.setChargeTarget(Math.min(1, Math.abs(scrollState.velocity) / 28)));
 
-  // converte a velocidade do scroll em carga da tempestade (a cada frame)
-  gsap.ticker.add(() => {
-    const v = Math.abs(scrollState.velocity);
-    StormField.setChargeTarget(Math.min(1, v / 28));
-  });
-
-  /* ---- HERO: câmera entra no storm ao rolar ---- */
+  /* HERO: câmera entra no storm ao rolar */
   gsap.to("#heroInner", {
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
-    y: -90, scale: 1.06, opacity: 0, filter: "blur(7px)", ease: "none",
+    y: -80, scale: 1.05, opacity: 0, filter: "blur(6px)", ease: "none",
   });
 
-  /* ---- orbs com parallax ---- */
+  /* orbs com parallax */
   gsap.utils.toArray(".orb").forEach((orb) => {
     const speed = parseFloat(orb.dataset.speed || "0.4");
     gsap.fromTo(orb, { yPercent: -18 * speed * 4 }, {
@@ -381,173 +318,88 @@ function initCinematic() {
     });
   });
 
-  /* ---- reveals genéricos (section-head, contato) ---- */
+  /* reveals genéricos (section-head, prova, contato) */
   ScrollTrigger.batch(".reveal", {
     start: "top 88%",
     onEnter: (els) => els.forEach((el, i) => setTimeout(() => el.classList.add("in"), i * 90)),
   });
 
-  /* ---- SERVIÇOS: itens entram + spine se desenha ---- */
+  /* SERVIÇOS: itens entram em cascata */
   ScrollTrigger.batch(".service", {
     start: "top 86%",
     onEnter: (els) => els.forEach((el, i) => setTimeout(() => el.classList.add("in"), i * 110)),
   });
 
-  const spine = document.querySelector(".service-spine i");
-  const serviceList = document.getElementById("serviceList");
-  if (spine && serviceList) {
-    gsap.fromTo(spine, { scaleY: 0 }, {
-      scaleY: 1, ease: "none", transformOrigin: "50% 0%",
-      scrollTrigger: { trigger: serviceList, start: "top 80%", end: "bottom 70%", scrub: 0.5 },
-    });
-  }
-
-  /* ---- LAB: cards entram de profundidade ---- */
+  /* LAB: cards entram de profundidade + tilt 3D */
   gsap.utils.toArray(".card").forEach((card, i) => {
     gsap.fromTo(card,
       { opacity: 0, y: 60, rotateX: -12, scale: 0.94 },
       {
         opacity: 1, y: 0, rotateX: 0, scale: 1, duration: 0.9, ease: "power3.out",
         scrollTrigger: { trigger: card, start: "top 88%" },
-        onComplete: () => {
-          card.classList.add("in");
-          // devolve o transform ao CSS (var --rx/--ry) p/ o tilt 3D assumir
-          gsap.set(card, { clearProps: "transform" });
-        },
+        onComplete: () => { card.classList.add("in"); gsap.set(card, { clearProps: "transform" }); },
         delay: i * 0.05,
       }
     );
   });
   setupCardTilt();
 
-  /* ---- MARQUEE: velocidade modulada pelo scroll ---- */
+  /* MARQUEE: velocidade modulada pelo scroll */
   setupMarquee();
 
-  /* ---- CONTATO: clímax da tempestade ---- */
+  /* PROCESSO: timeline scrubada (pin no desktop) */
+  setupTimeline();
+
+  /* CONTATO: clímax da tempestade */
   ScrollTrigger.create({
-    trigger: ".contact",
-    start: "top 70%",
+    trigger: ".contact", start: "top 70%",
     onEnter: () => StormField.discharge(1.5),
     onEnterBack: () => StormField.discharge(1.2),
   });
 
-  /* ---- pins (manifesto + processo): só no desktop ---- */
-  const mm = gsap.matchMedia();
-
-  mm.add("(min-width: 981px)", () => {
-    setupManifestoPinned();
-    setupProcessPinned();
-  });
-
-  mm.add("(max-width: 980px)", () => {
-    setupManifestoSimple();
-    setupProcessSimple();
-  });
-
-  // garante medidas corretas após fontes/layout
   window.addEventListener("load", () => ScrollTrigger.refresh());
 }
 
-/* ---- manifesto: versão pinada (palavras acendem no scrub) ---- */
-function setupManifestoPinned() {
-  const words = gsap.utils.toArray(".manifesto-line .mword");
-  if (!words.length) return;
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".manifesto",
-      start: "top top",
-      end: "+=130%",
-      pin: true,
-      scrub: 0.6,
-    },
-  });
-  tl.to(words, { opacity: 1, filter: "blur(0px)", stagger: 0.5, ease: "none" })
-    .call(() => StormField.discharge(1.4), null, ">-0.25");
-  return () => tl.scrollTrigger && tl.scrollTrigger.kill();
-}
-
-/* ---- manifesto: versão mobile (fade simples sem pin) ---- */
-function setupManifestoSimple() {
-  const words = gsap.utils.toArray(".manifesto-line .mword");
-  if (!words.length) return;
-  gsap.to(words, {
-    opacity: 1, filter: "blur(0px)", stagger: 0.04, ease: "power1.out", duration: 0.5,
-    scrollTrigger: { trigger: ".manifesto", start: "top 70%", once: true },
-  });
-}
-
-/* ---- processo: circuito pinado, desenhado pelo scroll + pulso ---- */
-function setupProcessPinned() {
-  const path = document.getElementById("circuitPath");
-  const pulse = document.getElementById("circuitPulse");
+/* ---- timeline do processo: --p scrubado + steps ativos ---- */
+function setupTimeline() {
+  const timeline = document.getElementById("processTimeline");
+  if (!timeline) return;
   const steps = gsap.utils.toArray(".step");
-  if (!path) return;
+  const n = steps.length;
+  const setP = (p) => {
+    timeline.style.setProperty("--p", p.toFixed(3));
+    steps.forEach((s, i) => s.classList.toggle("active", p >= (n > 1 ? i / (n - 1) : 0) - 0.05));
+  };
 
-  const len = path.getTotalLength();
-  gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
-  gsap.set(pulse, { strokeDasharray: `${Math.min(70, len * 0.06)} ${len}`, strokeDashoffset: 0 });
-  gsap.set(steps, { opacity: 0, y: 28, scale: 0.96 });
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".process",
-      start: "top top",
-      end: "+=170%",
-      pin: true,
-      scrub: 0.5,
-      onUpdate: (self) => {
-        const p = self.progress;
-        steps.forEach((s, i) => s.classList.toggle("lit", p > (i + 0.6) / 4));
-      },
-    },
-  });
-
-  tl.to(path, { strokeDashoffset: 0, ease: "none" }, 0)
-    .to(pulse, { strokeDashoffset: -len, ease: "none" }, 0)
-    .to(steps, { opacity: 1, y: 0, scale: 1, stagger: 0.18, ease: "power2.out" }, 0.05);
-}
-
-/* ---- processo: versão mobile (desenha no scroll, sem pin) ---- */
-function setupProcessSimple() {
-  const path = document.getElementById("circuitPath");
-  const steps = gsap.utils.toArray(".step");
-  if (path) {
-    const len = path.getTotalLength();
-    gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
-    gsap.to(path, {
-      strokeDashoffset: 0, ease: "none",
-      scrollTrigger: { trigger: ".process", start: "top 75%", end: "bottom bottom", scrub: 0.5 },
+  const mm = gsap.matchMedia();
+  mm.add("(min-width: 901px)", () => {
+    const st = ScrollTrigger.create({
+      trigger: ".process", start: "top top", end: "+=150%", pin: true, scrub: 0.5,
+      onUpdate: (self) => setP(self.progress),
     });
-  }
-  ScrollTrigger.batch(".step", {
-    start: "top 88%",
-    onEnter: (els) => els.forEach((el, i) => setTimeout(() => {
-      el.classList.add("in"); el.classList.add("lit");
-    }, i * 120)),
+    setP(0);
+    return () => st.kill();
   });
-  // garante visibilidade (sem o set inicial do pin)
-  gsap.set(steps, { clearProps: "opacity,transform" });
+  mm.add("(max-width: 900px)", () => {
+    const st = ScrollTrigger.create({
+      trigger: ".process", start: "top 78%", end: "bottom 55%", scrub: 0.5,
+      onUpdate: (self) => setP(self.progress),
+    });
+    setP(0);
+    return () => st.kill();
+  });
 }
 
-/* ---- marquee de duas linhas, velocidade modulada pelo scroll ---- */
+/* ---- marquee (uma linha, velocidade reativa) ---- */
 function setupMarquee() {
-  document.querySelectorAll(".marquee-row").forEach((row) => {
-    const track = row.querySelector(".marquee-track");
-    const dir = parseFloat(row.dataset.marquee || "1");
-    // duplica o conteúdo p/ loop contínuo via xPercent -50
-    track.innerHTML += track.innerHTML;
-
-    const loop = gsap.to(track, { xPercent: -50, repeat: -1, duration: 24, ease: "none" });
-    loop.timeScale(dir);
-
-    let current = dir;
-    gsap.ticker.add(() => {
-      // velocidade do scroll empurra a esteira; sempre mantém um drift base
-      const v = scrollState.velocity * 0.12;
-      const target = dir + v;
-      current += (target - current) * 0.08;
-      loop.timeScale(current);
-    });
+  const track = document.querySelector(".marquee-track");
+  if (!track) return;
+  const loop = gsap.to(track, { xPercent: -50, repeat: -1, duration: 26, ease: "none" });
+  let current = 1;
+  gsap.ticker.add(() => {
+    const target = 1 + Math.min(6, Math.abs(scrollState.velocity) * 0.1);
+    current += (target - current) * 0.08;
+    loop.timeScale(current);
   });
 }
 
@@ -563,8 +415,8 @@ function setupCardTilt() {
       const py = (e.clientY - rect.top) / rect.height;
       card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
       card.style.setProperty("--my", `${e.clientY - rect.top}px`);
-      setRX(`${(px - 0.5) * 12}deg`);   // rotateY
-      setRY(`${-(py - 0.5) * 10}deg`);  // rotateX
+      setRX(`${(px - 0.5) * 12}deg`);
+      setRY(`${-(py - 0.5) * 10}deg`);
     });
     card.addEventListener("pointerleave", () => { setRX("0deg"); setRY("0deg"); });
   });
@@ -576,6 +428,16 @@ function setupCardTilt() {
 function initFallback() {
   const nav = document.getElementById("nav");
   const progressBar = document.getElementById("scrollProgress");
+  const timeline = document.getElementById("processTimeline");
+  const steps = Array.from(document.querySelectorAll(".step"));
+  const process = document.getElementById("processo");
+  const n = steps.length;
+
+  const setP = (p) => {
+    if (!timeline) return;
+    timeline.style.setProperty("--p", p.toFixed(3));
+    steps.forEach((s, i) => s.classList.toggle("active", p >= (n > 1 ? i / (n - 1) : 0) - 0.05));
+  };
 
   function onScroll() {
     const doc = document.documentElement;
@@ -583,34 +445,33 @@ function initFallback() {
     const p = max > 0 ? window.scrollY / max : 0;
     if (progressBar) progressBar.style.transform = `scaleX(${p})`;
     nav.classList.toggle("scrolled", window.scrollY > 30);
+    if (timeline && process) {
+      const r = process.getBoundingClientRect();
+      const tp = Math.min(1, Math.max(0, (window.innerHeight * 0.58 - r.top) / (r.height * 0.62)));
+      setP(reducedMotion ? 1 : tp);
+    }
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // reveals via IntersectionObserver (mostra tudo de forma robusta)
   const io = new IntersectionObserver((entries) => {
     for (const en of entries) {
       if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
     }
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll(".reveal, .service, .card, .step").forEach((el) => io.observe(el));
+}
 
-  // desenha o circuito conforme o scroll, mesmo sem GSAP
-  const path = document.getElementById("circuitPath");
-  const processSvg = document.getElementById("processSvg");
-  if (path && processSvg) {
-    const len = path.getTotalLength();
-    path.style.strokeDasharray = len;
-    path.style.strokeDashoffset = reducedMotion ? 0 : len;
-    if (!reducedMotion) {
-      window.addEventListener("scroll", () => {
-        const rect = processSvg.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const prog = Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.85)));
-        path.style.strokeDashoffset = len * (1 - prog);
-      }, { passive: true });
-    }
-  }
+/* ---- briefing rápido -> mailto ---- */
+const form = document.getElementById("briefForm");
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const g = (name) => (form.querySelector(`[name="${name}"]`) || {}).value || "";
+    const subject = `Projeto com a Storm Studio — ${g("tipo")}`;
+    const body = `Nome: ${g("nome")}\nPreciso de: ${g("tipo")}\n\n${g("msg")}`;
+    window.location.href = `mailto:Andersonrocha.rs@live.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
 }
 
 /* ============================================================
@@ -620,11 +481,8 @@ function initFallback() {
 if (finePointer && !reducedMotion) {
   document.body.classList.add("has-pointer");
   const glow = document.getElementById("cursorGlow");
-  let gx = innerWidth / 2, gy = innerHeight / 2;
-  let tx = gx, ty = gy;
-
+  let gx = innerWidth / 2, gy = innerHeight / 2, tx = gx, ty = gy;
   window.addEventListener("pointermove", (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-
   (function glowLoop() {
     gx += (tx - gx) * 0.08;
     gy += (ty - gy) * 0.08;

@@ -117,8 +117,8 @@ body.has-pointer .cursor-glow { opacity: 1; }
 .nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
-/* mobile menu toggle — hidden até o breakpoint */
-.nav-menu-cta { display: none; }
+/* mobile menu toggle — hidden até o breakpoint (especificidade acima de .btn) */
+.nav-links .nav-menu-cta { display: none; }
 .nav-toggle {
   display: none;
   flex-direction: column; justify-content: center; gap: 5px;
@@ -491,7 +491,7 @@ html.motion .marquee-track { animation: none; }
 @media (max-width: 860px) {
   .nav-cta { display: none; }
   .nav-toggle { display: inline-flex; }
-  .nav-menu-cta { display: inline-flex; margin-top: .6rem; }
+  .nav-links .nav-menu-cta { display: inline-flex; margin-top: .6rem; }
   .nav-links {
     position: fixed; top: 0; right: 0;
     width: min(80vw, 320px); height: 100svh;

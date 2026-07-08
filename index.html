@@ -46,13 +46,17 @@
       <svg class="brand-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"></path></svg>
       <span class="brand-name">STORM<em>·</em>STUDIO</span>
     </a>
-    <nav class="nav-links" aria-label="Navegação principal">
+    <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
       <a href="#servicos">Serviços</a>
       <a href="#lab">Lab</a>
       <a href="#processo">Processo</a>
       <a href="#contato">Contato</a>
+      <a class="btn btn-primary btn-small nav-menu-cta" href="mailto:Andersonrocha.rs@live.com?subject=Projeto%20com%20a%20Storm%20Studio">Iniciar projeto</a>
     </nav>
-    <a class="btn btn-ghost btn-small" href="mailto:Andersonrocha.rs@live.com?subject=Projeto%20com%20a%20Storm%20Studio">Iniciar projeto</a>
+    <a class="btn btn-ghost btn-small nav-cta" href="mailto:Andersonrocha.rs@live.com?subject=Projeto%20com%20a%20Storm%20Studio">Iniciar projeto</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <main id="top">
@@ -233,21 +237,40 @@
         <h2 class="contact-title">Vamos construir<br>algo <span class="electric-inline">grande</span>?</h2>
         <p class="contact-sub">Conta o que você precisa — respondo pessoalmente com um plano e um orçamento previsível.</p>
 
-        <form class="brief" id="briefForm">
-          <div class="field"><label for="bf-nome">Nome</label><input id="bf-nome" name="nome" type="text" placeholder="Como te chamo?" autocomplete="name"></div>
-          <div class="field"><label for="bf-tipo">O que você precisa</label>
-            <select id="bf-tipo" name="tipo">
+        <form class="brief" id="briefForm" novalidate>
+          <div class="field">
+            <label for="bf-nome">Nome</label>
+            <input id="bf-nome" name="nome" type="text" placeholder="Como te chamo?" autocomplete="name" required aria-required="true" aria-describedby="err-nome">
+            <span class="field-err" id="err-nome" hidden>Diz teu nome pra eu saber como te chamar.</span>
+          </div>
+          <div class="field">
+            <label for="bf-tipo">O que você precisa</label>
+            <select id="bf-tipo" name="tipo" required aria-required="true" aria-describedby="err-tipo">
+              <option value="" selected disabled>Selecione…</option>
               <option>Landing page</option>
               <option>Site institucional</option>
               <option>Sistema pequeno / app</option>
               <option>Ferramenta de IA / automação</option>
               <option>Ainda não sei — quero conversar</option>
             </select>
+            <span class="field-err" id="err-tipo" hidden>Escolhe uma opção — vale até "ainda não sei".</span>
           </div>
-          <div class="field full"><label for="bf-msg">Sobre o projeto</label><textarea id="bf-msg" name="msg" placeholder="Em poucas linhas: o negócio, o objetivo e o prazo ideal."></textarea></div>
+          <div class="field full">
+            <label for="bf-msg">Sobre o projeto</label>
+            <textarea id="bf-msg" name="msg" placeholder="Em poucas linhas: o negócio, o objetivo e o prazo ideal." required aria-required="true" aria-describedby="err-msg"></textarea>
+            <span class="field-err" id="err-msg" hidden>Conta em uma linha o que você precisa.</span>
+          </div>
           <div class="brief-actions">
             <button class="btn btn-primary btn-big" type="submit">Enviar briefing <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"></path></svg></button>
             <a class="btn btn-ghost" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Chamar no WhatsApp ↗</a>
+          </div>
+          <div class="brief-success" id="briefSuccess" role="status" aria-live="polite" hidden>
+            <strong>Abri seu app de e-mail com o briefing preenchido.</strong>
+            <span>Se nada abriu, copie meu e-mail ou me chame no WhatsApp — respondo rápido.</span>
+            <div class="brief-success-actions">
+              <button type="button" class="btn btn-ghost btn-small" id="copyEmail">Copiar e-mail</button>
+              <a class="btn btn-ghost btn-small" href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp ↗</a>
+            </div>
           </div>
         </form>
         <p class="contact-or">ou direto: <a href="mailto:Andersonrocha.rs@live.com">Andersonrocha.rs@live.com</a> · <a href="https://github.com/Andersonrrocha" target="_blank" rel="noopener">GitHub ↗</a></p>

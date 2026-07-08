@@ -374,7 +374,7 @@ function setupTimeline() {
   const mm = gsap.matchMedia();
   mm.add("(min-width: 901px)", () => {
     const st = ScrollTrigger.create({
-      trigger: ".process", start: "top top", end: "+=150%", pin: true, scrub: 0.5,
+      trigger: ".process", start: "top top", end: "+=100%", pin: true, scrub: 0.5,
       onUpdate: (self) => setP(self.progress),
     });
     setP(0);
@@ -462,15 +462,64 @@ function initFallback() {
   document.querySelectorAll(".reveal, .service, .card, .step").forEach((el) => io.observe(el));
 }
 
-/* ---- briefing rápido -> mailto ---- */
+/* ---- menu mobile ---- */
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+if (navToggle && navLinks) {
+  const setMenu = (open) => {
+    navLinks.classList.toggle("open", open);
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    navToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  };
+  navToggle.addEventListener("click", () => setMenu(navToggle.getAttribute("aria-expanded") !== "true"));
+  navLinks.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+}
+
+/* ---- briefing: validação + envio (mailto com fallback) ---- */
+const EMAIL = "Andersonrocha.rs@live.com";
 const form = document.getElementById("briefForm");
 if (form) {
+  const success = document.getElementById("briefSuccess");
+  const fieldOf = (input) => input.closest(".field");
+  const errOf = (input) => document.getElementById(input.getAttribute("aria-describedby"));
+
+  const validate = (input) => {
+    const ok = input.value.trim() !== "";
+    fieldOf(input)?.classList.toggle("invalid", !ok);
+    const err = errOf(input);
+    if (err) err.hidden = ok;
+    return ok;
+  };
+
+  // limpa o erro assim que o usuário corrige
+  ["bf-nome", "bf-tipo", "bf-msg"].forEach((id) => {
+    const el = document.getElementById(id);
+    el?.addEventListener("input", () => { if (el.value.trim()) validate(el); });
+    el?.addEventListener("change", () => { if (el.value.trim()) validate(el); });
+  });
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    const fields = ["bf-nome", "bf-tipo", "bf-msg"].map((id) => document.getElementById(id));
+    let firstBad = null;
+    for (const f of fields) if (!validate(f) && !firstBad) firstBad = f;
+    if (firstBad) { firstBad.focus(); return; }
+
     const g = (name) => (form.querySelector(`[name="${name}"]`) || {}).value || "";
     const subject = `Projeto com a Storm Studio — ${g("tipo")}`;
     const body = `Nome: ${g("nome")}\nPreciso de: ${g("tipo")}\n\n${g("msg")}`;
-    window.location.href = `mailto:Andersonrocha.rs@live.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // fallback visível: se o mailto não abrir nenhum cliente, o usuário tem saída
+    if (success) { success.hidden = false; success.scrollIntoView({ block: "nearest", behavior: reducedMotion ? "auto" : "smooth" }); }
+  });
+
+  const copyBtn = document.getElementById("copyEmail");
+  copyBtn?.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(EMAIL); copyBtn.textContent = "E-mail copiado ✓"; }
+    catch { copyBtn.textContent = EMAIL; }
+    setTimeout(() => { copyBtn.textContent = "Copiar e-mail"; }, 2600);
   });
 }
 

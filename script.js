@@ -330,15 +330,16 @@ function initCinematic() {
     onEnter: (els) => els.forEach((el, i) => setTimeout(() => el.classList.add("in"), i * 110)),
   });
 
-  /* LAB: cards entram de profundidade + tilt 3D */
-  gsap.utils.toArray(".card").forEach((card, i) => {
+  /* LAB: provas entram em sequência; os sistemas reagem com profundidade */
+  gsap.utils.toArray(".field-proof, .lab-signal").forEach((card, i) => {
+    const isSignal = card.classList.contains("lab-signal");
     gsap.fromTo(card,
       { opacity: 0, y: 60, rotateX: -12, scale: 0.94 },
       {
         opacity: 1, y: 0, rotateX: 0, scale: 1, duration: 0.9, ease: "power3.out",
         scrollTrigger: { trigger: card, start: "top 88%" },
         onComplete: () => { card.classList.add("in"); gsap.set(card, { clearProps: "transform" }); },
-        delay: i * 0.05,
+        delay: isSignal ? (i - 2) * 0.08 : 0,
       }
     );
   });
@@ -347,7 +348,7 @@ function initCinematic() {
   /* MARQUEE: velocidade modulada pelo scroll */
   setupMarquee();
 
-  /* PROCESSO: timeline scrubada (pin no desktop) */
+  /* PROCESSO: timeline scrubada no fluxo normal da página */
   setupTimeline();
 
   /* CONTATO: clímax da tempestade */
@@ -357,7 +358,13 @@ function initCinematic() {
     onEnterBack: () => StormField.discharge(1.2),
   });
 
-  window.addEventListener("load", () => ScrollTrigger.refresh());
+  const refreshLayout = () => requestAnimationFrame(() => ScrollTrigger.refresh());
+  document.querySelectorAll(".lab img").forEach((img) => {
+    if (img.complete) return;
+    img.addEventListener("load", refreshLayout, { once: true });
+    img.addEventListener("error", refreshLayout, { once: true });
+  });
+  window.addEventListener("load", refreshLayout);
 }
 
 /* ---- timeline do processo: --p scrubado + steps ativos ---- */
@@ -374,7 +381,11 @@ function setupTimeline() {
   const mm = gsap.matchMedia();
   mm.add("(min-width: 901px)", () => {
     const st = ScrollTrigger.create({
-      trigger: ".process", start: "top top", end: "+=100%", pin: true, scrub: 0.5,
+      trigger: ".process",
+      start: "top 78%",
+      end: "bottom 32%",
+      scrub: 0.5,
+      invalidateOnRefresh: true,
       onUpdate: (self) => setP(self.progress),
     });
     setP(0);
@@ -406,7 +417,7 @@ function setupMarquee() {
 /* ---- tilt 3D + glare nos cards (apenas ponteiro fino) ---- */
 function setupCardTilt() {
   if (!finePointer) return;
-  document.querySelectorAll(".card").forEach((card) => {
+  document.querySelectorAll(".lab-signal").forEach((card) => {
     const setRX = gsap.quickTo(card, "--ry", { duration: 0.4, ease: "power2.out" });
     const setRY = gsap.quickTo(card, "--rx", { duration: 0.4, ease: "power2.out" });
     card.addEventListener("pointermove", (e) => {
@@ -459,8 +470,19 @@ function initFallback() {
       if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
     }
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll(".reveal, .service, .card, .step").forEach((el) => io.observe(el));
+  document.querySelectorAll(".reveal, .service, .field-proof, .lab-signal, .step").forEach((el) => io.observe(el));
 }
+
+/* ---- atalhos de prova para o briefing ---- */
+document.querySelectorAll("[data-brief-choice]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const type = document.getElementById("bf-tipo");
+    if (type instanceof HTMLSelectElement) {
+      type.value = link.dataset.briefChoice || "";
+      type.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  });
+});
 
 /* ---- menu mobile ---- */
 const navToggle = document.getElementById("navToggle");

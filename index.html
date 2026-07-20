@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=20260719-4" />
 
   <!-- progressive enhancement: motion só liga com JS e sem prefers-reduced-motion -->
   <script>
@@ -141,50 +141,69 @@
     <section class="section lab" id="lab">
       <div class="orb" data-speed="0.35" style="width:540px;height:540px;background:rgba(34,211,238,.07);bottom:-12%;left:-180px" aria-hidden="true"></div>
       <div class="section-head reveal">
-        <p class="section-label">// 02 — lab</p>
-        <h2>Construído com as<br>próprias <span class="electric-inline">mãos</span></h2>
-        <p class="section-sub">Produtos reais, em uso real. O lab é onde a Storm testa o que depois entrega para clientes.</p>
+        <p class="section-label">// 02 — sinais em campo</p>
+        <h2>O que já ganhou<br><span class="electric-inline">vida real</span></h2>
+        <p class="section-sub">A Storm entrega presença comercial, constrói produto e mantém um laboratório ativo para testar o que vem depois.</p>
       </div>
-      <div class="cards" id="cards">
-        <article class="card" tabindex="0">
-          <div class="card-shine" aria-hidden="true"></div>
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-content">
-            <header class="card-head">
-              <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.3A4.5 4.5 0 0 1 7.5 7.6a6 6 0 0 1 11.3 2A4 4 0 0 1 18 17.5"></path><path d="m13 11-3 5h4l-3 5"></path></svg></span>
-              <span class="card-status">em design</span>
-            </header>
-            <h3>Storm Engine</h3>
-            <p>Pipeline semi-autônomo de produção de vídeo para YouTube: agentes monitoram tendências, geram roteiro, narração e renderização — com humano no loop via Telegram.</p>
-            <footer class="card-tags"><span>Multiagente</span><span>Remotion</span><span>BullMQ</span><span>LLM Router</span></footer>
+
+      <div class="proof-sequence">
+        <article class="field-proof client-proof">
+          <div class="proof-index"><span>01</span><span>trabalho entregue</span></div>
+          <div class="client-proof-copy">
+            <p class="proof-kicker">Beto Chaves · landing institucional</p>
+            <h3>Uma presença que transmite confiança antes do primeiro contato.</h3>
+            <p>Uma landing de alta conversão para uma oficina técnica com mais de 30 anos de história. Identidade própria, serviços claros e um caminho direto para orçamento no WhatsApp.</p>
+            <blockquote>“Nosso site estava desatualizado e não refletia a credibilidade da empresa. Após a reformulação, passamos a contar com um layout moderno que transmite segurança, um fator essencial no nosso ramo, além de reforçar qualidade, organização e confiança aos clientes.”<cite>Henrique · Beto Chaves</cite></blockquote>
+            <a class="proof-link" href="#contato" data-brief-choice="Landing page">Quero uma presença assim <span aria-hidden="true">↗</span></a>
           </div>
+          <figure class="client-live-frame">
+            <a href="https://betochaves.com.br" target="_blank" rel="noopener" aria-label="Abrir o site publicado da Beto Chaves">
+              <img src="assets/lab/beto-chaves-live-hero.png" alt="Hero publicado do site da Beto Chaves" loading="lazy">
+            </a>
+            <figcaption>Site publicado · betochaves.com.br <span aria-hidden="true">↗</span></figcaption>
+          </figure>
         </article>
-        <article class="card" tabindex="0">
-          <div class="card-shine" aria-hidden="true"></div>
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-content">
-            <header class="card-head">
-              <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M14.8 9.3a2.4 2.4 0 0 0-2.3-1.3c-1.4 0-2.5.8-2.5 2 0 2.8 5 1.4 5 4 0 1.2-1.1 2-2.5 2a2.6 2.6 0 0 1-2.6-1.5"></path><path d="M12 6.2v1.8M12 16v1.8"></path></svg></span>
-              <span class="card-status">em produção</span>
-            </header>
-            <h3>WIMM</h3>
-            <p>Onde está seu dinheiro? Finanças pessoais com visão real do ciclo de fatura do cartão. Baseado em importação, privado por design — sem Open Finance, sem raspagem de dados.</p>
-            <footer class="card-tags"><span>NestJS</span><span>Electron</span><span>Expo</span><span>Prisma</span></footer>
+
+        <article class="field-proof product-proof">
+          <div class="proof-index"><span>02</span><span>produto Storm</span></div>
+          <div class="product-proof-copy">
+            <p class="proof-kicker">Horine · by Storm Studio</p>
+            <h3>Agendamento para quem vive de atender.</h3>
+            <p>Uma agenda operacional para negócios de serviço: reservas, equipe, bloqueios e uma página pública que deixa o cliente escolher um horário sem depender de mensagem.</p>
+            <a class="proof-link" href="#contato" data-brief-choice="Sistema pequeno / app">Quero esse tipo de operação <span aria-hidden="true">↗</span></a>
           </div>
+          <figure class="horine-live-frame">
+            <div class="horine-desktop-shot">
+              <img src="assets/lab/horine-desktop-agenda.png" alt="Agenda desktop do Horine com profissionais, reservas e bloqueios" loading="lazy">
+            </div>
+            <div class="horine-mobile-shot">
+              <img src="assets/lab/horine-mobile-simulator.png" alt="Agenda mobile do Horine no simulador" loading="lazy">
+            </div>
+            <figcaption><span>Ambiente de demonstração</span><b>Agenda operacional</b></figcaption>
+          </figure>
         </article>
-        <article class="card" tabindex="0">
-          <div class="card-shine" aria-hidden="true"></div>
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-content">
-            <header class="card-head">
-              <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9.5" width="2.6" height="5" rx="0.8"></rect><rect x="19.4" y="9.5" width="2.6" height="5" rx="0.8"></rect><rect x="5.6" y="7" width="3" height="10" rx="0.9"></rect><rect x="15.4" y="7" width="3" height="10" rx="0.9"></rect><path d="M8.6 12h6.8"></path></svg></span>
-              <span class="card-status">em desenvolvimento</span>
-            </header>
-            <h3>GymFlow</h3>
-            <p>Tracking de treinos com arquitetura limpa de ponta a ponta. Domínio isolado, GraphQL, pensado para evoluir por anos — não um MVP descartável.</p>
-            <footer class="card-tags"><span>Next.js</span><span>GraphQL</span><span>NestJS</span><span>PostgreSQL</span></footer>
+
+        <div class="lab-systems reveal">
+          <div class="lab-systems-head">
+            <p class="section-label">// laboratório independente</p>
+            <h3>Sistemas que provam<br>profundidade, não só estética.</h3>
+            <p>Produtos próprios, construídos fora de projetos de cliente para testar decisões de produto, interface e arquitetura em condições reais.</p>
           </div>
-        </article>
+          <div class="lab-signals">
+            <article class="lab-signal wimm-signal" tabindex="0">
+              <img src="assets/lab/wimm-overview.webp" alt="Visão geral do WIMM" loading="lazy">
+              <div class="lab-signal-copy"><span>WIMM · em produção</span><h4>Finanças pessoais sem depender de Open Finance.</h4><p>Desktop, mobile e importação com um mesmo modelo de dados.</p><footer>Electron · Expo · NestJS</footer></div>
+            </article>
+            <article class="lab-signal hermes-signal" tabindex="0">
+              <img src="assets/lab/hermes-control.webp" alt="Painel de controle Hermes" loading="lazy">
+              <div class="lab-signal-copy"><span>Hermes · em operação</span><h4>Uma central para agentes de IA que trabalham em conjunto.</h4><p>Memória, ferramentas e orquestração sem esconder o sistema.</p><footer>LLMs · agentes · streaming</footer></div>
+            </article>
+            <article class="lab-signal gymflow-signal" tabindex="0">
+              <img src="assets/lab/gym-flow-dashboard.webp" alt="Dashboard desktop do GymFlow" loading="lazy">
+              <div class="lab-signal-copy"><span>GymFlow · em desenvolvimento</span><h4>Treino no celular. Planejamento e métricas no desktop.</h4><p>Um produto de treino pensado para a diferença entre registrar e evoluir.</p><footer>Next.js · GraphQL · NestJS</footer></div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -219,7 +238,7 @@
     <section class="proof">
       <div class="proof-inner">
         <blockquote class="quote reveal">
-          <span class="mark">“</span>Eu tinha um site antigo e defasado. Em poucos dias e algumas conversas, já está no ar uma versão totalmente reformulada e moderna.<span class="mark">”</span>
+          <span class="mark">“</span>Um layout moderno que transmite segurança, qualidade, organização e confiança aos clientes.<span class="mark">”</span>
           <cite>— Henrique, Beto Chaves · site reformulado pela Storm</cite>
         </blockquote>
         <div class="proof-stats reveal" data-reveal="zoom">
@@ -287,6 +306,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
   <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js" defer></script>
-  <script src="./script.js" defer></script>
+  <script src="./script.js?v=20260719-1" defer></script>
 </body>
 </html>

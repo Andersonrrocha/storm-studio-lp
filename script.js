@@ -380,10 +380,12 @@ function setupTimeline() {
 
   const mm = gsap.matchMedia();
   mm.add("(min-width: 901px)", () => {
+    /* ancora no próprio bloco da timeline (não na section 100svh): o path
+       enche conforme a timeline sobe e fica cheio ao chegar no centro da tela */
     const st = ScrollTrigger.create({
-      trigger: ".process",
-      start: "top 78%",
-      end: "bottom 32%",
+      trigger: timeline,
+      start: "top 85%",
+      end: "center 52%",
       scrub: 0.5,
       invalidateOnRefresh: true,
       onUpdate: (self) => setP(self.progress),

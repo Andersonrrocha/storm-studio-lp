@@ -14,14 +14,14 @@
   <meta property="og:url" content="https://stormstudio.dev/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2322d3ee' d='M13 2 4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E" />
+  <link rel="icon" href="assets/storm-favicon-cobre.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
-  <link rel="stylesheet" href="./styles.css?v=20260719-4" />
+  <link rel="stylesheet" href="./styles.css?v=20260725-cobre-3" />
 
   <!-- progressive enhancement: motion só liga com JS e sem prefers-reduced-motion -->
   <script>
@@ -43,7 +43,19 @@
 
   <header class="nav" id="nav">
     <a class="brand" href="#top" aria-label="Storm Studio — início">
-      <svg class="brand-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"></path></svg>
+      <!-- marca 2a "Fusão": raio facetado fatiado em três bandas deslocadas -->
+      <svg class="brand-bolt" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="brand-g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+          <clipPath id="brand-bolt-clip"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+          <clipPath id="brand-b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+          <clipPath id="brand-b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+          <clipPath id="brand-b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+        </defs>
+        <g clip-path="url(#brand-b1)"><g transform="translate(4.5 0)"><g clip-path="url(#brand-bolt-clip)"><path fill="url(#brand-g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+        <g clip-path="url(#brand-b2)"><g clip-path="url(#brand-bolt-clip)"><path fill="url(#brand-g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g>
+        <g clip-path="url(#brand-b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#brand-bolt-clip)"><path fill="url(#brand-g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+      </svg>
       <span class="brand-name">STORM<em>·</em>STUDIO</span>
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
@@ -89,10 +101,10 @@
             <span class="term-title">storm — sua-empresa · deploy</span>
           </div>
           <div class="term-body">
-            <div class="term-line"><span><span style="color:#5c6275">$</span> storm new <span style="color:#22d3ee">--tipo</span> <span style="color:#e0f2ff">"landing page"</span></span></div>
-            <div class="term-line"><span><span style="color:#22d3ee">✓</span> identidade visual</span><span style="color:#5c6275">gerada</span></div>
-            <div class="term-line"><span><span style="color:#22d3ee">✓</span> página responsiva</span><span style="color:#5c6275">pronta</span></div>
-            <div class="term-line"><span><span style="color:#22d3ee">✓</span> deploy → produção</span><span style="color:#28c840">no ar ⚡</span></div>
+            <div class="term-line"><span><span style="color:#5c6275">$</span> storm new <span style="color:#fb923c">--tipo</span> <span style="color:#fff4e6">"landing page"</span></span></div>
+            <div class="term-line"><span><span style="color:#fb923c">✓</span> identidade visual</span><span style="color:#5c6275">gerada</span></div>
+            <div class="term-line"><span><span style="color:#fb923c">✓</span> página responsiva</span><span style="color:#5c6275">pronta</span></div>
+            <div class="term-line"><span><span style="color:#fb923c">✓</span> deploy → produção</span><span style="color:#28c840">no ar ⚡</span></div>
             <div class="term-line" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line)"><span style="color:#5c6275">entrega</span><span style="color:#e8eaf2">completa · custo previsível</span></div>
             <div style="margin-top:8px"><span style="color:#5c6275">$</span> <span class="term-cur"></span></div>
           </div>
@@ -108,7 +120,7 @@
 
     <!-- ============ SERVIÇOS ============ -->
     <section class="section services" id="servicos">
-      <div class="orb" data-speed="0.5" style="width:480px;height:480px;background:rgba(139,92,246,.10);top:-8%;right:-150px" aria-hidden="true"></div>
+      <div class="orb" data-speed="0.5" style="width:480px;height:480px;background:rgba(180,83,9,.10);top:-8%;right:-150px" aria-hidden="true"></div>
       <div class="section-head reveal">
         <p class="section-label">// 01 — serviços</p>
         <h2>O que sai<br>do <span class="electric-inline">laboratório</span></h2>
@@ -139,7 +151,7 @@
 
     <!-- ============ LAB ============ -->
     <section class="section lab" id="lab">
-      <div class="orb" data-speed="0.35" style="width:540px;height:540px;background:rgba(34,211,238,.07);bottom:-12%;left:-180px" aria-hidden="true"></div>
+      <div class="orb" data-speed="0.35" style="width:540px;height:540px;background:rgba(251,146,60,.07);bottom:-12%;left:-180px" aria-hidden="true"></div>
       <div class="section-head reveal">
         <p class="section-label">// 02 — sinais em campo</p>
         <h2>O que já ganhou<br><span class="electric-inline">vida real</span></h2>
@@ -217,7 +229,7 @@
 
     <!-- ============ PROCESSO (timeline scrubada + pinada) ============ -->
     <section class="section process" id="processo">
-      <div class="orb" data-speed="0.45" style="width:420px;height:420px;background:rgba(139,92,246,.09);top:28%;right:-130px" aria-hidden="true"></div>
+      <div class="orb" data-speed="0.45" style="width:420px;height:420px;background:rgba(180,83,9,.09);top:28%;right:-130px" aria-hidden="true"></div>
       <div class="section-head reveal">
         <p class="section-label">// 03 — processo</p>
         <h2>Do esboço ao <span class="electric-inline">deploy</span></h2>
@@ -306,6 +318,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
   <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js" defer></script>
-  <script src="./script.js?v=20260719-1" defer></script>
+  <script src="./script.js?v=20260725-cobre-1" defer></script>
 </body>
 </html>

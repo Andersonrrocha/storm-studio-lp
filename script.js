@@ -51,7 +51,7 @@ const StormField = (() => {
       r: Math.random() * 1.6 + 0.4,
       vx: (Math.random() - 0.5) * 0.22,
       vy: (Math.random() - 0.5) * 0.18,
-      hue: Math.random() < 0.7 ? "34, 211, 238" : "139, 92, 246",
+      hue: Math.random() < 0.7 ? "251, 146, 60" : "180, 83, 9",
       a: Math.random() * 0.5 + 0.15,
       tw: Math.random() * Math.PI * 2,
     }));
@@ -85,7 +85,7 @@ const StormField = (() => {
     return {
       segs, branches, life: 1, decay: 0.04 + Math.random() * 0.03,
       width: opts.isBranch ? 1 : 1.6 + Math.random() * 0.9,
-      color: Math.random() < 0.75 ? "34, 211, 238" : "167, 139, 250",
+      color: Math.random() < 0.75 ? "251, 146, 60" : "217, 119, 6",
       intensity: opts.intensity ?? 1,
     };
   }
@@ -118,7 +118,7 @@ const StormField = (() => {
     ctx.lineJoin = "round";
     strokePath(b.segs);
     ctx.shadowBlur = 8;
-    ctx.strokeStyle = `rgba(224, 242, 255, ${alpha})`;
+    ctx.strokeStyle = `rgba(255, 244, 230, ${alpha})`;
     ctx.lineWidth = b.width;
     strokePath(b.segs);
     ctx.restore();
@@ -188,7 +188,7 @@ const StormField = (() => {
     for (const b of bolts) { drawBolt(b); b.life -= b.decay; }
 
     if (flash > 0.01) {
-      ctx.fillStyle = `rgba(180, 225, 255, ${flash * 0.05})`;
+      ctx.fillStyle = `rgba(255, 214, 170, ${flash * 0.05})`;
       ctx.fillRect(0, 0, W, H);
       flash *= 0.86;
     }

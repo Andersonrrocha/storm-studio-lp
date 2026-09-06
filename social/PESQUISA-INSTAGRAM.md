@@ -1,315 +1,317 @@
-# Motor de conteúdo do Instagram — Storm Studio
+# Storm Studio — sistema de conteúdo premium para Instagram
 
-Pesquisa + protótipo funcional. Objetivo: descobrir **o que dá pra plugar hoje** para
-que o Claude gere reels e carrosséis na identidade do Storm Studio, publique sozinho e
-meça o resultado — sem virar conteúdo genérico de IA.
+Segunda rodada da pesquisa, refeita depois da crítica: **sem API** (publicação por
+browser control), patamar **premium** e não MVP, com as ferramentas que existem hoje no
+mercado e os plugins/conectores que já estão ao alcance desta conta.
 
-Data da pesquisa: **setembro de 2026**. Tudo que é regra de plataforma tem fonte no fim.
+Setembro de 2026. Fontes no fim.
 
 ---
 
-## 0. Resposta curta
+## 1. Por que a primeira entrega ficou slop — diagnóstico honesto
 
-**Dá pra automatizar 80% do ciclo com custo ~zero.** O gargalo não é ferramenta, é
-matéria-prima: só você tem os bastidores (Beto Chaves, Clínica da Fé, os projetos do Lab).
+O problema não foi a ferramenta. Foi **direção e matéria-prima**. O que eu produzi tinha
+três defeitos estruturais, e todos os três são os mesmos que fazem qualquer conteúdo de
+IA ser reconhecido como IA em meio segundo:
 
-Stack recomendada, em ordem de implantação:
+1. **Zero material real.** Nenhum frame do produto, nenhuma tela do site do Beto Chaves,
+   nenhuma mão, nenhuma imperfeição. Texto sobre gradiente é o fundo que sobra quando não
+   se tem nada para mostrar.
+2. **Movimento sem física.** `zoompan` linear é o Ken Burns de apresentação de PowerPoint.
+   O que separa um reel de estúdio é *timing*: overshoot, stagger entre elementos, easing
+   com curva própria, massa. Isso é motion design — não é um filtro de ffmpeg.
+3. **Tipografia parada.** Studio Dumbar, FEVR, ManvsMachine não usam fonte melhor: usam
+   **tipografia cinética** com hierarquia que se constrói no tempo. Texto que aparece com
+   fade não é motion, é slide.
 
-| Fase | O que | Custo | Bloqueio |
+O contexto de mercado torna isso pior, não melhor: em 2026 **64% de todo o conteúdo novo
+publicado é gerado por IA**, numa proporção de 17 para 1 sobre conteúdo humano. A
+consequência medida é que conteúdo humano ou híbrido com imperfeição deliberada rende
+**40-60% mais dwell time e shares**, e a preferência do público por conteúdo gerado caiu
+de 60% (2023) para **26%**. O padrão que as marcas premium seguem é explícito:
+**IA como infraestrutura — análise, variação, teste, versionamento, publicação — nunca
+como voz.** Apple não gera copy, Nike não gera campanha no Midjourney.
+
+Para o Storm Studio isso é ainda mais crítico, porque a sua venda é *craft*. Um post que
+parece gerado destrói exatamente o argumento que a landing faz ("sob medida, feito à mão,
+sem templates"). **Conteúdo genérico aqui não é neutro: é contraprova.**
+
+---
+
+## 2. A decisão de publicação: browser control
+
+Aceito a decisão de não usar API. Mas a pesquisa mudou o mapa — o que muda ao publicar
+pelo navegador não é o que se imagina:
+
+| | App do celular | **Web / browser control** | API |
 |---|---|---|---|
-| **0. Agora** | Conta profissional + bio com SEO + pipeline de arte deste repo | R$ 0 | nenhum |
-| **1. Semana 1** | Conectar **Metricool MCP** no Claude (agenda + analytics + melhor horário) | R$ 0 (plano free) | nenhum |
-| **2. Semana 2-3** | App Meta em **modo desenvolvimento** publicando na sua própria conta via API + cron no GitHub Actions | R$ 0 | conta profissional + token |
-| **3. Quando virar serviço** | App Review da Meta (2-4 semanas) **ou** Blotato/Ayrshare para postar na conta dos clientes | US$ 29-149/mês | App Review |
+| Carrossel | até 20 slides | **até 20 slides** | 10 (teto duro) |
+| Áudio da biblioteca do Instagram | ✅ | ❌ | ❌ |
+| Stickers, efeitos, texto nativo | ✅ | ❌ | ❌ |
+| Capa customizada do reel | ✅ | ❌ (só frame do vídeo) | ✅ (`cover_url`) |
+| Trial Reels / colaboração / rascunho | ✅ | ❌ | ❌ |
+| Agendamento nativo | ✅ | ❌ | ❌ |
+| App Review da Meta | — | **não precisa** | precisa (só p/ terceiros) |
+| Risco de restrição da conta | baixo | **mais alto** | mais baixo |
 
-O achado que muda o jogo: **para publicar só na sua própria conta você NÃO precisa de
-App Review.** Basta o app da Meta em *Development mode* com sua conta no papel de
-*Instagram Tester*. O review só existe quando contas de terceiros conectam no seu app —
-ou seja, só quando isso virar produto para a Clínica da Fé e outros clientes.
+Três consequências práticas:
 
----
+**a) Browser control não dá trending audio.** Essa é a razão mais comum para fugir da API,
+e ela não se resolve pelo navegador — a biblioteca de áudio só existe no app. O caminho
+real é híbrido: o **carrossel e o reel com som próprio saem pelo navegador**; o reel que
+precisa de áudio de tendência sai do celular (ou vai como rascunho e recebe o som no app).
 
-## 1. Como o Instagram distribui conteúdo hoje (2026)
+**b) Browser control ganha os 20 slides.** A API trava em 10. Para um estúdio que vive de
+carrossel técnico e antes/depois, dobrar o teto é vantagem real.
 
-### Os sinais que realmente pesam
-Mosseri repete três: **watch time**, **sends per reach** (compartilhamento no direct por
-alcance) e **likes per reach**. Um *send* pesa de 3 a 5 vezes mais que um like.
-Desde a atualização de março/2026, **responder comentário e DM rápido também é sinal
-rankeado** — conversa de mão dupla entra na conta.
+**c) O risco é gerenciável, mas conta nova é o pior momento.** O número que circula —
+suspensão de **15-30% ao ano** para automação por navegador contra **<0,5%** por API —
+vem de bots de engajamento em volume (DM em massa, follow/unfollow, múltiplas contas).
+O que dispara a detecção é **volume, cadência não-humana, inconsistência de IP/dispositivo
+e mensagem em massa** — nada disso é o seu caso a 5 posts por semana. Mas os primeiros
+7-14 dias definem o *trust score* da conta: perfil novo publicando vídeo no dia 1 é
+rotulado como spam-like, e link de oferta na primeira semana é shadowban quase garantido.
+O protocolo de warm-up está em [`browser/PUBLICACAO.md`](./browser/PUBLICACAO.md).
 
-Consequência prática para o Storm: escreva para ser **enviado no direct** ("manda isso
-pro teu sócio"), não para ser curtido. Todo post precisa de um motivo pra ser repassado.
-
-### Reels vs carrossel — não é escolha, é função
-- **Reels = alcance frio.** ~4,7x mais alcance por post; é o único formato que entrega
-  para quem não te segue de forma consistente.
-- **Carrossel = profundidade e save.** ~2,3x mais saves; melhor engajamento por seguidor
-  (0,50% vs 0,48% no Q2/2026). Em contas de 10k-50k o Reels ainda ganha em alcance
-  mediano; de 50k pra cima o carrossel vira o formato mais forte.
-- Regra do estúdio: **Reels puxa gente nova, carrossel converte quem chegou.**
-
-### Números que definem a cadência
-- **3 a 5 reels/semana** de qualidade batem postar todo dia coisa fraca — o algoritmo
-  premia watch time, não frequência.
-- **Conteúdo original recebe 40-60% mais distribuição.** 10+ reposts em 30 dias tiram a
-  conta das recomendações. (Isso mata a ideia de "encher a página com IA genérica".)
-- **Reels acima de 3 minutos param de ser empurrados para não-seguidores.** Faixa útil:
-  **15-30s** para alcance; até 60-90s quando o assunto justifica.
-
-### Hashtag morreu, busca nasceu
-Posts que dependem de hashtag veem ~32% menos views. O que rankeia agora é **texto
-pesquisável**: nome de exibição, bio, **primeiras linhas da legenda**, alt-text e o que
-está falado/escrito dentro do vídeo. 3-5 hashtags relevantes, mais nada.
-Para o Storm isso significa nome de exibição do tipo `Storm Studio · sites e apps sob medida`
-e legendas que comecem com os termos que um dono de PME digita ("site para clínica",
-"site que abre rápido", "sistema sob medida").
-
-### Duas alavancas grátis que quase ninguém usa
-1. **Trial Reels** — publica só para **não-seguidores**, dá insight em 24h e não suja o
-   feed. Disponível para contas públicas com 1.000+ seguidores; desde fev/2026 dá pra
-   agendar. É o ambiente perfeito para testar ganchos em lote antes de queimar audiência.
-2. **Comment-to-DM** (ManyChat e similares) — "comenta SITE que eu te mando o checklist".
-   Regras de 2026: o disparo tem que vir de uma ação do usuário, resposta em até 30s,
-   janela de 24h e **um DM automático por usuário a cada 24h**.
+**Ferramenta para operar:** o Claude Code de desktop tem **browser embutido desde julho de
+2026** (`Cmd/Ctrl+Shift+B`) — sandboxed, sessão persistente opcional, e o agente lê a
+*estrutura* da página e age no campo certo em vez de clicar em coordenada. É o caminho
+nativo. Alternativas: **Claude in Chrome** (extensão, disponível em todo plano pago) ou
+**Playwright MCP** com perfil de usuário persistente, se você quiser a mesma sessão sempre.
 
 ---
 
-## 2. O caminho técnico da publicação (Instagram Graph API)
+## 3. O que é "premium" neste nicho — e o stack que produz isso
 
-### Qual API
-Duas portas de entrada:
-- **Instagram API com Instagram Login** — autentica direto no Instagram, **não exige
-  página do Facebook vinculada**. É a mais simples para conta única. ✅ recomendada aqui.
-- **Instagram API com Facebook Login** — exige Página do Facebook; é o caminho de quem
-  gerencia várias contas de clientes dentro do ecossistema Meta.
+Ordem de força para um estúdio de engenharia, do formato que mais converte para o que
+menos:
 
-Requisitos comuns: conta **Professional** (Business ou Creator), app na Meta e a permissão
-`instagram_business_content_publish` (substituiu `instagram_content_publish`, depreciada
-em 27/01/2025).
+### A. Produto em movimento — captura de tela tratada  ★ o formato #1
+É o conteúdo que só você tem. Site do Beto Chaves rolando, o storm em canvas reagindo ao
+cursor, o terminal de build, o Lab. Nada gerado compete com isso.
 
-### O atalho: modo desenvolvimento
-Enquanto o app publica **só na sua conta**, ele fica em *Development mode* e sua conta
-entra como **Instagram Tester**. Nesse arranjo **não há App Review**. O review (2-4
-semanas por submissão, com screencast do fluxo completo — a maioria das recusas de 2026 é
-screencast incompleto) só é obrigatório quando terceiros conectam a conta deles.
-
-### O fluxo (idêntico para foto, carrossel e reels)
-```
-POST /{ig-user-id}/media           → cria o container (image_url | video_url, caption…)
-GET  /{container-id}?fields=status_code → repete até FINISHED
-POST /{ig-user-id}/media_publish   → creation_id  →  post no ar
-```
-Carrossel: um container **por slide** com `is_carousel_item=true`, depois um container
-pai `media_type=CAROUSEL` com a lista de `children`, depois publica.
-
-### As pegadinhas que custam tempo (todas confirmadas)
-| Pegadinha | O que significa na prática |
-|---|---|
-| A mídia precisa estar em **URL pública** | O Instagram faz cURL no arquivo na hora de publicar. Precisa de hospedagem: GitHub Pages deste repo, Cloudflare R2 (10 GB grátis, egress zero) ou Cloudinary. |
-| **JPEG apenas** para imagem | PNG e HEIC são rejeitados — converter antes. URL só com ASCII. |
-| **Carrossel = máximo 10 mídias pela API** | Os 20 slides de 2024 valem só dentro do app. Nenhuma ferramenta contorna isso. |
-| Todas as imagens são cortadas pelo **aspecto da primeira** | Renderize o deck inteiro em 4:5 (1080x1350). |
-| **Áudio da biblioteca do Instagram é impossível por API** | Nada de trending audio programático. Ou a trilha vem embutida no MP4 (licenciada), ou você publica manual/rascunho e adiciona o som no app. |
-| Reels por API: 9:16, H.264/HEVC, **5-90s** | No app dá pra ir a 15 min (e 20 em alguns perfis), mas a API é conservadora — e reels >3 min não vão pra não-seguidores mesmo. |
-| **A API não agenda** | Publicação é imediata. O agendador é seu (cron/GitHub Actions) ou de terceiros (Metricool/Buffer). |
-| Limite de publicação | ~100 posts por janela de 24h (carrossel conta como 1). Dá pra consultar em `GET /{ig-user-id}/content_publishing_limit`. |
-| Insights | `views`, `reach`, `saves`, `shares`, `total_interactions`, `follows_and_unfollows`, `profile_links_taps`. Depreciados na v21: `impressions`, `profile_views`, `website_clicks`, `video_views`. Parte das métricas agregadas/demográficas só aparece com 1.000+ seguidores. |
-
----
-
-## 3. As camadas do motor e o que plugar em cada uma
-
-```
- ideia ─▶ roteiro ─▶ arte ─▶ render ─▶ publicação ─▶ métrica ─▶ (volta pra ideia)
-```
-
-### Camada 1 — Backlog e calendário → **Notion** (já conectado)
-Um banco `Conteúdo` com: pilar, formato, gancho, status, data, link do post, métricas.
-O Claude lê e escreve nisso direto pelo MCP do Notion. É a memória do que já foi dito —
-é o que evita repetir gancho e permite "faz o carrossel da ideia #14".
-
-### Camada 2 — Roteiro e copy → **Claude + skills**
-- `content-engine` (já disponível nesta sessão): sistemas de conteúdo por plataforma.
-- Skills abertas que valem instalar: [`sergebulaev/instagram-skills`](https://github.com/sergebulaev/instagram-skills)
-  (legendas, ganchos, plano semanal), [`moboutrig/instagram-claude-skill`](https://github.com/moboutrig/instagram-claude-skill)
-  (publicação via Graph API), gerador de legenda de [`rediumvex`](https://github.com/rediumvex/social-media-caption-generator-claude).
-- O diferencial não está na skill: está em alimentar o Claude com **transcrição das suas
-  conversas com cliente, os commits reais e os antes/depois**. Skill boa + input genérico = slop.
-
-### Camada 3 — Arte (carrossel) → **HTML → PNG, aqui no repo** ✅ implementado
-Renderizador próprio: o deck é JSON, o layout usa as mesmas variáveis da landing
-(near-black + cobre `#fb923c`/`#b45309`, Space Grotesk + JetBrains Mono), Chromium
-fotografa cada slide em `device_scale_factor=2` → PNG **1080x1350** exato.
-Custo zero, 100% na marca, versionado em git, e o Claude edita o JSON.
-
-Complementos possíveis:
-- **Figma MCP** (já conectado) — manter o design system dos slides e gerar variações.
-- **Canva MCP** (no diretório, não instalado) — autofill de template, útil se você quiser
-  editar no celular depois.
-- **Nano Banana Pro / Gemini 3 Pro Image** — imagem de fundo e composição com texto
-  legível, ~US$ 0,134 por imagem 2K. Bom para fundo abstrato de tempestade sob medida.
-
-### Camada 4 — Vídeo (reels)
-Três receitas, da mais barata à mais cara:
-
-1. **Reel de texto** (implementado) — cenas em HTML → frames 1080x1920 → ffmpeg com zoom
-   lento, fade e barra de progresso cobre. Serve para gancho + argumento + CTA. R$ 0.
-2. **Site reveal** (implementado) — o Chromium abre o site do cliente, rola com easing e
-   cada frame é capturado em retina; vira um MP4 crocante do scroll. **É o formato mais
-   forte que o Storm tem**: mostra o produto se movendo, é 100% original e ninguém copia.
-3. **Motion pesado / IA** — [Remotion](https://www.remotion.dev) (React → MP4, escala em
-   Lambda) quando quiser animação com timeline de verdade; **Veo 3.1** (US$ 0,15/s no
-   Fast, US$ 0,75/s no Standard com áudio) para B-roll gerado. ⚠️ **Sora 2 sai do ar em
-   24/09/2026** — não construa em cima dele.
-4. **Voz e legenda** — ElevenLabs em PT-BR (US$ 0,05-0,10 por 1.000 caracteres; 10k
-   grátis/mês) + Whisper para gerar SRT e ffmpeg para queimar a legenda no vídeo.
-   Legenda queimada é obrigatória: quase todo mundo assiste sem som.
-
-### Camada 5 — Publicação
-| Caminho | Custo | Quando usar |
+| Ferramenta | Preço | Por quê |
 |---|---|---|
-| **API própria em dev mode + GitHub Actions** | R$ 0 | Sua conta. Controle total, sem intermediário. ✅ meta da Fase 2 |
-| **Metricool MCP** | free | Agendar e ler analytics direto do Claude sem app review; tem "melhor horário para postar". ✅ ponte imediata |
-| **Buffer MCP** | free em todos os planos (lançado 27/05/2026) | Alternativa ao Metricool, API GraphQL pública |
-| **Postiz** | open source, self-host | Se quiser tudo dentro da sua infra, 30+ plataformas |
-| **Blotato** | US$ 29/mês flat | MCP hospedado, várias contas sem cobrar por perfil |
-| **Upload-Post** | US$ 16-24/mês (free: 10 uploads/mês) | Skill pronta de Claude Code, barato pra começar |
-| **Ayrshare** | US$ 149/mês (1 perfil) | Só faz sentido em escala com muitos clientes |
+| **Screen Studio** (macOS) | US$ 149 vitalício (+US$ 109/ano updates) | Zoom automático no cursor, cursor suavizado e ampliado, motion "produzido" por padrão. É o padrão de mercado das demos que parecem caras |
+| **FocuSee** (Win/Mac) | ~US$ 60/ano | Mesma ideia, multiplataforma, remove silêncio e gera legenda |
+| **Cursorful** | freemium | Só navegador, leve |
+| captura headless deste repo | R$ 0 | Determinística e versionável — boa para *b-roll* de apoio, não para a peça principal |
 
-Regra: **enquanto for só a sua conta, não pague nada.** Terceirizar só quando publicar na
-conta dos clientes virar parte do serviço — aí a conta fecha porque você cobra por isso.
+### B. Tipografia cinética e identidade em movimento  ★ o que tira o cheiro de template
+Aqui está a virada de patamar, e ela já está conectada nesta conta:
 
-### Camada 6 — Métrica → Insights API → Notion
-Puxar `views/reach/saves/shares` de cada post e gravar na linha do Notion. Depois de ~20
-posts dá pra perguntar ao Claude "quais ganchos ficaram no topo do quartil de sends?" e
-deixar o próximo lote ser escrito a partir do que funcionou. É aqui que o motor deixa de
-ser publicador e vira sistema que aprende.
+- **Figma Motion** (Config 2026): a timeline entrou no canvas. Anima qualquer propriedade,
+  **exporta MP4/WebM**, e é **compatível com MCP** — o conector Figma desta sessão já
+  expõe `export_video`, `get_motion_context`, `create_shader`. Ou seja: dá para eu montar
+  a peça no seu arquivo, animar e exportar o MP4 sem sair daqui. ⚠️ exporta em alta
+  resolução só com **Full seat em plano pago**.
+- **Shaders no Figma**: shader WebGPU como *fill* ou *effect*, com **cada parâmetro
+  keyframável** na timeline. Isso é literalmente a tempestade da landing virando material
+  de marca em vídeo — sem After Effects, e sem parecer template.
+- **Cavalry** — node-based, *procedural*: sistemas generativos de marca, aquilo que levaria
+  horas no After Effects. Comprado pela Canva em fev/2026 e **gratuito para individuais**
+  desde a 2.7 (abr/2026). É o upgrade natural quando você quiser 30 variações da mesma peça.
+- **Jitter** — o mais rápido: importa do Figma, anima, exporta vídeo/Lottie.
+- **Rive** — para o que é interativo (não é o caso aqui, mas é o que anima a UI do produto).
 
----
+### C. B-roll cinematográfico gerado — onde entra o Higgsfield
+O que o **Higgsfield** é de fato: um *agregador* com 15+ motores (Veo 3.1, Kling 3.0,
+Seedance 2.0, Nano Banana Pro, Flux 2) mais a camada própria — **70+ presets de câmera**
+(dolly, crane, orbit, FPV), **Soul ID** para consistência de personagem com 100+
+parâmetros, lipsync e clonagem de voz via ElevenLabs. Fundado pelo ex-chefe de IA do
+Snap. Preços de ago/2026: **Basic US$ 5 (70 créditos), Pro US$ 29 (600), Max US$ 79
+(1.800)**; na prática ~US$ 1,00 por clipe Kling 3.0 e ~US$ 2,90 por 8s de Veo 3.1.
+**Não tem editor** — sai clipe, a montagem é fora.
 
-## 4. O que já está funcionando neste repo
+Julgamento honesto para o seu caso: a força do Higgsfield é **humano/personagem
+cinematográfico e controle de câmera**. Você não vende avatar; vende engenharia. Ele vale
+como **fábrica de aberturas e b-roll atmosférico** (tempestade, texturas, macro de
+hardware, transições dirigidas) — 3 a 5 segundos que abrem o reel antes do produto real
+entrar. Para isso, US$ 29/mês é barato e o controle de câmera é o diferencial contra
+prompt cru.
 
-```bash
-pip install playwright imageio-ffmpeg     # o Chromium do container já serve
+Alternativas conforme o uso:
+- **fal.ai** — 44% do mercado de APIs de vídeo; paga por segundo, sem assinatura, com
+  Kling 3.0, Veo 3.1, Seedance 2.0, Wan 2.6, LTX 2.0 no mesmo lugar. É o caminho para
+  automatizar geração dentro do pipeline (~US$ 0,10-0,20/s em Kling; Veo ~US$ 0,40/s).
+- **Google AI Pro US$ 19,99/mês** (1.000 créditos, Veo 3.1 Fast) se você quiser mexer na
+  mão pelo Flow. Ultra reestruturado: entrada em US$ 99,99.
+- **LTX Studio** (US$ 0-125) — se a peça exigir *narrativa* com storyboard, consistência
+  entre planos e nós reutilizáveis. É o único da lista que pensa em produção, não em clipe.
+- Ranking de qualidade hoje: **Veo 3.1** melhor física/luz geral, **Seedance 2.0** melhor
+  aderência a prompt e imagem→vídeo, **Kling 3.0** o mais estilizado e com 4K nativo.
+- ⚠️ **Sora 2 está sendo desligado** (app em abr/2026, API em **24/09/2026**). Não entra.
 
-# carrossel: JSON -> 6 PNGs 1080x1350
-python3 social/carousel/render.py social/carousel/deck-exemplo.json social/out/carrossel
+### D. Áudio
+- **Trilha:** Epidemic Sound / Artlist têm **indenização contratual real** (Artlist Max
+  Business, Epidemic Pro Plus) — é o que uma empresa com clientes deve usar. **Suno** dá
+  direitos comerciais nos planos pagos, inclusive para Reels monetizado, **mas não gera
+  copyright registrável** e a própria ToS não garante que direito autoral se constitua.
+  Para peça de marca: Artlist/Epidemic. Para experimento: Suno.
+- **Voz:** ElevenLabs PT-BR (US$ 0,05-0,10 por 1.000 caracteres). Regra: narração de IA só
+  quando o texto é **seu**, gravado com a sua estrutura. IA lendo texto de IA é o som do slop.
+- **Sound design** é o item mais subestimado: 3 efeitos bem colocados (whoosh no corte,
+  click no CTA, hum grave de fundo) fazem mais pela percepção de qualidade que 10s de vídeo gerado.
 
-# reel de texto: roteiro -> MP4 1080x1920 H.264 faststart
-python3 social/reel/build.py social/reel/roteiro-exemplo.json social/out/reel.mp4
-
-# reel de "site reveal": grava o scroll de um site
-python3 -m http.server 4173 &
-python3 social/reel/capture_site.py http://localhost:4173 social/out/site-reveal.mp4 --seg 8
-```
-
-Saídas validadas: PNGs em 1080x1350 e MP4 `h264 High / yuv420p / 1080x1920 / 30fps` com
-`+faststart` — exatamente o que a Graph API aceita. A arte sai na paleta da landing
-porque o CSS lê os mesmos tokens (`--cobre`, `--bg`, Space Grotesk/JetBrains Mono).
-
----
-
-## 5. Plano editorial — 4 pilares
-
-| Pilar | O que é | Formato natural | Por que existe |
-|---|---|---|---|
-| **Prova** | Bastidor real: o site do Beto Chaves rodando, o build da Clínica da Fé, commit, antes/depois | Reel *site reveal*, carrossel antes/depois | Credibilidade. É o pilar que fecha contrato |
-| **Dor** | O problema do dono de PME: site lento, sem mobile, formulário de 6 campos, "parece amador" | Carrossel checklist, reel de texto | É o que é **enviado no direct** — sinal de maior peso |
-| **Craft** | Opinião técnica: por que template não serve, o que é performance de verdade, storm em canvas | Reel de tela + fala, carrossel técnico | Diferencia de agência genérica; atrai também recrutador/cliente técnico |
-| **Oferta** | Como trabalho, prazo, o que entrego, chamada pro direct | Carrossel CTA, story | 1 a cada 5 posts. Mais que isso, o alcance cai |
-
-**Cadência semanal:** 3 reels (2 de Prova/Craft + 1 de Dor) + 2 carrosséis (1 Dor + 1
-Prova ou Oferta) + stories nos dias de build. Sempre com **CTA de direct**, não de link.
-
-**Primeiros 9 posts** (fila para as duas primeiras semanas):
-1. Reel site reveal — Beto Chaves, do topo ao rodapé, texto "isso não é template".
-2. Carrossel — "5 coisas que travam o site da sua empresa" (deck de exemplo já está no repo).
-3. Reel de texto — "seu site demora 4,8s. o meu abre em 0,9s" (roteiro já no repo).
-4. Carrossel — anatomia da landing do Storm: por que cada seção existe.
-5. Reel — bastidor da Clínica da Fé: da primeira conversa ao wireframe.
-6. Carrossel — "template x sob medida": o que muda em 12 meses de manutenção.
-7. Reel — o storm em canvas rodando + 3 linhas de código: "isso é 40 linhas, não um plugin".
-8. Carrossel — checklist de briefing que eu mando pro cliente (lead magnet → comment-to-DM).
-9. Reel — "site no ar em 3 semanas: como eu trabalho" (Oferta).
-
----
-
-## 6. Armadilhas que a pesquisa deixou claras
-
-- **Encher a página com IA genérica derruba a conta.** Original ganha 40-60% mais
-  distribuição; repost em série exclui das recomendações. Automatize a *produção*, nunca
-  a *origem* da ideia.
-- **Trending audio por API não existe.** Se a trilha importa, publique manualmente ou
-  aceite som próprio/licenciado embutido.
-- **Carrossel de 20 slides por API: não.** Máximo 10.
-- **PNG direto na API: não.** Converta para JPEG (o renderizador entrega PNG — o passo de
-  conversão entra junto do upload).
-- **DM automático fora da regra limita o envio da conta.** Um por usuário a cada 24h,
-  resposta em 30s, dentro da janela de 24h.
-- **Não construa em cima do Sora 2** (desligado em 24/09/2026).
-- **App Review não é obrigatório para você** — só quando virar produto para clientes.
+### E. Finalização
+- **Submagic** — legendas animadas palavra a palavra, consideradas as melhores da
+  categoria; b-roll automático. **OpusClip** para achar cortes dentro de gravação longa.
+- Legenda queimada não é opcional: a maioria assiste sem som.
 
 ---
 
-## 7. Custo mensal
+## 4. Skills, plugins e conectores — o que dá pra ligar hoje nesta conta
 
-| Cenário | Custo |
+**Já conectados e subaproveitados:**
+
+| Conector | O que ele resolve aqui |
 |---|---|
-| Pipeline deste repo + Metricool free + publicação manual/API própria | **R$ 0** |
-| \+ Nano Banana Pro para fundos (≈20 imagens/mês) | ~US$ 3 |
-| \+ ElevenLabs para narração (≈30k caracteres) | ~US$ 3 |
-| \+ Veo 3.1 Fast para B-roll (≈60s/mês) | ~US$ 9 |
-| Terceirizar publicação (Blotato) quando atender clientes | US$ 29 |
+| **Figma** | Motion + shaders + `export_video` — a fábrica de peça premium. **É a peça central da virada de qualidade** |
+| **NexLev** | `watch_instagram_video_and_ask` e `watch_tiktok_video_and_ask` dissecam reels que performaram; outliers, transcrição em lote, swipe file com pastas. Isso é **pesquisa criativa de verdade** — entender por que um reel funcionou, não copiar |
+| **Notion** | Backlog, calendário, biblioteca de ganchos, registro de métrica por peça |
+| **LunarCrush** | Tendência social por tópico/keyword — pauta com timing |
+
+**No catálogo de plugins, prontos para instalar:**
+
+| Plugin | Para quê |
+|---|---|
+| `brand-voice` | Extrai a voz de marca dos seus documentos e **valida cada peça** contra ela. É o antídoto direto para slop: nada publica sem passar |
+| `marketing` | `content-creation`, `campaign-plan`, `brand-review`, `performance-report` |
+| `design` | `design-critique` — crítica estruturada da peça antes de publicar |
+| `adobe-for-creativity` | Variações sociais, corte rápido, retoque, redimensionamento em lote |
+| `canva` | Bulk create e brand check, se quiser editar do celular |
+| `brightdata` | Extração estruturada de Instagram/TikTok — swipe file e inteligência de concorrente |
+| `postiz` | Agendamento em 28+ plataformas (fica como plano B, já que a decisão é browser) |
+
+**Skills abertas que valem o clone:** [`sergebulaev/instagram-skills`](https://github.com/sergebulaev/instagram-skills)
+(ganchos, plano semanal, hashtag), [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills)
+(CRO e copywriting). Nesta sessão já existem `content-engine`, `design-system`,
+`frontend-design` e `artifact-diagramming`.
 
 ---
 
-## 8. Decisões que dependem de você
+## 5. A arquitetura do sistema — quem faz o quê
 
-1. **Voz na câmera ou não?** Rosto multiplica confiança para serviço 1-a-1 (e o PRODUCT.md
-   já vende "você fala direto com quem constrói"). Sem rosto, o motor fica 100% automático;
-   com rosto, ganha conversão e perde escala. Recomendo híbrido: 1 reel com você por semana.
-2. **A Clínica da Fé entra como case público?** Precisa de autorização do cliente — mas
-   "build em público" de um projeto real é o conteúdo mais forte disponível agora.
-3. **Publicar na conta dos clientes vira serviço?** Se sim, começa o App Review desde já
-   (2-4 semanas) ou entra num Blotato/Ayrshare.
-4. **Instagram sozinho ou Instagram + Threads?** A API do Threads é **grátis** e desde
-   25/03/2026 tem `threads_share_to_instagram` para cross-post. Custo marginal ~zero.
+O erro do desenho anterior foi tratar tudo como automatizável. O desenho certo separa o
+que é **infraestrutura** (minha) do que é **autoria** (sua):
+
+| Camada | Dono | Ferramenta | Tempo/semana |
+|---|---|---|---|
+| **1. Inteligência** — o que o nicho publicou, quais outliers, por que funcionaram | Claude | NexLev, BrightData, LunarCrush → Notion | 0 (roda sozinho) |
+| **2. Direção** — pilar, gancho, referência visual, o que a peça afirma | **você** | Notion + 20 min de conversa comigo | 30 min |
+| **3. Matéria-prima** — capturas reais, áudio seu, foto do processo | **você** | Screen Studio, celular | 1 h |
+| **4. Produção** — montagem, motion, variações, legenda, versão A/B | Claude | Figma Motion/shaders, Cavalry, Higgsfield, Submagic, pipeline do repo | 0 |
+| **5. QA** — checklist de qualidade, `brand-voice`, `design-critique` | Claude + você aprova | plugins | 10 min |
+| **6. Publicação** — browser control, cadência humana | Claude | browser do Claude Code / Chrome | 0 |
+| **7. Aprendizado** — métrica por peça, o que repetir | Claude | Insights lidos na tela → Notion | 0 |
+
+**Total seu: ~1h40 por semana** para 3 reels + 2 carrosséis. É esse o número que torna o
+projeto sustentável — e é ele que some se a gente tentar automatizar a camada 2 e 3.
+
+---
+
+## 6. O padrão de qualidade — checklist que mata o slop
+
+Nenhuma peça publica sem passar em todos:
+
+1. **Tem material real?** Pelo menos um frame de tela, código, mão ou lugar que só o Storm
+   tem. Se a peça inteira é texto sobre fundo, ela não sobe.
+2. **A afirmação é sua?** A peça diz algo que só quem construiu aquilo pode dizer. "Site
+   rápido converte mais" não é; "reduzi 4,8s para 0,9s trocando 3 coisas, olha aqui" é.
+3. **O movimento tem física?** Easing próprio, stagger, overshoot. Nada de fade + zoom linear.
+4. **O primeiro frame lê a 1/4 da tela?** Teste real: reduza o preview a 270px de largura.
+5. **Tem um motivo para ser enviado no direct?** *Sends* pesam 3-5x mais que like.
+6. **Passou no `brand-voice` e no `design-critique`?**
+7. **A trilha é licenciada e o som foi desenhado?** Pelo menos um efeito no corte-chave.
+8. **Tem imperfeição humana?** Um erro de digitação no terminal, um take com respiração,
+   um "isso aqui deu errado três vezes". É o que mede 40-60% a mais de dwell time.
+
+---
+
+## 7. Custo — três níveis
+
+| Nível | Composição | Mensal |
+|---|---|---|
+| **Enxuto** | Figma Full seat + Cavalry (grátis) + pipeline do repo + Artlist | ~US$ 35 |
+| **Sério** (recomendado) | \+ Screen Studio (US$ 149 uma vez) + Higgsfield Pro US$ 29 + Submagic ~US$ 20 + ElevenLabs US$ 5 | ~US$ 90/mês + US$ 149 inicial |
+| **Agressivo** | \+ fal.ai por segundo (~US$ 30) + LTX Studio US$ 35 + Epidemic Pro | ~US$ 190 |
+
+Referência: uma peça de motion contratada em agência custa de US$ 1.500 a US$ 5.000. O
+nível "sério" produz ~20 peças/mês.
+
+---
+
+## 8. Plano de 30 dias
+
+**Semana 0 — fundação (sem publicar quase nada)**
+Conta profissional criada e aquecida pelo protocolo de 14 dias (`browser/PUBLICACAO.md`).
+Nome de exibição com palavra-chave (`Storm Studio · sites e sistemas sob medida`). Figma
+com Full seat, arquivo `Storm Social` com o sistema de peças (grid, tipografia, shader da
+tempestade, 4 templates de timeline). Primeira sessão de captura: 40 min de Screen Studio
+no site do Beto Chaves e no Lab.
+
+**Semana 1 — provar que existe** — 1 reel de produto em movimento (Beto Chaves, som
+próprio, legenda Submagic) + 1 carrossel de 12 slides com telas reais anotadas.
+
+**Semana 2 — provar que entende** — 1 reel de tipografia cinética (Figma Motion + shader)
+com uma opinião técnica forte + 1 carrossel de antes/depois com números reais.
+
+**Semana 3 — provar que trabalha** — bastidor da Clínica da Fé (com autorização) + reel de
+processo com b-roll de abertura gerado no Higgsfield.
+
+**Semana 4 — converter** — carrossel de oferta + reel "como eu trabalho", já com CTA de
+direct. Revisão das métricas: qual gancho teve mais *sends*.
+
+---
+
+## 9. O que eu preciso de você para isso sair do papel
+
+1. **Figma com Full seat em plano pago** — sem isso não há export de vídeo em alta e a
+   camada B inteira cai.
+2. **1 hora de captura por semana.** É o insumo que nenhuma ferramenta substitui.
+3. **Decisão sobre rosto e voz.** Estúdio de uma pessoa vendendo atendimento 1-a-1 sem
+   nunca aparecer é uma contradição que o público sente. Sugestão: 1 peça por semana com
+   você, o resto sem.
+4. **Orçamento aprovado** (recomendo o nível "sério").
+5. **Autorização da Clínica da Fé** para build em público.
+6. **A conta e o dispositivo** de onde a publicação vai sair — o browser control precisa
+   ser sempre o mesmo ambiente.
 
 ---
 
 ## Fontes
 
-Algoritmo e formatos: [Buffer](https://buffer.com/resources/instagram-algorithms/) ·
-[Dataslayer](https://www.dataslayer.ai/blog/instagram-algorithm-2025-complete-guide-for-marketers) ·
-[TrueFuture Media](https://www.truefuturemedia.com/articles/instagram-reach-2026-algorithm-reels-carousels-caption-seo) ·
-[Contentdrips](https://contentdrips.com/blog/2026/06/instagram-reels-vs-carousels-2026-guide/) ·
-[CreatorFlow](https://creatorflow.so/blog/instagram-algorithm-2026/)
-· SEO/hashtags: [Metricool](https://metricool.com/instagram-seo/) · [Toptal Creator](https://www.toptal.com/creator/post/instagram-seo)
-· Trial Reels: [Metricool](https://metricool.com/instagram-trial-reels/) · [Social Champ](https://www.socialchamp.com/blog/instagram-trial-reels/)
-· DM automation: [Manychat](https://manychat.com/blog/instagram-dm-automation-rules/) · [CreatorFlow](https://creatorflow.so/blog/instagram-dm-compliance-meta-rules/)
+Qualidade e mercado: [Superside — por que criativo de IA soa off-brand](https://www.superside.com/blog/why-ai-generated-creative-feels-off-brand) ·
+[Field Vision — o que é taste](https://fieldvisiongroup.com/blog/ai-slop-what-taste-means/) ·
+[Nurdd — marcas batendo o slop](https://www.nurdd.club/blogs/made-by-humans-authentic-content-ai-slop) ·
+[Digiday — autenticidade em alta](https://digiday.com/media/after-an-oversaturation-of-ai-generated-content-creators-authenticity-and-messiness-are-in-high-demand/) ·
+[Versa — tendências de design social 2026](https://versacreative.com/blog/top-social-media-design-trends-2026/)
 
-API e limites: [Meta — Content Publishing](https://developers.facebook.com/docs/instagram-platform/content-publishing/) ·
-[Meta — Instagram API with Instagram Login](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/) ·
-[Meta — Insights](https://developers.facebook.com/docs/instagram-platform/insights/) ·
-[Postproxy — publicar reels](https://postproxy.dev/blog/instagram-reels-api-publishing-guide/) ·
-[Postproxy — publicar no Instagram](https://postproxy.dev/blog/post-to-instagram-via-api/) ·
-[Phyllo — Reels API](https://www.getphyllo.com/post/a-complete-guide-to-the-instagram-reels-api) ·
-[Netrows](https://www.netrows.com/blog/instagram-graph-api-guide-2026) ·
-[Blotato — dev mode sem app review](https://www.blotato.com/blog/instagram-posting-api) ·
-[Post-bridge — limite de 10 no carrossel](https://support.post-bridge.com/media-limits-and-processing/instagram-carousel-post-photo-limit-10-photos-maximum) ·
-[Storrito — 20 slides só no app](https://storrito.com/resources/how-instagrams-20-slide-carousels-work-and-what-the-new-limits-are/) ·
-[Threads API](https://www.blotato.com/blog/threads-api-pricing)
+Publicação e risco: [PostEngage — risco de banimento por automação](https://postengage.ai/blog/instagram-automation-ban-risk-truth) ·
+[Unfollr — regras de automação 2026](https://www.unfollr.com/blog/instagram-automation-rules) ·
+[Multilogin — warm-up de contas](https://multilogin.com/blog/how-to-warm-up-accounts/) ·
+[Ssemble — guia de warm-up 2026](https://www.ssemble.com/blog/account-warmup-guide-2026) ·
+[ContentStudio — shadowban](https://contentstudio.io/blog/instagram-shadowban) ·
+[PostEverywhere — limites do Instagram no desktop](https://posteverywhere.ai/blog/how-to-post-instagram-reels-from-desktop) ·
+[Hopper HQ — postar do desktop](https://www.hopperhq.com/blog/how-to-post-to-instagram-from-desktop/) ·
+[Claude Code — browser embutido](https://code.claude.com/docs/en/whats-new/2026-w28) ·
+[Playwright MCP](https://playwright.dev/mcp/introduction)
 
-Ferramentas: [Metricool + Claude](https://metricool.com/social-media-management-with-claude/) ·
-[Buffer MCP](https://mcpmarket.com/server/buffer) · [Postiz MCP](https://postiz.com/mcp) ·
-[Socialync — MCPs de social](https://www.socialync.io/blog/best-social-media-mcp-servers-2026) ·
-[Upload-Post — preços](https://www.upload-post.com/pricing-comparison/) ·
-[Blotato vs Ayrshare](https://www.blotato.com/blog/blotato-vs-ayrshare) ·
-[Remotion](https://www.pkgpulse.com/guides/remotion-vs-motion-canvas-vs-revideo-programmatic-video-2026) ·
-[Sora 2 — preço e desligamento](https://costgoat.com/pricing/sora) ·
-[Veo 3.1 — preço](https://www.buildmvpfast.com/api-costs/ai-video) ·
-[Nano Banana Pro — preço](https://www.aifreeapi.com/en/posts/nano-banana-pro-price) ·
-[ElevenLabs — preço](https://elevenlabs.io/pricing/api) ·
-[Cloudflare R2 — free tier](https://developers.cloudflare.com/r2/pricing/) ·
-[n8n — templates de Instagram](https://n8n.io/workflows/4498-schedule-and-publish-all-instagram-content-types-with-facebook-graph-api/) ·
-[HTML→carrossel em Playwright](https://github.com/DJ-vekariya/html-to-Instagram-carousel)
+Ferramentas: [Figma — Config 2026](https://www.figma.com/blog/config-2026-recap/) ·
+[Figma Motion](https://www.figma.com/blog/introducing-figma-motion/) ·
+[Figma — shaders e plugins generativos](https://www.figma.com/blog/how-we-built-generative-plugins-and-shaders/) ·
+[LottieFiles — melhores ferramentas de motion 2026](https://lottiefiles.com/blog/design-guides-and-tips/best-motion-design-tools-ranked-by-use-case/) ·
+[Rive vs Cavalry](https://artofstyleframe.com/blog/rive-vs-cavalry-which-motion-tool/) ·
+[Higgsfield — review e preços](https://dynalord.com/blog/higgsfield-review) ·
+[Higgsfield — planos](https://creatify.ai/blog/higgsfield-pricing-(2026)-plans-and-what-you-ll-actually-pay) ·
+[The Rundown — Higgsfield](https://www.therundown.ai/tools/higgsfield) ·
+[fal.ai — review e preços](https://vibecoding.gallery/en/tools/fal-ai/) ·
+[Comparativo de APIs de vídeo](https://www.teamday.ai/blog/ai-image-video-api-providers-comparison-2026) ·
+[Ranking de modelos de vídeo 2026](https://techsy.io/en/blog/best-ai-video-models) ·
+[Veo/Flow — preços](https://costgoat.com/pricing/google-flow) ·
+[LTX Studio](https://www.therundown.ai/tools/ltx-studio) ·
+[Screen Studio e alternativas](https://focusee.imobie.com/reviews/best-screen-studio-alternative.htm) ·
+[Submagic vs OpusClip](https://www.ngram.com/blog/opus-clip-vs-submagic) ·
+[Licenciamento de música IA 2026](https://thepostflow.com/ai/ai-music-licensing-for-video-editors-what-you-can-actually-use-and-when-the-rights-evaporate/) ·
+[Suno — uso comercial](https://techjacksolutions.com/ai-tools/suno/suno-commercial-use/) ·
+[UGC com IA — comparativo](https://lensgo.ai/blog/best-ai-ugc-ad-tools-2026)

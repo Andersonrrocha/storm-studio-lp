@@ -1,82 +1,58 @@
-# social/ — motor de conteúdo do Instagram
+# social/ — sistema de conteúdo do Storm Studio
 
-Pipeline para gerar **carrosséis** e **reels** na identidade do Storm Studio e publicar
-pela Graph API. A pesquisa completa (algoritmo, limites da API, ferramentas comparadas,
-plano editorial) está em **[PESQUISA-INSTAGRAM.md](./PESQUISA-INSTAGRAM.md)**.
+Estratégia, padrão de qualidade e ferramentas: **[PESQUISA-INSTAGRAM.md](./PESQUISA-INSTAGRAM.md)**.
+Como a conta é publicada (browser control, warm-up, fila): **[browser/PUBLICACAO.md](./browser/PUBLICACAO.md)**.
 
 ```
 social/
-├── PESQUISA-INSTAGRAM.md   pesquisa + estratégia + fontes
-├── carousel/
-│   ├── template.html       CSS dos slides (mesmos tokens da landing)
-│   ├── render.py           deck JSON  → slides 1080x1350 (.jpg + .png)
-│   └── deck-exemplo.json
-├── reel/
-│   ├── build.py            roteiro JSON → MP4 1080x1920 H.264
-│   ├── capture_site.py     scroll de um site → MP4 1080x1920 ("site reveal")
-│   └── roteiro-exemplo.json
-├── publish.py              Graph API: carrossel / reel / foto / cota
+├── PESQUISA-INSTAGRAM.md   pesquisa v2 — diagnóstico, stack premium, plano de 30 dias
+├── browser/
+│   ├── PUBLICACAO.md       protocolo de publicação por navegador + warm-up da conta
+│   └── fila.json           o que está pronto para publicar
+├── carousel/               camada base: sistema de slides na marca (JSON → 1080x1350)
+├── reel/                   captura de tela e montagem de apoio (não é a peça principal)
+├── publish_api.py          plano B via Graph API — fora do caminho escolhido
 └── out/                    saídas (fora do git)
 ```
 
-## Instalar
+## Onde cada camada entra
+
+| Camada | Ferramenta | Papel |
+|---|---|---|
+| **Peça principal de vídeo** | **Figma Motion** (+ shaders, `export_video` via MCP), Cavalry | Tipografia cinética e identidade em movimento. É o que tira o conteúdo do patamar de template |
+| **Produto em movimento** | Screen Studio / FocuSee | Captura tratada do site do cliente — o formato que mais converte |
+| **B-roll de abertura** | Higgsfield (Kling 3.0 / Veo 3.1 / Seedance 2.0), fal.ai | 3-5s cinematográficos antes do produto real entrar |
+| **Carrossel** | `carousel/render.py` deste repo | Grid e tokens da marca, exatos e versionados, em escala. **Sempre com tela/foto real dentro** |
+| **Apoio** | `reel/capture_site.py`, `reel/build.py` | Captura determinística e montagens de serviço |
+| **Legenda/finalização** | Submagic, ffmpeg | Legenda queimada obrigatória |
+| **Publicação** | browser do Claude Code / Claude in Chrome | Ver `browser/PUBLICACAO.md` |
+
+> `reel/build.py` gera cartela animada com zoom e fade. Serve para peça de serviço e
+> teste de copy — **não** é o padrão de qualidade da conta. Peça principal se monta em
+> Figma Motion ou Cavalry, com material real dentro.
+
+## Rodar a camada base
 
 ```bash
-pip install playwright imageio-ffmpeg
-# se não houver Chromium no sistema: playwright install chromium
-```
+pip install playwright imageio-ffmpeg      # o Chromium do sistema é reaproveitado
 
-`render.py`, `build.py` e `capture_site.py` procuram o Chromium em `CHROME_PATH`,
-`/opt/pw-browsers/chromium-*`, `/usr/bin/chromium`. O ffmpeg vem de `FFMPEG_PATH`, do
-PATH ou do `imageio-ffmpeg` (build estático com libx264/aac).
-
-## Usar
-
-```bash
-# carrossel (máx. 10 slides — limite da API)
 python3 social/carousel/render.py social/carousel/deck-exemplo.json social/out/carrossel
-
-# reel de texto
-python3 social/reel/build.py social/reel/roteiro-exemplo.json social/out/reel.mp4
-python3 social/reel/build.py roteiro.json out.mp4 -a trilha.mp3   # com áudio próprio
-
-# reel de "site reveal"
 python3 social/reel/capture_site.py https://site-do-cliente.com social/out/reveal.mp4 --seg 8
-
-# publicar (mídia precisa estar numa URL pública)
-export IG_USER_ID=... IG_ACCESS_TOKEN=...
-python3 social/publish.py carrossel https://cdn/.../slide_01.jpg ... --legenda-de deck.json
-python3 social/publish.py reel https://cdn/.../reel.mp4 --legenda "..." 
-python3 social/publish.py cota            # quanto resta da janela de 24h
+python3 social/reel/build.py social/reel/roteiro-exemplo.json social/out/reel.mp4 -a trilha.mp3
 ```
 
-`--seco` mostra o payload sem publicar.
+Saída: slides `1080x1350` em `.jpg` + `.png`, vídeo `1080x1920 H.264 yuv420p +faststart`.
 
-## Formato dos arquivos de entrada
+**Deck de carrossel** — `type`: `cover` | `point` | `code` | `cta`; `**negrito**` destaca,
+`[texto]` aplica o gradiente cobre. **Roteiro de reel** — `cenas[]` com `seg` por cena.
 
-**Deck de carrossel** — `type`: `cover` | `point` | `code` | `cta`.
-`**negrito**` vira destaque; `[texto]` vira gradiente cobre.
+## Checklist antes de qualquer publicação
 
-```json
-{ "legenda": "vai como caption do post",
-  "slides": [
-    {"type": "cover", "kicker": "checklist", "title": "5 coisas que [travam] o site"},
-    {"type": "point", "kicker": "01 · performance", "title": "...", "text": "..."},
-    {"type": "code",  "title": "...", "code": ["antes → ...", "depois → **...**"]},
-    {"type": "cta",   "title": "...", "cta": "manda \"SITE\" no direct"}]}
-```
-
-**Roteiro de reel** — `seg` é a duração da cena. Total útil: 15-30s.
-
-```json
-{ "legenda": "...",
-  "cenas": [{"kicker": "3 segundos", "title": "gancho aqui", "text": "...", "seg": 2.6}]}
-```
-
-## Limites da API que o pipeline já respeita
-
-- carrossel: **máximo 10** mídias; imagem em **JPEG**; todas cortadas pelo aspecto da primeira;
-- reel: 9:16, H.264, `yuv420p`, `+faststart` (moov no início), 5-90s pela API;
-- mídia servida em **URL pública** (GitHub Pages, Cloudflare R2, Cloudinary);
-- **não dá** para usar áudio da biblioteca do Instagram por API — a trilha vem no arquivo;
-- a API **não agenda**: o agendamento é seu (cron / GitHub Actions) ou de terceiros.
+1. Tem material real (tela, código, mão, lugar) — não só texto sobre fundo.
+2. A afirmação é do Storm, não genérica.
+3. Movimento com easing próprio, stagger, overshoot.
+4. Primeiro frame legível a 270px de largura.
+5. Existe motivo para ser enviado no direct.
+6. Passou em `brand-voice` e `design-critique`.
+7. Trilha licenciada (Artlist/Epidemic) e pelo menos um efeito no corte-chave.
+8. Tem imperfeição humana.

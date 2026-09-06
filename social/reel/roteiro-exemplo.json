@@ -1,0 +1,9 @@
+{
+  "legenda": "Site lento é orçamento perdido. Esse é o padrão que eu entrego.\n\nSite sob medida, sem template. Manda \"SITE\" no direct.",
+  "cenas": [
+    {"kicker":"3 segundos","title":"Seu site demora [4,8s] pra abrir","seg":2.6},
+    {"kicker":"o custo","title":"Metade some antes da primeira dobra","text":"E você **pagou** pra trazer essa pessoa.","seg":3.2},
+    {"kicker":"o padrão","title":"O meu abre em [0,9s]","text":"Sem template, sem plugin inútil, sem build inchado.","seg":3.2},
+    {"kicker":"storm studio","title":"Site sob medida, feito à mão","text":"Manda **SITE** no direct.","seg":2.8}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "caption": "Todo site que eu entrego passa por esses 5 checkpoints antes de ir pro ar. Salva pra usar como checklist no seu.\n\nQuer o seu assim? Chama no direct.",
+  "slides": [
+    {"type":"cover","kicker":"checklist","title":"5 coisas que [travam] o site da sua empresa"},
+    {"type":"point","kicker":"01 · performance","title":"Ele demora mais de 3s pra abrir","text":"Metade das pessoas desiste antes de ver a primeira dobra. **Imagem pesada e script inútil** custam cliente."},
+    {"type":"point","kicker":"02 · mobile","title":"No celular, quebra","text":"70% do seu tráfego é mobile. Se o menu vaza ou o botão some, o negócio **parece amador**."},
+    {"type":"code","kicker":"03 · prova","title":"Nada prova que você é bom","text":"Sem case, sem foto real, sem número.","code":["antes  → \"soluções sob medida\"","depois → **\"3 semanas. site no ar. +40% de orçamento.\"**"]},
+    {"type":"point","kicker":"04 · contato","title":"O contato tem 6 campos","text":"Cada campo a mais derruba a conversão. **Nome, WhatsApp e o que você precisa.** Só."},
+    {"type":"cta","kicker":"storm studio","title":"Site sob medida, feito à mão","text":"Sem template. Você fala direto com quem constrói.","cta":"manda \"SITE\" no direct"}
+  ]
+}

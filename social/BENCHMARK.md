@@ -20,8 +20,19 @@ confiar em cada linha:
 | **NexLev `watch_instagram_video_and_ask`** | teardown real do reel: gancho, cortes, tipografia, áudio, CTA | **plano free = 1 vídeo por 24h** — é o gargalo do loop |
 | **Estudos publicados de 2026** | padrões agregados (hook rate, duração ótima, peso de *sends*) | média do mercado, não deste nicho |
 
-`instagram.com` está bloqueado para leitura direta deste ambiente, então a métrica por
-post (views, saves) só entra quando você abrir o Insights ou colar os números.
+**Limite de ambiente (verificado, não suposto):** esta sessão roda num contêiner remoto
+na nuvem, e o proxy de saída responde **403 ao CONNECT** para `www.instagram.com`,
+`i.instagram.com` e `graph.instagram.com`. Ou seja: daqui não há browser control do
+Instagram — nem com sessão logada, porque a sessão logada está na *sua* máquina e o
+contêiner não tem acesso ao seu perfil de navegador nem rota até o domínio.
+
+O que **funciona daqui**: o `watch_instagram_video_and_ask` do NexLev, porque quem baixa
+o vídeo é a infraestrutura deles, não este contêiner. É por isso que a fila de teardown
+é o caminho — e é por isso que a cota do plano free (1 vídeo/24h) é o gargalo real.
+
+O que exige **a sua máquina**: browser control de verdade — Claude Code desktop
+(`Cmd/Ctrl+Shift+B`) ou Claude in Chrome, onde o seu Instagram já está logado. Lá dá
+para navegar o perfil dos concorrentes, ler Insights e publicar.
 
 ---
 

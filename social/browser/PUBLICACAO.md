@@ -9,6 +9,12 @@ Regra que não se quebra: **o ambiente de publicação é sempre o mesmo** — m
 mesmo IP, mesma sessão logada. Login simultâneo de duas geografias é o sinal mais direto
 de restrição.
 
+⚠️ **Isto só roda na sua máquina.** Sessões do Claude Code na web/nuvem ficam num
+contêiner remoto cujo proxy de saída bloqueia `instagram.com` (403 no CONNECT), e que não
+tem acesso ao seu perfil de navegador. Publicar e navegar o Instagram exige o **Claude
+Code desktop** ou o **Claude in Chrome**, rodando aí — que é, aliás, exatamente o ambiente
+consistente que o protocolo acima exige.
+
 ---
 
 ## Fase 0 — warm-up (14 dias, antes de qualquer post de oferta)

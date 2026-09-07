@@ -3,9 +3,11 @@
 Levantamento de contas de estúdios de software/design com reels e carrosséis que
 funcionam, análise da estrutura comum e a fórmula extraída para o Storm Studio.
 
-**Estado:** iteração 1 de um loop. 23 contas mapeadas, fórmula estrutural extraída e
-**18 reels enfileirados** para teardown. A análise peça a peça está limitada pelo plano
-free do NexLev (1 vídeo por 24h) — ver *Método*.
+**Estado:** iteração 2. A iteração 1 mapeou 23 contas por busca web e extraiu a fórmula
+por padrão agregado. A iteração 2 (07/09/2026, Chrome logado no Instagram) levantou
+**views reais por reel de 16 contas**, abriu os maiores outliers para ler curtidas e
+rótulo de parceria, e verificou o nicho em PT-BR. Cinco achados mudaram a fórmula e a
+fila — ver *Iteração 2*. Dados brutos em `social/browser/raw/`.
 
 ---
 
@@ -20,23 +22,136 @@ confiar em cada linha:
 | **NexLev `watch_instagram_video_and_ask`** | teardown real do reel: gancho, cortes, tipografia, áudio, CTA | **plano free = 1 vídeo por 24h** — é o gargalo do loop |
 | **Estudos publicados de 2026** | padrões agregados (hook rate, duração ótima, peso de *sends*) | média do mercado, não deste nicho |
 
-**Limite de ambiente (verificado, não suposto):** esta sessão roda num contêiner remoto
-na nuvem, e o proxy de saída responde **403 ao CONNECT** para `www.instagram.com`,
-`i.instagram.com` e `graph.instagram.com`. Ou seja: daqui não há browser control do
-Instagram — nem com sessão logada, porque a sessão logada está na *sua* máquina e o
-contêiner não tem acesso ao seu perfil de navegador nem rota até o domínio.
-
-O que **funciona daqui**: o `watch_instagram_video_and_ask` do NexLev, porque quem baixa
-o vídeo é a infraestrutura deles, não este contêiner. É por isso que a fila de teardown
-é o caminho — e é por isso que a cota do plano free (1 vídeo/24h) é o gargalo real.
-
-O que exige **a sua máquina**: browser control de verdade — Claude Code desktop
-(`Cmd/Ctrl+Shift+B`) ou Claude in Chrome, onde o seu Instagram já está logado. Lá dá
-para navegar o perfil dos concorrentes, ler Insights e publicar.
+**Quarta fonte, a partir da iteração 2 — Instagram logado via Claude in Chrome (desktop):**
+a grade `/reels/` de cada conta expõe views por reel; o post individual expõe curtidas,
+comentários, data e o rótulo "Parceria paga"/colab. É métrica pública real, não
+estimativa, e é a fonte que manda quando contradiz as outras três. (A iteração 1 rodou
+num contêiner remoto sem rota para `instagram.com` — por isso dependia do NexLev.)
 
 ---
 
-## As 20 contas — quatro arquétipos
+## Iteração 2 — o que os números reais mostram
+
+### Método
+Chrome com o Instagram do Anderson logado. Para cada conta: grade `/reels/` (12 a 25
+reels mais recentes → views por reel), cabeçalho (seguidores, posts), captura da grade
+para ler o gancho queimado na capa. Para o maior reel de cada conta: post aberto para
+ler curtidas, comentários, data e rótulo de parceria. Handles verificados pela busca
+interna. Brutos: `social/browser/raw/<conta>.json`.
+
+### As 16 contas medidas
+
+Mediana e topo em views. `med/seg` = mediana ÷ seguidores — é a métrica que interessa
+para uma conta que começa do zero, porque mede quanto o formato entrega *por seguidor*.
+
+| Conta | Seguidores | Reels | Mediana | Topo | Topo/med | med/seg |
+|---|---:|---:|---:|---:|---:|---:|
+| **basementdotstudio** | 4.871 | 10 | 5.878 | 15.400 | 2,6x | **121%** |
+| _webstacks | 266 | 25 | 255 | 1.241 | 4,9x | 96% |
+| **dannpetty** | 16.200 | 12 | 5.950 | 41.100 | 6,9x | **37%** |
+| remsoftsistemas (BR) | 1.797 | 25 | 573 | 57.200 | 99,8x | 32% |
+| brachadesigns | 438 | 25 | 112 | 599 | 5,3x | 26% |
+| **deduxerstudio** | 2.695 | 13 | 553 | 4.890 | 8,8x | **21%** |
+| **awsmd_com** | 24.800 | 25 | 4.510 | 9.941 | 2,2x | **18%** |
+| brasilcode_ (BR) | 351.000 | 25 | 51.400 | 281.000 | 5,5x | 15% |
+| goingclearboston | 598 | 19 | 46 | 178 | 3,9x | 8% |
+| flux.academy | 53.800 | 24 | 3.826 | 258.000 | 67x | 7% |
+| golivehq | 49.200 | 15 | 2.395 | 70.900 | 30x | 5% |
+| experts_web_designs | 2.854 | 12 | 137 | 421 | 3,1x | 5% |
+| ramotion | 158.000 | 25 | 7.410 | 41.200 | 5,6x | 5% |
+| tubikstudio | 72.700 | 25 | 3.093 | 7.230 | 2,3x | 4% |
+| thechrisdo | 1.000.000 | 25 | 36.000 | 2.900.000 | 81x | 4% |
+| kangostudiio (BR) | 38 | 2 | 82 | 131 | — | — |
+
+### Os cinco achados que mudam a fórmula
+
+**1. Views mente. Os maiores "outliers" do nicho são anúncio ou colab.**
+Abri o maior reel de cada conta grande:
+
+| Reel | Views | Curtidas | Taxa | O que é de verdade |
+|---|---:|---:|---:|---|
+| flux.academy `DbavfSttMaC` | 258.000 | 116 | 0,045% | **Parceria paga com Webflow** |
+| thechrisdo `DcJNCj-hbvI` | 2.900.000 | 1.400 | 0,05% | **Parceria paga com LinkedIn** |
+| remsoftsistemas `DadpBfcgopP` | 57.200 | 17 | 0,03% | impulsionado (organico da conta é ~570) |
+| golivehq `Db_IIBBO4bC` | 70.900 | — | — | **colab** publicado pela fundadora + convidado famoso |
+| basementdotstudio `CmJm7PhKyGi` | 15.400 | 281 | 1,8% | colab publicado pelo **@awwwards** — orgânico, mas alcance do awwwards |
+| deduxerstudio `DGAjhCDs_xs` | 4.890 | 37 | 0,76% | **orgânico**, sem rótulo |
+
+Regra que sai daqui e entra no método: **outlier orgânico = views alto E taxa de curtida
+≥ 0,5% E sem rótulo de parceria/colab.** Abaixo de 0,1% é anúncio. A iteração 1 tinha
+enfileirado o reel pago da Webflow como "aula de precificação" — era mídia paga.
+
+**2. Portfólio bonito não gera alcance.** Tubik (72,7 mil seguidores) e Ramotion (158
+mil) entregam 4-5% dos seguidores por reel, curva plana, sem outlier — e a Ramotion
+está caindo: reels de 2022-23 faziam 10-41 mil, os de 2025-26 fazem 4-6 mil. Formato
+dos dois: reveal de UI/marca, sem rosto, sem frase no primeiro frame. Awesomed (24,8
+mil, mesmo formato) segura 18% só por cadência semanal cravada. **Feed = portfólio é
+o arquétipo mais fraco em alcance**, o oposto do que a iteração 1 supunha.
+
+**3. O que escala organicamente tem duas formas, e só duas.**
+(a) **Rosto + uma tese em tipografia grande no primeiro frame** — Chris Do ("Why does it
+cost this much?", 670 mil, fixado), flux.academy ("2 kinds of designers. Both in
+trouble" 16,2 mil; "$20k website. 'Dead' industry" 11,9 mil, contra mediana de 3,8 mil),
+Dann Petty (37% dos seguidores por reel).
+(b) **Produto real em movimento com craft acima do nicho** — deduxer (3D custom + motion
+do site do cliente, "watch till the end": 1,8x os seguidores, sem rosto e sem fala) e
+basement (ficção curta de marca em 3D: 121% dos seguidores na mediana, a melhor razão
+de todo o levantamento). É a única prova de estúdio puro crescendo sem aparecer.
+
+**4. Volume sem formato não é nada.** Bracha Designs: 3.381 posts, 438 seguidores,
+mediana de 112 views — rosto no carro com legenda palavra a palavra, todo dia.
+Experts Web Designs: barra de marca fixa em toda capa, um formato só ("Real Stories,
+Real Results!"), 137 de mediana. GoingClear, agência de 25 anos: 46. A cadência do
+padrão nº 6 só vale **depois** do formato existir.
+
+**5. PT-BR não está vazio — está lotado de conta fraca.** A busca interna por "sites
+sob medida", "estúdio de sites" e "criação de sites" devolve dezenas de contas (REM
+Soft, digital.sc, FIN, COSMOS, Estúdio de Sites, Kango, NEXO, StarTech, PHCode…). O
+que está vazio é o **patamar**: a REM Soft — concorrente mais próxima em posicionamento,
+"sites, apps e sistemas sob medida", 551 posts — tem mediana de 573 views; a Kango tem
+dois reels genéricos de motivação e 38 seguidores; a NEXO tem 5.113 seguidores e um
+post (conta de anúncio). A única conta PT-BR com tração real é a @brasilcode_ (351 mil,
+mediana 51 mil), que é curso de programação vencendo por humor de dev, não estúdio.
+**Correção à iteração 1:** o espaço não é "nicho vago", é "nicho sem ninguém acima de
+mil views orgânicas". E há **colisão de nome**: @stormstudio.br já existe como agência
+de "Marketing & Tecnologia" (1.334 seguidores), e a busca "storm studio" devolve cinco
+contas — o nome de exibição precisa carregar o diferenciador.
+
+### Correções de handle e de fila
+- `@designjoy` no Instagram é uma conta morta (7 posts, 24 seguidores). Brett Williams
+  cresceu no X — Designjoy segue como referência de *posicionamento*, não de Instagram.
+- `@uiadrian` não existe mais; `@thefutur` não existe (Chris Do é `@thechrisdo`);
+  basement é `@basementdotstudio`; deduxer é `@deduxerstudio`.
+- Dos 18 reels da fila v1, com dado real: `DDXh2ohNfDZ` (experts) tem **165 views**,
+  `C9h2wRkhEx9` (goingclear) **62**, `DFtj0utS1n-` (webstacks) **146**,
+  `DDEWSH6Idni` (deduxer) **2.178** (o único bom), `DIjMYMhqOLW` (tubik) 3.617 na média
+  da conta. A fila foi reordenada por evidência — `teardown.json` v2.
+
+### O que muda para o Storm
+
+- **Meta calibrada para os 90 primeiros dias:** com 0-500 seguidores, um reel orgânico
+  bom neste nicho faz **300-1.500 views** (webstacks, deduxer, REM Soft). Um outlier
+  orgânico real é **3-9x a mediana da própria conta**, não 100x. Qualquer coisa acima
+  disso sem curtida proporcional é anúncio — inclusive o nosso, se impulsionar.
+- **Não impulsionar cedo.** 57 mil views impulsionadas deram 17 curtidas e 1 comentário
+  à REM Soft: não vira seguidor, não vira lead, e estraga a leitura do que funciona.
+- **Base do feed = forma (b), uma vez por semana = forma (a).** A `BASTIDOR` e a
+  `SOB MEDIDA` já são (b); passam a ter a exigência do deduxer/basement: craft
+  visível acima do nicho (motion com física, 3D, tipografia cinética — capítulo B da
+  pesquisa) e a promessa "assiste até o fim" cumprida. A `RAIO-X` vira a peça (a):
+  rosto + tese de 4-6 palavras queimada no primeiro frame, no molde
+  "$20k website. 'Dead' industry." / "Planilha resolve até certo ponto. Depois
+  destrói." Isso resolve a "decisão sobre rosto e voz" do doc de pesquisa com dado:
+  uma por semana, e é a que dá alcance.
+- **Cadência cravada (awsmd) só depois de o formato provar 3x a mediana.** Antes disso,
+  cada peça é experimento; volume é o erro da Bracha.
+- **Nome de exibição** com o diferenciador, não só a palavra-chave — a palavra-chave já
+  é disputada por dezenas de contas: `Storm Studio · sites e sistemas sob medida, feitos
+  à mão`.
+
+---
+
+## As 20 contas — quatro arquétipos (iteração 1, por busca web)
 
 ### A. Estúdio-portfólio — o feed *é* o portfólio
 Quem vende projeto grande. Post = case, não dica.
@@ -156,7 +271,8 @@ slides** (*seamless*) — o corte visual no meio de um elemento força o swipe.
 
 Posicionamento resultante do cruzamento: **arquétipo A (estúdio-portfólio) com voz de B
 (operador que ensina) e CTA de C (direct)**. É exatamente o espaço do Designjoy — estúdio
-de uma pessoa que parece grande — que em PT-BR está vago.
+de uma pessoa que parece grande — que em PT-BR não tem ninguém acima de mil views
+orgânicas (ver *Iteração 2*, achado 5).
 
 Três séries fixas, cada uma com identidade própria:
 
@@ -171,23 +287,18 @@ Nome de exibição seguindo o padrão C (palavra-chave no nome, não só na bio)
 
 ---
 
-## Fila de teardown — as próximas iterações do loop
+## Fila de teardown v2 — as próximas iterações do loop
 
-Um teardown real por dia (limite do plano free). Ordem por proximidade com o Storm:
+`social/browser/teardown.json` foi reordenada com os números reais: primeiro os
+outliers **orgânicos** (taxa de curtida verificada ou views ≥ 3x a mediana da conta sem
+rótulo de parceria), depois os representativos de cada forma, por último o que a
+iteração 1 tinha posto na frente sem dado. Reels pagos/colab ficam na lista
+`descartados` com o motivo — não servem de modelo de formato.
 
-**18 reels já enfileirados** em `social/browser/teardown.json`, ordenados por proximidade
-com o Storm: começa pelo `flux.academy — projeto de US$ 50 mil` (precificação, que é a
-objeção nº 1 do seu cliente), passa por "mais um cliente feliz", casos de redesign,
-comparação didática e a série numerada de portfolio review.
-
-Cada teardown vira uma linha em `social/browser/teardown.json` com: gancho literal,
-duração de cada bloco, tipo de imagem, ritmo de corte, tipografia, CTA e o que é
-replicável. Ao fim, a fórmula acima é reescrita com evidência peça a peça em vez de
-padrão agregado.
-
-**Para acelerar:** com o NexLev pago o loop faz 15-20 teardowns numa tarde em vez de
-três semanas. Se você preferir não pagar, me mande os links dos reels que te chamaram
-atenção — a fila aceita qualquer URL pública.
+Cada teardown vira uma linha com: gancho literal, duração de cada bloco, tipo de
+imagem, ritmo de corte, tipografia, CTA e o que é replicável. Com o Chrome logado o
+teardown é feito assistindo o reel na tela (sem cota); o NexLev fica para transcrição
+em lote quando valer a pena.
 
 ---
 

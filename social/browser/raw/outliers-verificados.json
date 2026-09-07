@@ -1,0 +1,10 @@
+{"coletado":"2026-09-07","metodo":"abrir o post do maior reel de cada conta e ler curtidas, comentarios e rotulo de parceria",
+ "posts":[
+  {"conta":"flux.academy","sc":"DbavfSttMaC","views":258000,"likes":116,"comentarios":4,"taxa_like":"0,045%","rotulo":"Parceria paga com webflow","data":"2026-07-30","gancho_capa":"tela do Lovable/agent: 'Hey there, Ran' — 'I'm updating an entire Webflow site without even opening Webflow'","veredito":"PAGO. Nao e prova de formato."},
+  {"conta":"golivehq","sc":"Db_IIBBO4bC","views":70900,"likes":null,"comentarios":null,"rotulo":"colab com @promisetangeman (autora do post) + @coryrichards","data":"2026-08","gancho_capa":"CORY RICHARDS em caixa alta","veredito":"COLAB. Alcance vem da conta pessoal da fundadora e do convidado famoso, nao do formato do estudio."},
+  {"conta":"thechrisdo","sc":"DcJNCj-hbvI","views":2900000,"likes":1400,"comentarios":30,"taxa_like":"0,05%","rotulo":"Parceria paga com linkedin","data":"2026-08-17","veredito":"PAGO (anuncio do LinkedIn Hiring Pro)."},
+  {"conta":"basementdotstudio","sc":"CmJm7PhKyGi","views":15400,"likes":281,"comentarios":4,"taxa_like":"1,8%","rotulo":"colab com @awwwards (autor) — case study Shop MrBeast","data":"2022-12-14","veredito":"COLAB com curadoria de peso. Organico, mas o alcance e do awwwards."},
+  {"conta":"deduxerstudio","sc":"DGAjhCDs_xs","views":4890,"likes":37,"comentarios":3,"taxa_like":"0,76%","rotulo":"nenhum","data":"2025-02-13","gancho_capa":"scroll do site Sentio (Web3 AI agents), 3D custom + motion, 'watch till the end'","veredito":"ORGANICO. 1,8x os seguidores da conta sem rosto e sem fala — e o unico outlier organico de estudio puro."},
+  {"conta":"remsoftsistemas","sc":"DadpBfcgopP","views":57200,"likes":17,"comentarios":1,"taxa_like":"0,03%","rotulo":"nenhum visivel","data":"2026-07-06","veredito":"IMPULSIONADO (taxa de like 30x abaixo do organico)."}
+ ],
+ "regra_extraida":"views sozinho mente. Outlier organico = views alto E taxa de like >= 0,5% E sem rotulo de parceria/colab. Abaixo de 0,1% de like e anuncio."}

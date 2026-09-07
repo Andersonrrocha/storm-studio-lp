@@ -1,6 +1,7 @@
 # social/ — sistema de conteúdo do Storm Studio
 
 Estratégia, padrão de qualidade e ferramentas: **[PESQUISA-INSTAGRAM.md](./PESQUISA-INSTAGRAM.md)**.
+Quem faz conteúdo bom no nicho e o que os números reais mostram: **[BENCHMARK.md](./BENCHMARK.md)**.
 Como a conta é publicada (browser control, warm-up, fila): **[browser/PUBLICACAO.md](./browser/PUBLICACAO.md)**.
 
 ```
@@ -8,7 +9,9 @@ social/
 ├── PESQUISA-INSTAGRAM.md   pesquisa v2 — diagnóstico, stack premium, plano de 30 dias
 ├── browser/
 │   ├── PUBLICACAO.md       protocolo de publicação por navegador + warm-up da conta
-│   └── fila.json           o que está pronto para publicar
+│   ├── fila.json           o que está pronto para publicar
+│   ├── teardown.json       fila de reels para dissecar (v2, com views reais)
+│   └── raw/                views por reel e ganchos de 16 contas, lidos no Instagram logado
 ├── carousel/               camada base: sistema de slides na marca (JSON → 1080x1350)
 ├── reel/                   captura de tela e montagem de apoio (não é a peça principal)
 ├── publish_api.py          plano B via Graph API — fora do caminho escolhido

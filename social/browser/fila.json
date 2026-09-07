@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "carrossel-01",
+    "tipo": "carrossel",
+    "serie": "SOB MEDIDA",
+    "slides": 12,
+    "deck": "social/carousel/deck-01-parecer-grande.json",
+    "render": "social/.venv/bin/python social/carousel/render.py social/carousel/deck-01-parecer-grande.json social/out/carrossel-01",
+    "saida": "social/out/carrossel-01/slide_01.jpg … slide_12.jpg",
+    "legenda": "social/out/carrossel-01/legenda.txt",
+    "estado": "aguardando aprovação do Anderson",
+    "nota": "primeiro post da conta — publicar só depois do warm-up (browser/PUBLICACAO.md); material real: betochaves.com.br e stormstudio.dev, Lighthouse de 07/09/2026"
+  }
+]

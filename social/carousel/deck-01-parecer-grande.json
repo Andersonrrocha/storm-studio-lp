@@ -1,0 +1,140 @@
+{
+  "nome": "01 — Seu site faz sua empresa parecer menor do que ela é",
+  "serie": "SOB MEDIDA",
+  "caption": "Uma oficina com 30 anos de história tinha um site que \"não refletia a credibilidade da empresa\". Esse foi o briefing.\n\nO que eu fiz não foi \"deixar bonito\". Foram 6 decisões — cada uma com um motivo — que estão aqui, uma por slide, com a tela real.\n\nSalva se o seu site está te fazendo parecer menor do que você é.\n\nE se quiser saber o que está travando o seu: manda RAIO-X no direct com o link. Eu abro, olho e te devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #landingpage #criacaodesites #webdesign #pequenasempresas #esteio #rs",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "storm studio · sob medida 01",
+      "title": "Seu site faz sua empresa parecer [menor] do que ela é.",
+      "img": "social/out/shots/bc-mobile-hero.png"
+    },
+    {
+      "type": "turn",
+      "kicker": "o custo",
+      "title": "Quem chega julga em segundos. E vai embora antes de ligar.",
+      "text": "Uma oficina com **30 anos de história** me disse isso no primeiro contato: “nosso site estava desatualizado e não refletia a credibilidade da empresa.”"
+    },
+    {
+      "type": "shot",
+      "kicker": "01 · do zero",
+      "title": "Sem template. Do zero.",
+      "text": "Zero biblioteca de interface. O design inteiro num arquivo CSS escrito **para esse negócio** — não para mil.",
+      "code": [
+        "// app/globals.css · 0 bibliotecas de UI",
+        "--yellow: **#F5B400**;   // o amarelo da fachada",
+        "--black:  **#1A1A1A**;",
+        "--red:    **#E63946**;   // fita de perigo",
+        "--cream:  **#F5F2EA**;"
+      ]
+    },
+    {
+      "type": "shot",
+      "kicker": "02 · foto real",
+      "title": "Foto de verdade, não ícone desenhado.",
+      "text": "A fachada, a bancada, o carro. O cliente reconhece o lugar **antes de ler o nome**.",
+      "frame": "browser",
+      "url": "betochaves.com.br",
+      "img": "social/out/shots/bc-desktop-hero.png"
+    },
+    {
+      "type": "shot",
+      "kicker": "03 · um toque",
+      "title": "WhatsApp a um toque, com a mensagem já escrita.",
+      "text": "Quem está trancado fora do carro às 23h **não preenche formulário**. O botão segue a rolagem e já abre o chat com o texto pronto.",
+      "pos": "phone-r",
+      "textcls": "narrow",
+      "img": "social/out/shots/bc-mobile-wa.png",
+      "crop": [
+        0,
+        96,
+        780,
+        1688
+      ]
+    },
+    {
+      "type": "big",
+      "kicker": "04 · encontrado",
+      "big": "100",
+      "title": "Nota 100 em SEO. Nas duas páginas no ar.",
+      "text": "Google lê a página inteira e entende do que ela trata — quem procura encontra **antes de qualquer anúncio pago**.",
+      "sub": "lighthouse mobile · 07/09/2026<br>betochaves.com.br — seo <b>100</b> · acessibilidade <b>96</b> · cls <b>0</b><br>stormstudio.dev — seo <b>100</b> · boas práticas <b>100</b> · tbt <b>0 ms</b>"
+    },
+    {
+      "type": "shot",
+      "kicker": "05 · onde atende",
+      "title": "As 4 cidades, escritas na página.",
+      "text": "Esteio, Canoas, Sapucaia do Sul e São Leopoldo. Quem digita “chaveiro em Canoas” **precisa te achar** — e o Google só acha o que está escrito.",
+      "frame": "browser",
+      "url": "betochaves.com.br",
+      "img": "social/out/shots/bc-mobile-marquee.png",
+      "imgh": "auto"
+    },
+    {
+      "type": "shot",
+      "kicker": "06 · a página é a prova",
+      "title": "Quem vende craft mostra craft antes de falar dele.",
+      "text": "No meu site a tempestade reage ao scroll e o terminal roda o deploy. **Não digo que sei fazer — a página faz.**",
+      "frame": "browser",
+      "url": "stormstudio.dev",
+      "img": "social/out/shots/ss-desktop-hero.png"
+    },
+    {
+      "type": "turn",
+      "kicker": "a virada",
+      "title": "Todo mundo vende “site profissional”.",
+      "text": "Profissional é o mínimo. O que faz o cliente ligar é a empresa **parecer grande** — e isso não vem de template, vem de decisão."
+    },
+    {
+      "type": "quote",
+      "kicker": "o cliente",
+      "quote": "Passamos a contar com um layout moderno que transmite segurança, um fator essencial no nosso ramo.",
+      "who": "<b>Henrique</b> · Beto Chaves · Esteio/RS<br>oficina técnica há +30 anos · betochaves.com.br",
+      "img": "social/out/shots/bc-mobile-reviews.png",
+      "crop": [
+        0,
+        0,
+        780,
+        1592
+      ]
+    },
+    {
+      "type": "list",
+      "kicker": "resumo · salva",
+      "title": "As 6 decisões",
+      "items": [
+        [
+          "Do zero.",
+          "Sem template, sem biblioteca."
+        ],
+        [
+          "Foto real.",
+          "Fachada, bancada, carro."
+        ],
+        [
+          "Um toque.",
+          "WhatsApp com a mensagem pronta."
+        ],
+        [
+          "Nota 100.",
+          "SEO medido, não prometido."
+        ],
+        [
+          "Cidades escritas.",
+          "Busca local começa no texto."
+        ],
+        [
+          "Página é prova.",
+          "Mostra antes de falar."
+        ]
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "raio-x · grátis",
+      "title": "Quer saber o que está te fazendo parecer pequeno?",
+      "text": "Manda **RAIO-X** no direct com o link do seu site. Eu abro, olho e te devolvo os 3 pontos. De graça, sem call.",
+      "cta": "manda RAIO-X no direct"
+    }
+  ]
+}

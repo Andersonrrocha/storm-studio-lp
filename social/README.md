@@ -12,8 +12,9 @@ social/
 │   ├── fila.json           o que está pronto para publicar
 │   ├── teardown.json       fila de reels para dissecar (v2, com views reais)
 │   └── raw/                views por reel e ganchos de 16 contas, lidos no Instagram logado
-├── carousel/               camada base: sistema de slides na marca (JSON → 1080x1350)
-├── reel/                   captura de tela e montagem de apoio (não é a peça principal)
+├── carousel/               sistema de slides na marca (JSON → 1080x1350, faixa contínua, molduras de tela real)
+│   └── deck-01-parecer-grande.json   1º post: 12 slides, caso Beto Chaves
+├── reel/                   captura de tela real (capture_shots.py) e montagem de apoio
 ├── publish_api.py          plano B via Graph API — fora do caminho escolhido
 └── out/                    saídas (fora do git)
 ```
@@ -37,17 +38,23 @@ social/
 ## Rodar a camada base
 
 ```bash
-pip install playwright imageio-ffmpeg      # o Chromium do sistema é reaproveitado
+python3 -m venv social/.venv && social/.venv/bin/pip install playwright pillow   # usa o Google Chrome da máquina
 
-python3 social/carousel/render.py social/carousel/deck-exemplo.json social/out/carrossel
+social/.venv/bin/python social/reel/capture_shots.py social/out/shots          # telas reais dos sites no ar
+social/.venv/bin/python social/carousel/render.py social/carousel/deck-01-parecer-grande.json social/out/carrossel-01
 python3 social/reel/capture_site.py https://site-do-cliente.com social/out/reveal.mp4 --seg 8
 python3 social/reel/build.py social/reel/roteiro-exemplo.json social/out/reel.mp4 -a trilha.mp3
 ```
 
-Saída: slides `1080x1350` em `.jpg` + `.png`, vídeo `1080x1920 H.264 yuv420p +faststart`.
+Saída: slides `1080x1350` em `.jpg` + `.png`, `_sheet.jpg` (cada slide a 270px — o teste de
+legibilidade do feed), `legenda.txt`; vídeo `1080x1920 H.264 yuv420p +faststart`.
 
-**Deck de carrossel** — `type`: `cover` | `point` | `code` | `cta`; `**negrito**` destaca,
-`[texto]` aplica o gradiente cobre. **Roteiro de reel** — `cenas[]` com `seg` por cena.
+**Deck de carrossel** — `type`: `cover` | `shot` | `big` | `turn` | `quote` | `list` | `cta`.
+`img` (caminho na raiz do repo) entra em moldura `frame: phone | browser`, `crop: [l,t,r,b]`
+recorta a fonte, `pos: phone-r` põe o fone à direita. `**negrito**` destaca, `[texto]` aplica
+o gradiente cobre, `// comentário` esmaece dentro de `code`. Os slides são renderizados numa
+faixa contínua: a linha elétrica atravessa os cortes (carrossel *seamless*). Até 20 slides
+(publicação pelo navegador). **Roteiro de reel** — `cenas[]` com `seg` por cena.
 
 ## Checklist antes de qualquer publicação
 

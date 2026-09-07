@@ -1,9 +1,24 @@
 {
-  "limite": "NexLev plano free: 1 análise de vídeo do Instagram por 24h",
+  "limite": "NexLev plano free: 1 análise de vídeo do Instagram por 24h. Com plano pago, a fila roda inteira de uma vez.",
   "fila": [
-    {"ordem": 1, "conta": "experts_web_designs", "shortcode": "DDXh2ohNfDZ", "estado": "pendente"},
-    {"ordem": 2, "conta": "golivehq", "shortcode": "C9JJyC4MeYl", "estado": "pendente"},
-    {"ordem": 3, "conta": "uiadrian", "shortcode": "Cxx0bKrNP9B", "estado": "pendente"}
+    {"n": 1,  "conta": "flux.academy",        "shortcode": "C7grIV0NQuv", "nota": "projeto de site de US$50k — precificação", "estado": "pendente"},
+    {"n": 2,  "conta": "experts_web_designs", "shortcode": "DDXh2ohNfDZ", "nota": "'mais um cliente feliz' — entrega como conteúdo", "estado": "pendente"},
+    {"n": 3,  "conta": "golivehq",            "shortcode": "C9JJyC4MeYl", "nota": "dica de site + build", "estado": "pendente"},
+    {"n": 4,  "conta": "deduxer",             "shortcode": "DDEWSH6Idni", "nota": "case de redesign de site", "estado": "pendente"},
+    {"n": 5,  "conta": "_webstacks",          "shortcode": "DFtj0utS1n-", "nota": "refresh vs redesign — formato didático", "estado": "pendente"},
+    {"n": 6,  "conta": "flux.academy",        "shortcode": "DJEXommNSoG", "nota": "portfólio de agência", "estado": "pendente"},
+    {"n": 7,  "conta": "flux.academy",        "shortcode": "C4fnELUt2tf", "nota": "'quanto tempo leva' — objeção de prazo", "estado": "pendente"},
+    {"n": 8,  "conta": "uiadrian",            "shortcode": "Cxx0bKrNP9B", "nota": "lançamento da própria agência", "estado": "pendente"},
+    {"n": 9,  "conta": "tubikstudio",         "shortcode": "DIjMYMhqOLW", "nota": "estúdio-portfólio, 72k seguidores", "estado": "pendente"},
+    {"n": 10, "conta": "goingclearboston",    "shortcode": "C9h2wRkhEx9", "nota": "agência local", "estado": "pendente"},
+    {"n": 11, "conta": "flux.academy",        "shortcode": "DAawpp_go0N", "nota": "portfolio review — série recorrente", "estado": "pendente"},
+    {"n": 12, "conta": "flux.academy",        "shortcode": "DBv10cLN4H3", "nota": "portfolio review nº 13", "estado": "pendente"},
+    {"n": 13, "conta": "flux.academy",        "shortcode": "DIbK7YBNeC2", "nota": "opinião sobre web design criativo", "estado": "pendente"},
+    {"n": 14, "conta": "flux.academy",        "shortcode": "Co4y33mJgDd", "nota": "formato 'how I'", "estado": "pendente"},
+    {"n": 15, "conta": "flux.academy",        "shortcode": "C0KQrP8PE2-", "nota": "—", "estado": "pendente"},
+    {"n": 16, "conta": "brachadesigns",       "shortcode": "DGV-lT2pCE5", "nota": "'pensando em redesenhar?' — gancho de objeção", "estado": "pendente"},
+    {"n": 17, "conta": "optimizeforseo",      "shortcode": "DHSKO_ivg30", "nota": "quando considerar um redesign", "estado": "pendente"},
+    {"n": 18, "conta": "hxrshityadav",        "shortcode": "DGBWwidh6Mv", "nota": "Webflow/Framer, tech & growth", "estado": "pendente"}
   ],
   "analisados": []
 }

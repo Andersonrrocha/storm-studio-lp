@@ -3,8 +3,9 @@
 Levantamento de contas de estúdios de software/design com reels e carrosséis que
 funcionam, análise da estrutura comum e a fórmula extraída para o Storm Studio.
 
-**Estado:** iteração 1 de um loop. Lista montada e fórmula estrutural extraída;
-os teardowns peça a peça entram nas próximas iterações (ver *Método* e a fila).
+**Estado:** iteração 1 de um loop. 23 contas mapeadas, fórmula estrutural extraída e
+**18 reels enfileirados** para teardown. A análise peça a peça está limitada pelo plano
+free do NexLev (1 vídeo por 24h) — ver *Método*.
 
 ---
 
@@ -52,6 +53,7 @@ Quem cresce rápido. É de onde vem a **fórmula de carrossel**.
 | 13 | **Ran Segall / Flux Academy** | 17 anos de ofício; conteúdo curto de UI/UX + negócio digital, ancorado no YouTube |
 | 14 | **Brett Williams / Designjoy** | Agência de **uma pessoa** faturando ~US$ 100 mil/mês — a prova viva de que estúdio individual pode parecer grande. É o caso mais próximo do posicionamento do Storm |
 | 15 | **@dannpetty** | 20+ anos, "o web designer mais rápido do mundo" — ângulo de velocidade; 17 mil no IG, 174 mil no X |
+| 15b | **@flux.academy** | A conta com **mais reels indexados** de todo o levantamento, e a mais sistemática: séries numeradas (`Portfolio Review #13`), objeções viradas em gancho ("quanto tempo leva"), preço explícito ("projeto de US$ 50 mil"). É a aula de estrutura |
 
 ### C. Agência local / nicho — vende serviço direto
 De onde sai o formato de **antes/depois** e o CTA de direct.
@@ -63,6 +65,9 @@ De onde sai o formato de **antes/depois** e o CTA de direct.
 | 18 | **@uiadrian** (Adrian Kuleszo) | Anunciou a própria agência em reel e abriu vagas de retainer. Reel: `Cxx0bKrNP9B` |
 | 19 | **@newyorkwebsitedesigner** / **@modernconnectionuk** | Geografia no nome — SEO de busca local dentro do Instagram |
 | 20 | **@freelance.webdesign** | Nome de exibição = a própria palavra-chave que o cliente digita |
+| 21 | **@_webstacks** | Formato didático de comparação ("refresh vs redesign") — resolve dúvida de compra |
+| 22 | **@deduxer** / **@goingclearboston** / **@brachadesigns** | Case de redesign e gancho de objeção; agência local com CTA direto |
+| 23 | **@tubikstudio** (72 mil) · **@framer** (275 mil) · **@awsmd_com** (25 mil) | Referência de escala: produto e estúdio grandes publicando no mesmo nicho |
 
 ### D. Curadoria — alcance alto, conversão baixa
 **@welovewebdesign** e similares. Volume de inspiração; serve como termômetro do que o
@@ -159,12 +164,10 @@ Nome de exibição seguindo o padrão C (palavra-chave no nome, não só na bio)
 
 Um teardown real por dia (limite do plano free). Ordem por proximidade com o Storm:
 
-| Ordem | Alvo | Shortcode | Estado |
-|---|---|---|---|
-| 1 | @experts_web_designs — "happy client" | `DDXh2ohNfDZ` | pendente |
-| 2 | @golivehq — dica + build | `C9JJyC4MeYl` | pendente |
-| 3 | @uiadrian — lançamento de agência | `Cxx0bKrNP9B` | pendente |
-| 4-20 | Ramotion, basement.studio, Designjoy, Flux, Tubik, Awsmd… | coletar | a coletar |
+**18 reels já enfileirados** em `social/browser/teardown.json`, ordenados por proximidade
+com o Storm: começa pelo `flux.academy — projeto de US$ 50 mil` (precificação, que é a
+objeção nº 1 do seu cliente), passa por "mais um cliente feliz", casos de redesign,
+comparação didática e a série numerada de portfolio review.
 
 Cada teardown vira uma linha em `social/browser/teardown.json` com: gancho literal,
 duração de cada bloco, tipo de imagem, ritmo de corte, tipografia, CTA e o que é

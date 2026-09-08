@@ -5,10 +5,56 @@
     "serie": "SOB MEDIDA",
     "slides": 12,
     "deck": "social/carousel/deck-01-parecer-grande.json",
-    "render": "social/.venv/bin/python social/carousel/render.py social/carousel/deck-01-parecer-grande.json social/out/carrossel-01",
-    "saida": "social/out/carrossel-01/slide_01.jpg … slide_12.jpg",
-    "legenda": "social/out/carrossel-01/legenda.txt",
-    "estado": "aguardando aprovação do Anderson",
-    "nota": "primeiro post da conta — publicar só depois do warm-up (browser/PUBLICACAO.md); material real: betochaves.com.br e stormstudio.dev, Lighthouse de 07/09/2026"
+    "saida": "social/out/carrossel-01/",
+    "estado": "final — aguardando aprovação",
+    "ordem_sugerida": 1,
+    "gates": [
+      "aprovar texto",
+      "avisar o Henrique (site antigo + citação)",
+      "conta aquecida 14 dias",
+      "nome de exibição com diferenciador (colisão @stormstudio.br)"
+    ]
+  },
+  {
+    "id": "carrossel-04",
+    "tipo": "carrossel",
+    "serie": "COMO EU TRABALHO",
+    "slides": 11,
+    "deck": "social/carousel/deck-04-como-trabalho.json",
+    "saida": "social/out/carrossel-04/",
+    "estado": "final — aguardando aprovação",
+    "ordem_sugerida": 2,
+    "gates": [
+      "'você aprova antes de eu construir' (slide 4) e 'valor fechado' (slide 7) são promessas suas — confirmar",
+      "sugestão fora do escopo: trocar o H2 da landing 'Do esboço ao deploy' → 'ao ar'"
+    ]
+  },
+  {
+    "id": "carrossel-02",
+    "tipo": "carrossel",
+    "serie": "QUEM CONSTRÓI",
+    "slides": 12,
+    "deck": "social/carousel/deck-02-quem-constroi.json",
+    "saida": "social/out/carrossel-02/",
+    "estado": "final — aguardando aprovação",
+    "ordem_sugerida": 3,
+    "gates": [
+      "números do portfólio sem citar empregador atual — decisão sua",
+      "'respondo pessoalmente' → conferir Solicitações todo dia"
+    ]
+  },
+  {
+    "id": "carrossel-03",
+    "tipo": "carrossel",
+    "serie": "O QUE FAZEMOS",
+    "slides": 11,
+    "deck": "social/carousel/deck-03-o-que-fazemos.json",
+    "saida": "social/out/carrossel-03/",
+    "estado": "final — aguardando aprovação",
+    "ordem_sugerida": 4,
+    "gates": [
+      "WIMM 'em produção' (landing) vs 'pausado' (atlas) — confirmar",
+      "críticos: catálogo de 4 serviços é o formato mais fraco em alcance; alternativa = 4 peças SOB MEDIDA"
+    ]
   }
 ]

@@ -109,7 +109,8 @@ em `_fatos.md`.
 
 Modelo dos críticos: com regras bem definidas como acima, Sonnet basta; Opus para o de
 marketing quando a peça tem muita afirmação de fato. (Ciclos do carrossel 01 rodaram no
-modelo padrão da sessão; a partir do carrossel 02, Sonnet — a validar.)
+modelo padrão da sessão; decks 02–04 rodaram em Sonnet: 21 pareceres, pegaram fatos
+errados, jargão, recortes e até um bug de CSS — validado.)
 
 Erros que os críticos pegaram e eu não tinha visto: "fachada, bancada, carro" (só a
 fachada existe como foto); citação atribuída ao "primeiro contato" (era do depoimento

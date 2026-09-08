@@ -29,8 +29,15 @@
       "text": "A fachada como ela é na rua — não foto de banco de imagem. O cliente reconhece o lugar **antes de ler o nome**.",
       "frame": "browser",
       "url": "betochaves.com.br",
-      "img": "social/out/shots/bc-desktop-hero.png",
-      "stamp": "hoje"
+      "img": "social/out/shots/bc-desktop-full.png",
+      "stamp": "hoje",
+      "crop": [
+        0,
+        0,
+        2880,
+        1900
+      ],
+      "imgh": "auto"
     },
     {
       "type": "shot",

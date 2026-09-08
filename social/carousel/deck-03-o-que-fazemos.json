@@ -1,7 +1,7 @@
 {
   "nome": "03 — O que sai do laboratório",
   "serie": "O QUE FAZEMOS",
-  "versao": "ciclo 2",
+  "versao": "final",
   "caption": "Não é só site. Quatro coisas saem do Storm Studio — e todas nascem do mesmo problema: o negócio cresceu e o improviso não acompanhou.\n\nSite que faz a empresa parecer grande. Sistema que tira o negócio da planilha. IA que faz uma tarefa chata. Agente que trabalha enquanto você dorme. Cada uma com tela real aqui dentro.\n\nEnvia pra quem ainda controla a agenda no WhatsApp.\n\nComenta o ramo do seu negócio que eu digo qual das 4 resolve primeiro.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #sistemasobmedida #criacaodesites #automacao #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
@@ -27,8 +27,15 @@
       "text": "Identidade, texto e desempenho de verdade — não template requentado. Para quem ainda não tem presença digital, **ou tem algo improvisado**.",
       "frame": "browser",
       "url": "betochaves.com.br",
-      "img": "social/out/shots/bc-desktop-hero.png",
-      "stamp": "cliente"
+      "img": "social/out/shots/bc-desktop-full.png",
+      "stamp": "cliente",
+      "crop": [
+        0,
+        0,
+        2880,
+        1900
+      ],
+      "imgh": "auto"
     },
     {
       "type": "shot",

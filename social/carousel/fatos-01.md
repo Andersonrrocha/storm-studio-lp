@@ -58,3 +58,6 @@ Fato novo (slide 8): "4,5 de 422 pessoas" — bloco de avaliações do Google na
 | 3 / 11 | "A fachada, a bancada, o carro" | no repo do cliente só há `fachada.jpeg` como foto de lugar; chave e carimbo são imagens de produto; não existe foto de bancada nem de carro | "A fachada como ela é na rua — não foto de banco de imagem" |
 | 2 / legenda | "me disse no primeiro contato" / "Esse foi o briefing" | a citação é do depoimento pós-projeto, não do briefing | "me resumiu assim" / "Esse era o problema" |
 | 8 | captura com a barra fixa carimbada no meio das avaliações | artefato de captura de página inteira | recapturado com elementos fixed/sticky ocultos; "4,5 estrelas em 422 avaliações" |
+
+## Pós-ciclo 3 (08/09/2026)
+- Slide 3: a captura de viewport cortava o título do site em 'TÉCNICO DE ALTA'; agora usa a captura de página inteira com a frase completa ('…ALTA COMPLEXIDADE').

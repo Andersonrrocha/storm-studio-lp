@@ -73,7 +73,7 @@
       "text": "Cada mudança aprovada vai ao ar com registro — o que mudou, quando, quem aprovou — **dentro da hospedagem que você já usa**. Domínio, medição, suporte.",
       "textcls": "mid",
       "code": [
-        "// publicação",
+        "// exemplo: publicação com registro",
         "mudança aprovada → teste → no ar",
         "registro: o que mudou · quando · quem aprovou",
         "suporte: quem conserta é quem fez"
@@ -127,7 +127,7 @@
         ],
         [
           "Lançar.",
-          "Publicação automática, suporte."
+          "Publicação com registro, suporte."
         ],
         [
           "Custo previsível.",

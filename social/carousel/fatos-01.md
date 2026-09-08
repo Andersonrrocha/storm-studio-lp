@@ -62,3 +62,4 @@ Fato novo (slide 8): "4,5 de 422 pessoas" — bloco de avaliações do Google na
 ## Pós-ciclo 3 (08/09/2026)
 - Slide 3: a captura de viewport cortava o título do site em 'TÉCNICO DE ALTA'; agora usa a captura de página inteira com a frase completa ('…ALTA COMPLEXIDADE').
 - Voz do estúdio (08/09): 'me resumiu' → 'resumiu'; CTA e legenda em 'a gente'; assinatura 'Storm Studio'.
+- Slide 3: o site do cliente quebra 'COMPLEXIDADE' em 'COMPLEXIDAD/E.' em qualquer largura (coluna fixa) — recorte termina depois de 'AO AUTOMOTIVO' para não expor a quebra nem cortar frase no meio.

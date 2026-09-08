@@ -69,7 +69,7 @@ def seam_svg(n, seed=7):
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{total}" height="{H}">'
            f'<defs><filter id="g"><feGaussianBlur stdDeviation="5"/></filter></defs>'
            f'<path d="{d}" fill="none" stroke="#fb923c" stroke-width="7" opacity=".10" filter="url(#g)"/>'
-           f'<path d="{d}" fill="none" stroke="#fb923c" stroke-width="1.3" opacity=".42"/>'
+           f'<path d="{d}" fill="none" stroke="#fb923c" stroke-width="1.3" opacity=".32"/>'
            f'</svg>')
     return "data:image/svg+xml;base64," + base64.b64encode(svg.encode()).decode()
 

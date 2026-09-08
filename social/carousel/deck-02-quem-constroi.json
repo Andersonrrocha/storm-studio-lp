@@ -2,7 +2,7 @@
   "nome": "02 — Você fala com quem constrói (o estúdio)",
   "serie": "O ESTÚDIO",
   "versao": "voz do estúdio",
-  "caption": "Storm Studio faz software sob medida — site, aplicativo, automação, fluxo com agentes — e nada genérico. Este post é sobre como o estúdio trabalha, e termina com 6 perguntas para fazer a qualquer um que for fazer seu site (inclusive a nós).\n\nMais de 8 anos de experiência em projetos no Brasil e no exterior; expectativa, necessidade e custo alinhados antes de começar; sempre em contato até a entrega.\n\nEnvia pra quem está decidindo quem vai fazer o site da empresa.\n\nComenta o ramo do seu negócio que a gente diz qual das 6 perguntas pesa mais pra você.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa. A gente abre, olha e devolve os 3 pontos. De graça, sem call.\n\n— Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "caption": "Storm Studio faz software sob medida — site, aplicativo, automação, fluxo com agentes — e nada genérico. Este post é sobre como o estúdio trabalha, e termina com 6 perguntas para fazer a qualquer um que for fazer seu site (inclusive a nós).\n\nMais de 8 anos de experiência em diferentes segmentos, no Brasil e no exterior; expectativa, necessidade e custo alinhados antes de começar; sempre em contato até a entrega.\n\nEnvia pra quem está decidindo quem vai fazer o site da empresa.\n\nComenta o ramo do seu negócio que a gente diz qual das 6 perguntas pesa mais pra você.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa. A gente abre, olha e devolve os 3 pontos. De graça, sem call.\n\n— Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
@@ -24,22 +24,17 @@
       "type": "shot",
       "kicker": "01 · sob medida",
       "title": "Nada genérico. Cada projeto nasce da sua necessidade.",
-      "text": "Site, aplicativo, automação ou fluxo com agentes — **o que resolve, no tamanho que resolve.** Não existe pacote pronto esperando um cliente.",
+      "text": "Site, aplicativo, automação ou fluxo com agentes — **o que resolve, no tamanho que resolve.** O briefing começa perguntando o que você precisa, e “ainda não sei” é uma resposta válida.",
       "frame": "browser",
-      "url": "stormstudio.dev",
-      "img": "social/out/shots/ss-processo.png",
-      "crop": [
-        0,
-        720,
-        2880,
-        1802
-      ]
+      "url": "stormstudio.dev/#contato",
+      "img": "social/out/shots/ss-form-desktop.png",
+      "imgh": "auto"
     },
     {
       "type": "shot",
       "kicker": "02 · experiência",
       "title": "Mais de 8 anos, no Brasil e no exterior.",
-      "text": "Projetos em diferentes segmentos — de portal financeiro para **milhões de usuários** a plataforma reconstruída para **27 países**. Escala grande ensina o que não pode falhar; é isso que trazemos para o seu negócio.",
+      "text": "Projetos em diferentes segmentos — de plataforma financeira a oficina de bairro — no Brasil e no exterior. **Escala grande ensina o que não pode falhar; é isso que trazemos para o seu negócio.**",
       "frame": "browser",
       "url": "stormstudio.dev",
       "img": "social/out/shots/ss-hero.png",
@@ -56,9 +51,15 @@
       "title": "Expectativa, necessidade e custo — alinhados antes de começar.",
       "text": "Conversa antes de proposta; proposta por escrito antes de código. **Sempre em contato:** você sabe em que ponto o projeto está, sem precisar perguntar.",
       "frame": "browser",
-      "url": "stormstudio.dev/#contato",
-      "img": "social/out/shots/ss-form-desktop.png",
-      "imgh": "auto"
+      "url": "stormstudio.dev/#processo",
+      "img": "social/out/shots/ss-processo.png",
+      "imgh": "auto",
+      "crop": [
+        0,
+        684,
+        2880,
+        1765
+      ]
     },
     {
       "type": "shot",
@@ -103,7 +104,7 @@
       "kicker": "a virada",
       "flip": true,
       "title": "Agência grande parece segurança. O risco real é o contrário.",
-      "text": "Quem te vendeu não é quem constrói, e não é quem conserta. Na Storm, quem conversa com você é quem constrói — **com nome, site e telefone.** É isso que a agência grande não consegue copiar."
+      "text": "Quem te vendeu não é quem constrói, e não é quem conserta. Na Storm, quem conversa com você é quem constrói — **com nome, site e telefone da Storm.** É isso que a agência grande não consegue copiar."
     },
     {
       "type": "quote",

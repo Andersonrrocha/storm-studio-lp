@@ -33,3 +33,4 @@
 - Slide 2 ('o custo') deixa de usar o molde da virada (raio grande só no slide 9, como manda o GUIA §2).
 - Slide 4: recorte inclui a frase inteira do portfólio ('…tranquilidade em produção.').
 - Voz do estúdio (08/09): slides 3/4/5 deixam de apresentar o Anderson ('uma pessoa', portfólio) e passam a apresentar o estúdio: sob medida, 'mais de 8 anos, Brasil e exterior' (**afirmação do Anderson**; o portfólio público diz '7+ anos desde 2019' — a diferença é dele), alinhamento expectativa/necessidade/custo. Slide 7 sem 'um, não trinta'. Virada sem 'estúdio de uma pessoa'.
+- Verificação final: slide 3 passa a usar o formulário (as opções de 'o que você precisa' provam 'nasce da necessidade'); slide 5 usa a linha do tempo inteira; slide 4 sem os números do portfólio (não há prova sem expor o Anderson) — fica a frase geral do estúdio; 'nome, site e telefone da Storm'.

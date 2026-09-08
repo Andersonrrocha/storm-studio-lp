@@ -1,12 +1,12 @@
 {
-  "nome": "04 — Do esboço ao deploy",
-  "serie": "COMO EU TRABALHO",
-  "versao": "final",
-  "caption": "O medo de contratar site é o medo de não saber o que está acontecendo. Prazo que estica, escopo que muda, orçamento que \"depende\".\n\nMeu processo tem quatro etapas — descobrir, desenhar, construir, lançar — e você vê cada uma. Está aqui com a tela real de cada passo.\n\nEnvia pra quem já pagou por um site e passou um mês sem notícia.\n\nComenta qual das 4 etapas te dá mais medo de pular — descobrir, desenhar, construir ou lançar.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #processo #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "nome": "04 — Do esboço ao ar (como trabalhamos)",
+  "serie": "COMO TRABALHAMOS",
+  "versao": "voz do estúdio",
+  "caption": "O medo de contratar site é o medo de não saber o que está acontecendo. Prazo que estica, escopo que muda, orçamento que \"depende\".\n\nNosso processo tem quatro etapas — descobrir, desenhar, construir, lançar — e você vê cada uma. Está aqui com a tela real de cada passo.\n\nEnvia pra quem já pagou por um site e passou um mês sem notícia.\n\nComenta qual das 4 etapas te dá mais medo de pular — descobrir, desenhar, construir ou lançar.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e a gente devolve os 3 pontos. De graça, sem call.\n\n— Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #processo #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
-      "kicker": "storm studio · como eu trabalho",
+      "kicker": "storm studio · como trabalhamos",
       "title": "Sem caixa-preta. Do esboço ao [ar].",
       "swipe": "as 4 etapas, com a tela real →",
       "frame": "browser",
@@ -42,7 +42,7 @@
       "type": "shot",
       "kicker": "02 · desenhar",
       "title": "Arquitetura e design caminham juntos.",
-      "text": "O que entra, o que fica de fora e por quê — documentado. A identidade vira código antes da primeira tela. **Você aprova antes de eu construir.**",
+      "text": "O que entra, o que fica de fora e por quê — documentado. A identidade vira código antes da primeira tela. **Você aprova antes de construirmos.**",
       "textcls": "mid",
       "code": [
         "// app/globals.css · Beto Chaves",
@@ -56,27 +56,27 @@
       "type": "shot",
       "kicker": "03 · construir",
       "title": "Entregas frequentes. Nada de sumir por um mês.",
-      "text": "Você vê o site crescendo num endereço só seu e recebe o registro de cada entrega — **com data e o que foi feito**, para nunca ficar sem saber quanto falta.",
+      "text": "Você vê o site crescendo num endereço só seu e recebe o registro de cada entrega — **o que foi feito e o que falta** — sem precisar perguntar.",
       "textcls": "mid",
       "code": [
-        "// git log · stormstudio.dev",
-        "2026-07-26  feat(identidade): marca 2a…",
-        "2026-07-20  fix(processo): path da timeline…",
-        "2026-07-19  ci: deploy Pages via GitHub…",
-        "2026-07-19  fix(deploy): bypass Jekyll…"
+        "// como fica o registro de uma entrega",
+        "entrega 01   identidade e página inicial   ✓",
+        "entrega 02   serviços e contato            ✓",
+        "entrega 03   ajustes pedidos por você      ✓",
+        "entrega 04   revisão final e publicação    →"
       ]
     },
     {
       "type": "shot",
       "kicker": "04 · lançar",
       "title": "Publicação com registro. O lançamento é o começo.",
-      "text": "Cada mudança aprovada vai ao ar com registro — é assim no meu site, e é o método que eu levo para o seu, **dentro da hospedagem que você já usa**. Domínio, medição, suporte.",
+      "text": "Cada mudança aprovada vai ao ar com registro — o que mudou, quando, quem aprovou — **dentro da hospedagem que você já usa**. Domínio, medição, suporte.",
       "textcls": "mid",
       "code": [
-        "// deploy.yml · stormstudio.dev",
-        "on:  push → branches: [master]",
-        "job: deploy-pages",
-        "  ✓ build   ✓ upload   ✓ publicado"
+        "// publicação",
+        "mudança aprovada → teste → no ar",
+        "registro: o que mudou · quando · quem aprovou",
+        "suporte: quem conserta é quem fez"
       ]
     },
     {
@@ -103,18 +103,15 @@
       "text": "Quatro etapas, as mesmas em todo projeto — landing page ou sistema. **O que muda é o tamanho, não o método.** Template custa menos porque pula as duas primeiras — e é por isso que todo site de template parece igual."
     },
     {
-      "type": "big",
-      "kicker": "no meu próprio site",
-      "big": "14",
-      "unit": "publicações · nenhuma à mão",
-      "title": "Quatorze vezes no ar. Nenhuma te deixando no escuro.",
-      "text": "É o registro público do meu site: cada mudança aprovada, publicada com data. **O mesmo método que eu levo para o seu.**",
-      "sub": "github.com/Andersonrrocha/storm-studio-lp/actions · 14 workflow runs · 08/09/2026"
+      "type": "quote",
+      "kicker": "o cliente",
+      "quote": "Além de reforçar qualidade, organização e confiança aos clientes.",
+      "who": "<b>Henrique</b> · Beto Chaves · Esteio/RS<br>oficina técnica há +30 anos<br>betochaves.com.br"
     },
     {
       "type": "list",
       "kicker": "resumo · salva",
-      "title": "Como eu trabalho",
+      "title": "Como trabalhamos",
       "items": [
         [
           "Descobrir.",
@@ -137,7 +134,7 @@
           "Valor fechado antes."
         ],
         [
-          "Uma pessoa.",
+          "Sem caixa-preta.",
           "Do esboço ao ar."
         ]
       ]
@@ -146,7 +143,7 @@
       "type": "cta",
       "kicker": "raio-x · grátis",
       "title": "Quer ver isso aplicado ao seu site?",
-      "text": "Manda **RAIO-X** no direct com o link — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos, em ordem do que mais pesa. **De graça, sem call.**",
+      "text": "Manda **RAIO-X** no direct com o link do seu site — ou o Instagram da empresa. A gente abre, olha e devolve os 3 pontos, em ordem do que mais pesa. **De graça, sem call.**",
       "cta": "manda RAIO-X no direct"
     }
   ]

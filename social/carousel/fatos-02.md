@@ -32,3 +32,4 @@
 - Marketing: NADA MATERIAL. Polimentos: slide 9 sem 'a única coisa'; legenda 'mais de 4 milhões'.
 - Slide 2 ('o custo') deixa de usar o molde da virada (raio grande só no slide 9, como manda o GUIA §2).
 - Slide 4: recorte inclui a frase inteira do portfólio ('…tranquilidade em produção.').
+- Voz do estúdio (08/09): slides 3/4/5 deixam de apresentar o Anderson ('uma pessoa', portfólio) e passam a apresentar o estúdio: sob medida, 'mais de 8 anos, Brasil e exterior' (**afirmação do Anderson**; o portfólio público diz '7+ anos desde 2019' — a diferença é dele), alinhamento expectativa/necessidade/custo. Slide 7 sem 'um, não trinta'. Virada sem 'estúdio de uma pessoa'.

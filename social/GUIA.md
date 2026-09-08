@@ -30,7 +30,16 @@ Este é o processo a repetir. O que está aqui foi testado; o que ainda não foi
 6. **Uma peça, um quadro.** Um carrossel de case fala do site *daquele* cliente do
    primeiro ao último slide. Mostrar o nosso próprio site no meio quebrou o quadro e
    virou autopromoção — o nosso site fica no rodapé e no CTA.
-7. **IA é infraestrutura, não voz.** Análise, variação, crítica, render, publicação: sim.
+7. **Voz do estúdio, não da pessoa** (decisão do Anderson, 08/09/2026). "Nós", "a Storm",
+   "a equipe" — nunca "eu isso, eu aquilo". Não dizer quantas pessoas trabalham no estúdio;
+   não expor fluxos pessoais (quantas vezes o próprio site foi publicado, nomes e tarefas
+   dos agentes internos, ferramentas de uso próprio); não apresentar o Anderson. O que se
+   apresenta é o estúdio: mais de 8 anos de experiência em diferentes segmentos e projetos
+   no Brasil e no exterior; software sob medida, nada genérico; expectativa, necessidade e
+   custo alinhados; sempre em contato; sites, aplicativos, automações, fluxos com agentes.
+   Produtos do laboratório podem aparecer como estão na landing (nome e estado), sem detalhe
+   de como são usados internamente.
+8. **IA é infraestrutura, não voz.** Análise, variação, crítica, render, publicação: sim.
    Texto com cara de IA, imagem gerada no lugar de material real, rosto gerado: nunca.
    Imagem gerada só como **cenário** (textura, atmosfera, abertura), nunca como
    **protagonista** nem como algo que finja ser real — ver §6.

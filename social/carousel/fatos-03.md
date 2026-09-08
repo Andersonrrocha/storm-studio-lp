@@ -29,3 +29,4 @@
 - Slide 2 ('o custo') deixa de usar o molde da virada (raio grande só no slide 9, como manda o GUIA §2).
 - Slide 5: recorte do card do WIMM termina no rótulo 'WIMM · em produção' (sem frase pela metade — o CSS `object-fit: cover` cortava de novo).
 - Slide 3: mesma correção do carrossel 01 — título do Beto Chaves completo.
+- Voz do estúdio (08/09): slide 6 sem os scripts/agentes internos — bloco passa a ser um **exemplo de fluxo** (rotulado 'exemplo', não material real). Slide 7/9 em 'o estúdio'.

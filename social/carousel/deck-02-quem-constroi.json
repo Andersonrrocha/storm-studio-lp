@@ -1,12 +1,12 @@
 {
-  "nome": "02 — Você fala com quem constrói",
-  "serie": "QUEM CONSTRÓI",
-  "versao": "final",
-  "caption": "Storm Studio é um estúdio de uma pessoa. Este post é sobre quem está do outro lado quando você manda mensagem — e termina com 6 perguntas para fazer a qualquer um que for fazer seu site (inclusive a mim).\n\nSete anos construindo sistemas com peso real — um portal para mais de 4 milhões de usuários, uma plataforma em 27 países — e três produtos próprios no laboratório antes de vender qualquer coisa.\n\nEnvia pra quem está decidindo quem vai fazer o site da empresa.\n\nComenta o ramo do seu negócio que eu digo qual das 6 perguntas pesa mais pra você.\n\nQuer saber o que está te fazendo parecer pequeno? Manda RAIO-X no direct com o link do site — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos. De graça, sem call. Respondo pessoalmente.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "nome": "02 — Você fala com quem constrói (o estúdio)",
+  "serie": "O ESTÚDIO",
+  "versao": "voz do estúdio",
+  "caption": "Storm Studio faz software sob medida — site, aplicativo, automação, fluxo com agentes — e nada genérico. Este post é sobre como o estúdio trabalha, e termina com 6 perguntas para fazer a qualquer um que for fazer seu site (inclusive a nós).\n\nMais de 8 anos de experiência em projetos no Brasil e no exterior; expectativa, necessidade e custo alinhados antes de começar; sempre em contato até a entrega.\n\nEnvia pra quem está decidindo quem vai fazer o site da empresa.\n\nComenta o ramo do seu negócio que a gente diz qual das 6 perguntas pesa mais pra você.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa. A gente abre, olha e devolve os 3 pontos. De graça, sem call.\n\n— Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
-      "kicker": "storm studio · quem constrói",
+      "kicker": "storm studio · o estúdio",
       "title": "Você fala com quem [constrói]. Não com quem vende.",
       "swipe": "quem está do outro lado →",
       "img": "social/out/shots/ss-mobile-hero.png",
@@ -22,57 +22,58 @@
     },
     {
       "type": "shot",
-      "kicker": "01 · uma pessoa",
-      "title": "Eu atendo, eu desenho, eu escrevo o código, eu publico.",
-      "text": "Quatro etapas, a mesma pessoa. **Não tem telefone sem fio** entre o que você pediu e o que fica no ar.",
+      "kicker": "01 · sob medida",
+      "title": "Nada genérico. Cada projeto nasce da sua necessidade.",
+      "text": "Site, aplicativo, automação ou fluxo com agentes — **o que resolve, no tamanho que resolve.** Não existe pacote pronto esperando um cliente.",
       "frame": "browser",
       "url": "stormstudio.dev",
-      "img": "social/out/shots/ss-processo.png"
-    },
-    {
-      "type": "shot",
-      "kicker": "02 · sete anos",
-      "title": "Sete anos, cinco empresas, uma linha contínua.",
-      "text": "Sistemas com peso real: um portal para **mais de 4 milhões de usuários**, uma plataforma reconstruída para **27 países**, o cadastro e os primeiros passos de **6 milhões de consultores**. Escala grande ensina o que não pode falhar — é isso que eu trago para um negócio pequeno.",
-      "frame": "browser",
-      "url": "andersonrocha.dev",
-      "img": "social/out/shots/portfolio-desktop.png",
+      "img": "social/out/shots/ss-processo.png",
       "crop": [
         0,
-        540,
-        1584,
-        1269
-      ]
-    },
-    {
-      "type": "shot",
-      "kicker": "03 · produto próprio",
-      "title": "Antes de vender, eu construo para mim.",
-      "text": "Três produtos no laboratório — um em produção, um em operação, um em desenvolvimento: finanças pessoais, agentes de IA, treino. **É onde eu erro primeiro** — não no seu projeto.",
-      "frame": "browser",
-      "url": "stormstudio.dev/#lab",
-      "img": "social/out/shots/ss-lab.png",
-      "crop": [
-        0,
-        3208,
+        720,
         2880,
-        4862
+        1802
       ]
+    },
+    {
+      "type": "shot",
+      "kicker": "02 · experiência",
+      "title": "Mais de 8 anos, no Brasil e no exterior.",
+      "text": "Projetos em diferentes segmentos — de portal financeiro para **milhões de usuários** a plataforma reconstruída para **27 países**. Escala grande ensina o que não pode falhar; é isso que trazemos para o seu negócio.",
+      "frame": "browser",
+      "url": "stormstudio.dev",
+      "img": "social/out/shots/ss-hero.png",
+      "crop": [
+        0,
+        0,
+        1364,
+        1148
+      ]
+    },
+    {
+      "type": "shot",
+      "kicker": "03 · alinhamento",
+      "title": "Expectativa, necessidade e custo — alinhados antes de começar.",
+      "text": "Conversa antes de proposta; proposta por escrito antes de código. **Sempre em contato:** você sabe em que ponto o projeto está, sem precisar perguntar.",
+      "frame": "browser",
+      "url": "stormstudio.dev/#contato",
+      "img": "social/out/shots/ss-form-desktop.png",
+      "imgh": "auto"
     },
     {
       "type": "shot",
       "kicker": "04 · em produção",
       "title": "Horine: agenda para quem vive de atender.",
-      "text": "Reservas, equipe, bloqueios e uma página pública onde o cliente escolhe o horário **sem mandar mensagem**. No ar em horine.stormstudio.dev.",
+      "text": "Produto próprio do estúdio, no ar em horine.stormstudio.dev: reservas, equipe, bloqueios e uma página pública onde o cliente escolhe o horário **sem mandar mensagem**.",
       "pos": "phone-r in",
       "textcls": "narrow",
       "img": "social/out/shots/horine-mobile.png"
     },
     {
       "type": "shot",
-      "kicker": "05 · um cliente, entregue",
-      "title": "O primeiro cliente entregue: uma oficina de 30 anos.",
-      "text": "Site no ar, depoimento real, antes e depois no post anterior. **Um, não trinta** — prefiro dizer o número certo.",
+      "kicker": "05 · entregue",
+      "title": "Beto Chaves: uma oficina de 30 anos, no ar.",
+      "text": "Site entregue, depoimento real, antes e depois no post anterior. **Tela real, não promessa.**",
       "pos": "phone-r in alt",
       "textcls": "narrow",
       "img": "social/out/shots/bc-mobile-hero-clean.png",
@@ -87,7 +88,7 @@
       "type": "shot",
       "kicker": "06 · feito à mão",
       "title": "Sem template. Sem biblioteca de interface.",
-      "text": "Código escrito para o seu negócio, num arquivo que eu explico linha a linha. **Quando algo quebra, quem conserta é quem fez.**",
+      "text": "Código escrito para o seu negócio, num arquivo que a equipe explica linha a linha. **Quando algo quebra, quem conserta é quem fez.**",
       "textcls": "mid",
       "code": [
         "// styles.css · stormstudio.dev",
@@ -101,8 +102,8 @@
       "type": "turn",
       "kicker": "a virada",
       "flip": true,
-      "title": "Estúdio de uma pessoa parece risco. O risco real é o contrário.",
-      "text": "Na agência, quem te vendeu não é quem constrói, e não é quem conserta. Aqui as três são a mesma pessoa — **e ela tem nome, site e telefone.** É isso que a agência grande não consegue copiar."
+      "title": "Agência grande parece segurança. O risco real é o contrário.",
+      "text": "Quem te vendeu não é quem constrói, e não é quem conserta. Na Storm, quem conversa com você é quem constrói — **com nome, site e telefone.** É isso que a agência grande não consegue copiar."
     },
     {
       "type": "quote",
@@ -120,20 +121,20 @@
           "Se a resposta for “a equipe”, pergunte o nome."
         ],
         [
-          "O que você construiu para você?",
-          "Produto próprio mostra o que a pessoa aguenta."
+          "O que vocês construíram para vocês?",
+          "Produto próprio mostra o que a equipe aguenta."
         ],
         [
           "Tem algo no ar que eu possa usar?",
           "Link, não print."
         ],
         [
-          "Quantos clientes entregou?",
+          "Quantos clientes entregaram?",
           "O número certo vale mais que o bonito."
         ],
         [
-          "Usa template?",
-          "Se usa, seu site já existe em outro lugar."
+          "Usam template?",
+          "Se usam, seu site já existe em outro lugar."
         ],
         [
           "Quem conserta quando quebra?",
@@ -144,8 +145,8 @@
     {
       "type": "cta",
       "kicker": "raio-x · grátis",
-      "title": "Conta o que você precisa. Eu respondo pessoalmente.",
-      "text": "Manda **RAIO-X** no direct com o link do seu site — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos, em ordem do que mais pesa. **De graça, sem call.**",
+      "title": "Conta o que você precisa. A gente responde pessoalmente.",
+      "text": "Manda **RAIO-X** no direct com o link do seu site — ou o Instagram da empresa. A gente abre, olha e devolve os 3 pontos, em ordem do que mais pesa. **De graça, sem call.**",
       "cta": "manda RAIO-X no direct"
     }
   ]

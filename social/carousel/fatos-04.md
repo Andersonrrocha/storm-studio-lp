@@ -27,3 +27,4 @@
 - Slide 2 ('o custo') deixa de usar o molde da virada (raio grande só no slide 9, como manda o GUIA §2).
 - Slide 7: o terminal da landing é animação (encena um comando), não deploy real — recorte passa a mostrar só a linha 'entrega — completa · custo previsível', que é o que a frase promete. Slide 9: título amarra o número ao medo do slide 2 ('nenhuma te deixando no escuro').
 - Capa: navegador menor e mais baixo, sem tocar a linha de swipe nem o rodapé. Slide 6: cabeçalho do bloco encurtado (sem quebra).
+- Voz do estúdio (08/09): sai o git log e o workflow do próprio site (indiferente para o cliente); entram **exemplos rotulados** de registro de entrega e de publicação. Slide 9 '14 publicações' → depoimento real do Henrique (trecho sobre organização). 'como trabalhamos'.

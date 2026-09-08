@@ -6,7 +6,7 @@ Voz do estúdio. Texto queimado (a maioria vê sem som). Trilha: **não incluíd
 
 | t (s) | Beat | Texto na tela | Fone |
 |---|---|---|---|
-| 0,0–2,6 | GANCHO | "**3** coisas que **custavam** clientes." · "Site real, de jan/2024. 20 segundos." | site antigo, topo; linha de raio-x varre a tela; carimbo ANTES · JAN/2024 |
+| 0,0–2,6 | GANCHO | "**3** problemas que **custavam** clientes." · "Site real, de jan/2024. 20 segundos." | site antigo, topo; linha de raio-x varre a tela; carimbo ANTES · JAN/2024 |
 | 2,6–4,8 | CONTEXTO | "Oficina de 30 anos. Site de **loja** genérica." | rola até a foto de banco de imagem |
 | 4,8–7,0 | PROBLEMA 01 | "A primeira dobra diz que **não tem nada**." · "'Sem produtos em destaque no momento.' — texto literal" | caixa + chip 01 na barra azul |
 | 7,0–9,6 | PROBLEMA 02 | "Foto sem relação com a oficina. E um **quadro vazio**." | caixas na foto e no quadro do Facebook, chip 02 |

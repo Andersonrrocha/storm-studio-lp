@@ -20,3 +20,8 @@ Gates: avisar o Henrique (o reel mostra o site antigo dele); decidir trilha (bib
 - Copy: 'custava clientes'; 'banco de imagem' → 'sem relação com a oficina'; contexto mais curto (beat 2,6–4,8); saída sem repetir 'RAIO-X no direct'; legenda cabe antes do '…mais'.
 - Social: carimbo e varredura já na capa (0,35 s); número na manchete; fade do CTA em 19,3 s para o loop.
 - Design: carimbos na moldura (não sobre o print); chips de acerto na moldura inferior; kicker 30/sub 42; rótulo do fundo 22 px; easing distinto no beat antes do clímax.
+
+## Ciclo 2
+- Copy: '3 problemas que custavam clientes'; contexto 'como qualquer loja online' (sem 'de ninguém' — origem da foto não é provável; e sem entregar o problema 02 antes da hora).
+- Marcações: carimbos ANTES/HOJE, chips 01–03 e chips de acerto ficam na moldura do fone, fora do print (só as caixas ficam sobre a tela).
+- Loop: fone final mais alto e varredura mais curta — termina visível antes do fim.

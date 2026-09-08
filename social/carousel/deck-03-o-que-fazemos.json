@@ -1,7 +1,7 @@
 {
   "nome": "03 — O que sai do laboratório",
   "serie": "O QUE FAZEMOS",
-  "versao": "ciclo 1",
+  "versao": "ciclo 2",
   "caption": "Não é só site. Quatro coisas saem do Storm Studio — e todas nascem do mesmo problema: o negócio cresceu e o improviso não acompanhou.\n\nSite que faz a empresa parecer grande. Sistema que tira o negócio da planilha. IA que faz uma tarefa chata. Agente que trabalha enquanto você dorme. Cada uma com tela real aqui dentro.\n\nEnvia pra quem ainda controla a agenda no WhatsApp.\n\nComenta o ramo do seu negócio que eu digo qual das 4 resolve primeiro.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #sistemasobmedida #criacaodesites #automacao #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
@@ -14,10 +14,11 @@
       "bgop": ".5"
     },
     {
-      "type": "turn",
+      "type": "shot",
       "kicker": "o custo",
       "title": "O negócio cresce. O improviso não.",
-      "text": "Agenda no WhatsApp, cadastro na planilha, site de template. Funciona até o dia em que não funciona — **e esse dia chega na semana mais cheia.**"
+      "text": "Agenda no WhatsApp, cadastro na planilha, site de template. Funciona até o dia em que não funciona — **e esse dia chega na semana mais cheia.**",
+      "textcls": "mid"
     },
     {
       "type": "shot",
@@ -51,7 +52,7 @@
         0,
         3695,
         993,
-        4643
+        4307
       ],
       "imgh": "auto",
       "stamp": "wimm"
@@ -63,18 +64,18 @@
       "text": "O agente faz, você aprova pelo Telegram. **O meu roda 24 horas por dia desde junho** — prospecta lead, vigia preço, organiza a memória do que já fez.",
       "textcls": "mid",
       "code": [
-        "// storm-hermes/deploy · o que roda sozinho, todo dia",
-        "jobhunt-sync.sh          // vagas",
-        "kairos-filter-daily.sh   // filtro diário",
-        "ingest-memory.sh         // memória",
-        "data-sync.sh             // dados"
+        "// storm-hermes/config/helpers · o que roda sozinho",
+        "leadgen-cnpj.py      // prospecta lead",
+        "argos_busca.py       // vigia preço",
+        "hestia-agenda.py     // agenda",
+        "ingest-memory.sh     // memória do que já fez"
       ]
     },
     {
       "type": "shot",
-      "kicker": "05 · no ar, em uso",
-      "title": "Três produtos próprios em uso real.",
-      "text": "Horine (agenda) e WIMM (finanças), em uso real. GymFlow (treino), ainda no laboratório. **Eu uso o que já está pronto antes de vender.** Os erros ficam no laboratório, não no seu projeto.",
+      "kicker": "no ar · em uso",
+      "title": "Quatro produtos próprios. Três em uso.",
+      "text": "Horine (agenda) no ar, WIMM (finanças) em produção, Hermes (agentes) em operação. GymFlow (treino), ainda em desenvolvimento. **Eu uso o que já está pronto antes de vender.**",
       "frame": "browser",
       "url": "stormstudio.dev",
       "img": "social/out/shots/ss-lab.png",
@@ -96,11 +97,11 @@
     {
       "type": "big",
       "kicker": "os números",
-      "big": "2",
+      "big": "3",
       "unit": "produtos em uso",
-      "title": "Um cliente entregue. Dois produtos em uso. Zero templates.",
+      "title": "Um cliente entregue. Três produtos em uso. Zero templates.",
       "text": "São os números de hoje, ditos como são. **Eu prefiro o número certo ao número bonito.**",
-      "sub": "stormstudio.dev · 08/09/2026<br>1 cliente entregue · 2 produtos em uso (Horine, WIMM) · 1 em desenvolvimento (GymFlow) · 0 templates"
+      "sub": "stormstudio.dev · 08/09/2026<br>1 cliente entregue · 3 produtos em uso (Horine, WIMM, Hermes) · 1 em desenvolvimento (GymFlow) · 0 templates"
     },
     {
       "type": "list",

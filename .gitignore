@@ -2,3 +2,6 @@
 node_modules
 social/out/
 social/.venv/
+social/reel/*/renders/
+social/reel/*/node_modules/
+social/reel/*/.hyperframes/

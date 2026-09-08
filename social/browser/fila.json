@@ -16,6 +16,24 @@
     ]
   },
   {
+    "id": "reel-raiox-01",
+    "tipo": "reel",
+    "serie": "RAIO-X",
+    "duracao_s": 20,
+    "formato": "1080x1920 · 30fps · H.264",
+    "projeto": "social/reel/raiox-01/ (HyperFrames)",
+    "saida": "social/reel/raiox-01/renders/raiox-01.mp4",
+    "roteiro": "social/reel/raiox-01/ROTEIRO.md",
+    "fatos": "social/out/reel-raiox-01/_fatos.md",
+    "estado": "aguardando aprovação",
+    "ordem_sugerida": "mesma semana do carrossel 01 — é a peça de alcance",
+    "gates": [
+      "avisar o Henrique (site antigo no vídeo)",
+      "trilha: adicionar no app (biblioteca do Instagram) — o arquivo só tem os efeitos sintetizados",
+      "se quiser rosto (forma a do benchmark), gravar um take de 3 s para a abertura"
+    ]
+  },
+  {
     "id": "carrossel-04",
     "tipo": "carrossel",
     "serie": "COMO EU TRABALHO",

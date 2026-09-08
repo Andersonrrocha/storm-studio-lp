@@ -1,8 +1,8 @@
 {
   "nome": "01 — Seu site faz sua empresa parecer menor do que ela é",
   "serie": "SOB MEDIDA",
-  "versao": "ciclo 2",
-  "caption": "Uma oficina com 30 anos de história tinha um site que \"não refletia a credibilidade da empresa\". Esse foi o briefing.\n\nO que eu fiz não foi \"deixar bonito\". Foram 6 decisões — cada uma com um motivo — que estão aqui, uma por slide, com a tela real e o site de antes.\n\nEnvia pra quem tem um negócio bom e um site que não mostra isso.\n\nComenta o ramo do seu negócio que eu digo qual das 6 pesa mais pra você.\n\nE se quiser saber o que está travando o seu: manda RAIO-X no direct com o link do site — não tem site? manda o Instagram da empresa. Eu abro, olho e te devolvo os 3 pontos, em ordem do que mais pesa. De graça, sem call. Respondo pessoalmente.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #sapucaiadosul #saoleopoldo #riograndedosul",
+  "versao": "ciclo 3 — final",
+  "caption": "Uma oficina com 30 anos de história tinha um site que \"não refletia a credibilidade da empresa\". Esse era o problema.\n\nO que eu fiz não foi \"deixar bonito\". Foram 6 decisões — cada uma com um motivo — que estão aqui, uma por slide, com a tela real e o site de antes.\n\nEnvia pra quem tem um negócio bom e um site que não mostra isso.\n\nComenta o ramo do seu negócio que eu digo qual das 6 pesa mais pra você.\n\nE se quiser saber o que está travando o seu: manda RAIO-X no direct com o link do site — não tem site? manda o Instagram da empresa. Eu abro, olho e te devolvo os 3 pontos, em ordem do que mais pesa. De graça, sem call. Respondo pessoalmente.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #sapucaiadosul #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
@@ -15,7 +15,7 @@
       "type": "shot",
       "kicker": "o custo · o site de antes",
       "title": "Quem chega julga em segundos. E vai embora antes de ligar.",
-      "text": "Uma oficina com **30 anos de história** me disse no primeiro contato: “nosso site estava desatualizado e não refletia a credibilidade da empresa.” **Era este.**",
+      "text": "Uma oficina com **30 anos de história** me resumiu assim: “nosso site estava desatualizado e não refletia a credibilidade da empresa.” **Era este.**",
       "pos": "phone-r old",
       "textcls": "narrow",
       "img": "social/out/shots/bc-old-mobile.png",
@@ -26,12 +26,11 @@
       "type": "shot",
       "kicker": "01 · foto real",
       "title": "Foto de verdade, não ícone desenhado.",
-      "text": "A fachada, a bancada, o carro. O cliente reconhece o lugar **antes de ler o nome**.",
+      "text": "A fachada como ela é na rua — não foto de banco de imagem. O cliente reconhece o lugar **antes de ler o nome**.",
       "frame": "browser",
       "url": "betochaves.com.br",
       "img": "social/out/shots/bc-desktop-hero.png",
-      "stamp": "hoje",
-      "stampcls": "dark"
+      "stamp": "hoje"
     },
     {
       "type": "shot",
@@ -90,7 +89,7 @@
       "type": "shot",
       "kicker": "06 · prova, não adjetivo",
       "title": "Avaliação real, com nome e estrela, dentro da página.",
-      "text": "Nada de “clientes satisfeitos”. As avaliações do Google entram na página como estão — **4,5 de 422 pessoas**, com o nome de quem escreveu. Quem chega confere antes de ligar.",
+      "text": "Nada de “clientes satisfeitos”. As avaliações do Google entram na página como estão — **4,5 estrelas em 422 avaliações**, com o nome de quem escreveu. Quem chega confere antes de ligar.",
       "pos": "phone-r in",
       "textcls": "narrow",
       "img": "social/out/shots/bc-mobile-reviews.png",
@@ -121,7 +120,7 @@
       "items": [
         [
           "Foto real.",
-          "Fachada, bancada, carro."
+          "A fachada como ela é na rua."
         ],
         [
           "Do zero.",
@@ -129,15 +128,15 @@
         ],
         [
           "Um toque.",
-          "WhatsApp com a mensagem pronta."
+          "WhatsApp com a mensagem pronta."
         ],
         [
           "Medido.",
-          "SEO 100 no Lighthouse, não prometido."
+          "SEO 100 no Lighthouse, não prometido."
         ],
         [
           "Ordem.",
-          "O carro-chefe logo depois da fachada."
+          "O carro-chefe logo depois da fachada."
         ],
         [
           "Prova, não adjetivo.",

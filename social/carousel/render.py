@@ -88,12 +88,13 @@ def media(s, uri):
     if not uri:
         return ""
     frame = s.get("frame", "phone")
+    stamp = f'<div class="stamp {s.get("stampcls","")}">{esc(s["stamp"])}</div>' if s.get("stamp") else ""
     if frame == "browser":
         st = f' style="height:{s["imgh"]}"' if s.get("imgh") else ""
         return (f'<div class="browser media"><div class="bar"><i></i><i></i><i></i><span>{esc(s.get("url",""))}</span></div>'
-                f'<img src="{uri}"{st}></div>')
+                f'<img src="{uri}"{st}>{stamp}</div>')
     cls = "phone media " + s.get("pos", "")
-    return f'<div class="{cls}"><img src="{uri}"></div>'
+    return f'<div class="{cls}"><img src="{uri}">{stamp}</div>'
 
 
 def foot(i, n):

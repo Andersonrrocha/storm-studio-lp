@@ -61,6 +61,15 @@
   .browser .bar span{margin-left:8px;font-family:var(--fm);font-size:9px;color:var(--faint);letter-spacing:.06em}
   .browser img{display:block;width:100%;object-fit:cover;object-position:top}
 
+  .stamp{position:absolute;z-index:3;font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    padding:7px 10px;border-radius:4px;background:var(--flash);color:#0b0704;font-weight:600;
+    box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  .stamp.dark{background:#0b0d14;color:var(--cobre);border:1px solid var(--cobre)}
+  .phone .stamp{top:14px;left:-10px}
+  .browser .stamp{top:34px;left:12px}
+  .phone,.browser{position:relative}
+  .shot .media.phone-r,.cover .phone,.quote .phone{position:absolute}
+
   /* --- tipos de slide --- */
   .cover h1{margin-top:auto;max-width:9.5ch}
   .cover .phone{position:absolute;right:-88px;top:120px;transform:rotate(-5deg);z-index:0;filter:brightness(.85)}
@@ -76,6 +85,7 @@
   .shot .text.mid{margin-top:auto}
   .shot .text.mid + .code{margin-bottom:auto}
   .shot .media.phone-r.in{right:10px;bottom:62px;transform:rotate(-3deg)}
+  .phone.old{box-shadow:0 30px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(140,160,220,.14)}
   .shot .text.narrow{max-width:250px}
   .shot .text.narrow p{font-size:17px}
 
@@ -93,13 +103,13 @@
   .num-sub b{color:var(--dim);font-weight:500}
 
   .turn h2{font-size:42px;margin-top:auto;max-width:11ch}
-  .turn .bolt{position:absolute;right:-120px;top:-40px;width:420px;z-index:0}
+  .turn .bolt{position:absolute;right:-120px;top:-40px;width:420px;z-index:0;clip-path:inset(0 0 198px 0)}
   .turn .bolt path{fill:#fb923c;fill-opacity:.06;stroke:#fb923c;stroke-opacity:.25;stroke-width:.8}
   .turn.flip .bolt{transform:scaleX(-1);right:auto;left:-120px}
 
   .quote blockquote{margin-top:auto;font-size:27px;line-height:1.22;letter-spacing:-.02em;font-weight:500;color:var(--flash);max-width:16.5ch;text-shadow:0 2px 18px rgba(5,6,10,.95)}
   .quote blockquote::before{content:"“";color:var(--cobre);font-size:60px;line-height:0;vertical-align:-22px;margin-right:4px}
-  .quote .who{font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-top:22px;line-height:1.8}
+  .quote .who{max-width:300px;font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-top:22px;line-height:1.8}
   .quote .who b{color:var(--text);font-weight:500}
   .quote .phone{position:absolute;right:-72px;top:64px;transform:rotate(-7deg);z-index:0;opacity:.92}
 

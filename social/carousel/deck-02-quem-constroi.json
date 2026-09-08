@@ -1,8 +1,8 @@
 {
   "nome": "02 — Você fala com quem constrói",
   "serie": "QUEM CONSTRÓI",
-  "versao": "rascunho",
-  "caption": "Storm Studio é um estúdio de uma pessoa. Este post é sobre quem está do outro lado quando você manda mensagem.\n\nSete anos construindo frontends com peso real — sistemas para 4 milhões de usuários, plataforma em 27 países — e três produtos próprios em uso antes de vender qualquer coisa.\n\nEnvia pra quem já contratou site e nunca soube quem estava construindo.\n\nQuer saber o que está te fazendo parecer pequeno? Manda RAIO-X no direct com o link do site — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos. De graça, sem call. Respondo pessoalmente.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "versao": "ciclo 1",
+  "caption": "Storm Studio é um estúdio de uma pessoa. Este post é sobre quem está do outro lado quando você manda mensagem — e termina com 6 perguntas para fazer a qualquer um que for fazer seu site (inclusive a mim).\n\nSete anos construindo sistemas com peso real — um portal para 4 milhões de usuários, uma plataforma em 27 países — e três produtos próprios no laboratório antes de vender qualquer coisa.\n\nEnvia pra quem está decidindo quem vai fazer o site da empresa.\n\nComenta o ramo do seu negócio que eu digo qual das 6 perguntas pesa mais pra você.\n\nQuer saber o que está te fazendo parecer pequeno? Manda RAIO-X no direct com o link do site — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos. De graça, sem call. Respondo pessoalmente.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
@@ -32,7 +32,7 @@
       "type": "shot",
       "kicker": "02 · sete anos",
       "title": "Sete anos, cinco empresas, uma linha contínua.",
-      "text": "Frontends com peso real: um portal para **mais de 4 milhões de usuários**, uma plataforma reconstruída para **27 países**, onboarding para **6 milhões de consultores**.",
+      "text": "Sistemas com peso real: um portal para **mais de 4 milhões de usuários**, uma plataforma reconstruída para **27 países**, o cadastro e os primeiros passos de **6 milhões de consultores**. Escala grande ensina o que não pode falhar — é isso que eu trago para um negócio pequeno.",
       "frame": "browser",
       "url": "andersonrocha.dev",
       "img": "social/out/shots/portfolio-desktop.png",
@@ -40,14 +40,14 @@
         0,
         540,
         1584,
-        1296
+        1206
       ]
     },
     {
       "type": "shot",
       "kicker": "03 · produto próprio",
       "title": "Antes de vender, eu construo para mim.",
-      "text": "Três produtos no laboratório, em uso real: agenda, finanças pessoais, treino. **É onde eu erro primeiro** — não no seu projeto.",
+      "text": "Três produtos no laboratório — um em produção, um em operação, um em desenvolvimento: finanças pessoais, agentes de IA, treino. **É onde eu erro primeiro** — não no seu projeto.",
       "frame": "browser",
       "url": "stormstudio.dev/#lab",
       "img": "social/out/shots/ss-lab.png",
@@ -72,9 +72,15 @@
       "kicker": "05 · um cliente, entregue",
       "title": "O primeiro cliente entregue: uma oficina de 30 anos.",
       "text": "Site no ar, depoimento real, antes e depois no post anterior. **Um, não trinta** — prefiro dizer o número certo.",
-      "pos": "phone-r in",
+      "pos": "phone-r in alt",
       "textcls": "narrow",
-      "img": "social/out/shots/bc-mobile-hero.png"
+      "img": "social/out/shots/bc-mobile-hero-clean.png",
+      "crop": [
+        0,
+        0,
+        780,
+        1560
+      ]
     },
     {
       "type": "shot",
@@ -94,8 +100,8 @@
       "type": "turn",
       "kicker": "a virada",
       "flip": true,
-      "title": "Estúdio de uma pessoa parece pequeno. É o contrário.",
-      "text": "Quem decide e quem constrói são a mesma pessoa: resposta em horas, não em reunião de alinhamento. **É a única coisa que a agência grande não consegue copiar.**"
+      "title": "Estúdio de uma pessoa parece risco. O risco real é o contrário.",
+      "text": "Na agência, quem te vendeu não é quem constrói, e não é quem conserta. Aqui as três são a mesma pessoa — **e ela tem nome, site e telefone.** É a única coisa que a agência grande não consegue copiar."
     },
     {
       "type": "quote",
@@ -106,31 +112,31 @@
     {
       "type": "list",
       "kicker": "resumo · salva",
-      "title": "O que você leva",
+      "title": "6 perguntas para quem vai fazer seu site",
       "items": [
         [
-          "Uma pessoa.",
-          "Atende, desenha, constrói, publica."
+          "Quem escreve o código?",
+          "Se a resposta for “a equipe”, pergunte o nome."
         ],
         [
-          "Sete anos.",
-          "Sistemas para milhões de usuários."
+          "O que você construiu para você?",
+          "Produto próprio mostra o que a pessoa aguenta."
         ],
         [
-          "Produto próprio.",
-          "Três, em uso real."
+          "Tem algo no ar que eu possa usar?",
+          "Link, não print."
         ],
         [
-          "Em produção.",
-          "Horine, no ar."
+          "Quantos clientes entregou?",
+          "O número certo vale mais que o bonito."
         ],
         [
-          "Número certo.",
-          "Um cliente entregue — dito assim."
+          "Usa template?",
+          "Se usa, seu site já existe em outro lugar."
         ],
         [
-          "Feito à mão.",
-          "Quem conserta é quem fez."
+          "Quem conserta quando quebra?",
+          "A resposta certa é quem fez."
         ]
       ]
     },

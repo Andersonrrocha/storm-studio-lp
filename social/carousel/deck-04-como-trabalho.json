@@ -1,13 +1,13 @@
 {
   "nome": "04 — Do esboço ao deploy",
   "serie": "COMO EU TRABALHO",
-  "versao": "rascunho",
-  "caption": "O medo de contratar site é o medo de não saber o que está acontecendo. Prazo que estica, escopo que muda, orçamento que \"depende\".\n\nMeu processo tem quatro etapas — descobrir, desenhar, construir, lançar — e você vê cada uma. Está aqui com a tela real de cada passo.\n\nEnvia pra quem já pagou por um site e passou um mês sem notícia.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #processo #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "versao": "ciclo 1",
+  "caption": "O medo de contratar site é o medo de não saber o que está acontecendo. Prazo que estica, escopo que muda, orçamento que \"depende\".\n\nMeu processo tem quatro etapas — descobrir, desenhar, construir, lançar — e você vê cada uma. Está aqui com a tela real de cada passo.\n\nEnvia pra quem já pagou por um site e passou um mês sem notícia.\n\nComenta qual das 4 etapas te dá mais medo de pular — descobrir, desenhar, construir ou lançar.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #processo #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
       "kicker": "storm studio · como eu trabalho",
-      "title": "Sem caixa-preta. Do esboço ao [deploy].",
+      "title": "Sem caixa-preta. Do esboço ao [ar].",
       "swipe": "as 4 etapas, com a tela real →",
       "frame": "browser",
       "url": "stormstudio.dev",
@@ -23,7 +23,7 @@
     },
     {
       "type": "shot",
-      "kicker": "α · descobrir",
+      "kicker": "01 · descobrir",
       "title": "Entender o problema antes de escrever uma linha.",
       "text": "Uma conversa e um briefing de três campos: nome, o que você precisa, uma linha sobre o projeto. **Escopo claro, expectativa alinhada — por escrito.**",
       "frame": "browser",
@@ -33,7 +33,7 @@
     },
     {
       "type": "shot",
-      "kicker": "β · desenhar",
+      "kicker": "02 · desenhar",
       "title": "Arquitetura e design caminham juntos.",
       "text": "O que entra, o que fica de fora e por quê — documentado. A identidade vira código antes da primeira tela. **Você aprova antes de eu construir.**",
       "textcls": "mid",
@@ -47,47 +47,45 @@
     },
     {
       "type": "shot",
-      "kicker": "γ · construir",
+      "kicker": "03 · construir",
       "title": "Entregas frequentes. Nada de sumir por um mês.",
-      "text": "Você vê o site crescendo num endereço só seu, e recebe o registro do que mudou a cada entrega — **com data e o que foi feito**, como no meu próprio repositório.",
-      "frame": "browser",
-      "url": "github.com/Andersonrrocha/storm-studio-lp",
-      "img": "social/out/shots/gh-commits-storm.png",
-      "crop": [
-        0,
-        216,
-        2880,
-        1710
+      "text": "Você vê o site crescendo num endereço só seu e recebe o registro de cada entrega — **com data e o que foi feito**, para nunca ficar sem saber quanto falta.",
+      "textcls": "mid",
+      "code": [
+        "// git log · stormstudio.dev",
+        "2026-07-26  feat(identidade): marca 2a \"Fusã…",
+        "2026-07-20  fix(processo): path da timeline …",
+        "2026-07-19  ci: deploy Pages via GitHub Acti…",
+        "2026-07-19  fix(deploy): bypass Jekyll proce…"
       ]
     },
     {
       "type": "shot",
-      "kicker": "δ · lançar",
-      "title": "Publicação automática. O lançamento é o começo.",
-      "text": "Cada mudança aprovada vai ao ar com registro — é assim no meu site, e é assim que eu monto o seu. Domínio, medição, suporte. **Quando algo quebra, quem conserta é quem fez.**",
-      "frame": "browser",
-      "url": "github.com/…/actions",
-      "img": "social/out/shots/gh-actions-storm.png",
-      "crop": [
-        0,
-        216,
-        2880,
-        1710
+      "kicker": "04 · lançar",
+      "title": "Publicação com registro. O lançamento é o começo.",
+      "text": "Cada mudança aprovada vai ao ar com registro — é assim no meu site, e é o método que eu levo para o seu, **dentro da hospedagem que você já usa**. Domínio, medição, suporte.",
+      "textcls": "mid",
+      "code": [
+        "// .github/workflows/deploy.yml · stormstudio.dev",
+        "on:  push → branches: [master]",
+        "job: deploy-pages",
+        "  ✓ build   ✓ upload   ✓ publicado",
+        "14 publicações · nenhuma à mão"
       ]
     },
     {
       "type": "shot",
       "kicker": "custo previsível",
       "title": "Plano e orçamento por escrito, antes da primeira linha.",
-      "text": "Você recebe um plano e um valor fechado — **sem “depende”**. Se o escopo mudar no meio, a conversa acontece antes, não na fatura.",
+      "text": "Você recebe um plano e um valor fechado antes da primeira linha — **sem “depende”**.",
       "frame": "browser",
       "url": "stormstudio.dev",
       "img": "social/out/shots/ss-hero.png",
       "crop": [
         1165,
-        0,
+        298,
         2480,
-        1148
+        1024
       ]
     },
     {
@@ -95,16 +93,16 @@
       "kicker": "a virada",
       "flip": true,
       "title": "Processo não é burocracia. É o que deixa você dormir.",
-      "text": "Quatro etapas, as mesmas em todo projeto — landing page ou sistema. **O que muda é o tamanho, não o método.**"
+      "text": "Quatro etapas, as mesmas em todo projeto — landing page ou sistema. **O que muda é o tamanho, não o método.** Template custa menos porque pula as duas primeiras — e é por isso que todo site de template parece igual."
     },
     {
       "type": "big",
-      "kicker": "as etapas",
-      "big": "4",
-      "unit": "etapas · 1 pessoa",
-      "title": "Descobrir, desenhar, construir, lançar.",
-      "text": "A mesma sequência que está publicada no meu site — **e que você acompanha do início ao fim**.",
-      "sub": "stormstudio.dev/#processo · α descobrir · β desenhar · γ construir · δ lançar"
+      "kicker": "no meu próprio site",
+      "big": "14",
+      "unit": "publicações · nenhuma à mão",
+      "title": "Quatorze vezes no ar sem ninguém apertar botão.",
+      "text": "É o registro público do meu site: cada mudança aprovada, publicada com data. **O mesmo método que eu levo para o seu.**",
+      "sub": "github.com/Andersonrrocha/storm-studio-lp/actions · 14 workflow runs · 08/09/2026"
     },
     {
       "type": "list",
@@ -133,7 +131,7 @@
         ],
         [
           "Uma pessoa.",
-          "Do esboço ao deploy."
+          "Do esboço ao ar."
         ]
       ]
     },

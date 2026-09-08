@@ -1,13 +1,13 @@
 {
   "nome": "03 — O que sai do laboratório",
   "serie": "O QUE FAZEMOS",
-  "versao": "rascunho",
-  "caption": "Não é só site. Quatro coisas saem do Storm Studio — e todas nascem do mesmo problema: o negócio cresceu e o improviso não acompanhou.\n\nSite que faz a empresa parecer grande. Sistema que tira o negócio da planilha. IA que faz uma tarefa chata. Agente que trabalha enquanto você dorme. Cada uma com tela real aqui dentro.\n\nEnvia pra quem ainda controla a agenda no WhatsApp.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #sistemasobmedida #criacaodesites #automacao #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "versao": "ciclo 1",
+  "caption": "Não é só site. Quatro coisas saem do Storm Studio — e todas nascem do mesmo problema: o negócio cresceu e o improviso não acompanhou.\n\nSite que faz a empresa parecer grande. Sistema que tira o negócio da planilha. IA que faz uma tarefa chata. Agente que trabalha enquanto você dorme. Cada uma com tela real aqui dentro.\n\nEnvia pra quem ainda controla a agenda no WhatsApp.\n\nComenta o ramo do seu negócio que eu digo qual das 4 resolve primeiro.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #sistemasobmedida #criacaodesites #automacao #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
   "slides": [
     {
       "type": "cover",
       "kicker": "storm studio · o que fazemos",
-      "title": "Não é só site. É o que tira o negócio da [planilha].",
+      "title": "Não é só site. É o que tira o negócio do [improviso].",
       "swipe": "4 coisas que saem daqui →",
       "img": "social/out/shots/horine-mobile.png",
       "bg": "social/assets/gen/circuito-01.png",
@@ -49,9 +49,9 @@
       "img": "social/out/shots/ss-lab.png",
       "crop": [
         0,
-        3208,
-        1036,
-        4862
+        3695,
+        993,
+        4643
       ],
       "imgh": "auto",
       "stamp": "wimm"
@@ -60,33 +60,31 @@
       "type": "shot",
       "kicker": "04 · agentes e automação",
       "title": "Agentes que trabalham enquanto você dorme.",
-      "text": "Fluxos autônomos com humano no loop: o agente faz, você aprova pelo Telegram. **O meu roda 24/7 numa VPS desde junho** — caça vaga, prospecta lead, vigia preço.",
-      "frame": "browser",
-      "url": "stormstudio.dev/#lab",
-      "img": "social/out/shots/ss-lab.png",
-      "crop": [
-        921,
-        3208,
-        1958,
-        4862
-      ],
-      "stamp": "hermes",
-      "imgh": "auto"
+      "text": "O agente faz, você aprova pelo Telegram. **O meu roda 24 horas por dia desde junho** — prospecta lead, vigia preço, organiza a memória do que já fez.",
+      "textcls": "mid",
+      "code": [
+        "// storm-hermes/deploy · o que roda sozinho, todo dia",
+        "jobhunt-sync.sh          // vagas",
+        "kairos-filter-daily.sh   // filtro diário",
+        "ingest-memory.sh         // memória",
+        "data-sync.sh             // dados"
+      ]
     },
     {
       "type": "shot",
       "kicker": "05 · no ar, em uso",
       "title": "Três produtos próprios em uso real.",
-      "text": "Horine (agenda), WIMM (finanças), GymFlow (treino). **Eu uso o que construo antes de vender.** Os erros ficam no laboratório, não no seu projeto.",
+      "text": "Horine (agenda) e WIMM (finanças), em uso real. GymFlow (treino), ainda no laboratório. **Eu uso o que já está pronto antes de vender.** Os erros ficam no laboratório, não no seu projeto.",
       "frame": "browser",
       "url": "stormstudio.dev",
       "img": "social/out/shots/ss-lab.png",
       "crop": [
         0,
-        0,
+        3695,
         2880,
-        3208
-      ]
+        4862
+      ],
+      "imgh": "auto"
     },
     {
       "type": "turn",
@@ -98,11 +96,11 @@
     {
       "type": "big",
       "kicker": "os números",
-      "big": "3",
-      "unit": "produtos no ar",
-      "title": "Um cliente entregue. Três produtos em uso. Zero templates.",
+      "big": "2",
+      "unit": "produtos em uso",
+      "title": "Um cliente entregue. Dois produtos em uso. Zero templates.",
       "text": "São os números de hoje, ditos como são. **Eu prefiro o número certo ao número bonito.**",
-      "sub": "stormstudio.dev · 08/09/2026<br>1 cliente entregue · 3 produtos no lab em uso real · 0 templates"
+      "sub": "stormstudio.dev · 08/09/2026<br>1 cliente entregue · 2 produtos em uso (Horine, WIMM) · 1 em desenvolvimento (GymFlow) · 0 templates"
     },
     {
       "type": "list",
@@ -139,7 +137,7 @@
       "type": "cta",
       "kicker": "raio-x · grátis",
       "title": "Qual desses é o seu problema?",
-      "text": "Comenta o ramo do seu negócio. Ou manda **RAIO-X** no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. **De graça, sem call.**",
+      "text": "Manda **RAIO-X** no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos, em ordem do que mais pesa. **De graça, sem call.**",
       "cta": "manda RAIO-X no direct"
     }
   ]

@@ -68,7 +68,6 @@ def seam_svg(n, seed=7):
     bolt = f"M{W*0.86},-40 L{W*0.66},{H*0.42} L{W*0.80},{H*0.42} L{W*0.58},{H+60} L{W*1.18},{H*0.30} L{W*0.98},{H*0.30} Z"
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{total}" height="{H}">'
            f'<defs><filter id="g"><feGaussianBlur stdDeviation="5"/></filter></defs>'
-           f'<path d="{bolt}" fill="#fb923c" opacity=".07"/>'
            f'<path d="{d}" fill="none" stroke="#fb923c" stroke-width="7" opacity=".10" filter="url(#g)"/>'
            f'<path d="{d}" fill="none" stroke="#fb923c" stroke-width="1.3" opacity=".42"/>'
            f'</svg>')
@@ -108,7 +107,7 @@ def slide_html(s, i, n, outdir):
     uri = img_uri(s["img"], s.get("crop"), outdir, i) if s.get("img") else None
     body = ""
     if t == "cover":
-        body = media(s, uri) + kicker + f'<h1>{rich(s["title"])}</h1><div class="swipe">arrasta →</div>'
+        body = media(s, uri) + kicker + f'<h1>{rich(s["title"])}</h1><div class="swipe">{rich(s.get("swipe", "arrasta →"))}</div>'
     elif t == "shot":
         text = f'<div class="text {s.get("textcls","")}"><h2>{rich(s["title"])}</h2>' + (f'<p>{rich(s["text"])}</p>' if s.get("text") else "") + "</div>"
         code = ('<div class="code">' + "<br>".join(rich(l) for l in s["code"]) + "</div>") if s.get("code") else ""
@@ -117,7 +116,7 @@ def slide_html(s, i, n, outdir):
         else:
             body = kicker + text + media(s, uri) + code
     elif t == "big":
-        body = kicker + f'<div class="num">{esc(s["big"])}</div><h2>{rich(s["title"])}</h2>' + (f'<p>{rich(s["text"])}</p>' if s.get("text") else "") + f'<div class="num-sub">{rich(s.get("sub",""))}</div>'
+        body = kicker + f'<div class="numrow"><div class="num">{esc(s["big"])}</div><span class="unit">{esc(s.get("unit",""))}</span></div><h2>{rich(s["title"])}</h2>' + (f'<p>{rich(s["text"])}</p>' if s.get("text") else "") + f'<div class="num-sub">{rich(s.get("sub",""))}</div>'
     elif t == "turn":
         bolt = '<svg class="bolt" viewBox="0 0 100 200"><path d="M62 0 18 108h30L34 200 88 78H56z" fill="#fb923c"/></svg>'
         body = bolt + kicker + f'<h2>{rich(s["title"])}</h2>' + (f'<p>{rich(s["text"])}</p>' if s.get("text") else "")
@@ -129,7 +128,8 @@ def slide_html(s, i, n, outdir):
     elif t == "cta":
         arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>'
         body = kicker + f'<h2>{rich(s["title"])}</h2>' + (f'<p>{rich(s["text"])}</p>' if s.get("text") else "") + f'<div class="pill">{rich(s["cta"])}{arrow}</div>'
-    return f'<div class="slide {t}" style="--seam-x:{-i*W}px">{body}{foot(i, n)}</div>'
+    cls = t + (" flip" if s.get("flip") else "")
+    return f'<div class="slide {cls}" style="--seam-x:{-i*W}px">{body}{foot(i, n)}</div>'
 
 
 def main(deck_path, outdir):

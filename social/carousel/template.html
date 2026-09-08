@@ -63,36 +63,45 @@
 
   /* --- tipos de slide --- */
   .cover h1{margin-top:auto;max-width:9.5ch}
-  .cover .phone{position:absolute;right:-64px;top:96px;transform:rotate(-5deg);z-index:0}
+  .cover .phone{position:absolute;right:-88px;top:120px;transform:rotate(-5deg);z-index:0;filter:brightness(.85)}
+  .cover h1 em{background:linear-gradient(100deg,#fff4e6,#fb923c 70%);-webkit-background-clip:text;background-clip:text}
   .cover .kicker,.cover h1,.cover .swipe,.cover .foot{z-index:2}
   .cover h1{text-shadow:0 2px 24px rgba(5,6,10,.9)}
 
   .shot .media{margin-top:22px}
-  .shot .media.phone-r{position:absolute;right:-84px;bottom:58px;transform:rotate(-6deg);z-index:0}
+  .shot .media.phone-r{position:absolute;right:-32px;bottom:58px;transform:rotate(-4deg);z-index:0}
   .shot .browser img{height:250px}
   .shot .text{margin-top:22px}
   .shot .text.after{margin-top:auto;padding-top:22px}
-  .shot .text.narrow{max-width:262px}
+  .shot .text.mid{margin-top:auto}
+  .shot .text.mid + .code{margin-bottom:auto}
+  .shot .media.phone-r.in{right:10px;bottom:62px;transform:rotate(-3deg)}
+  .shot .text.narrow{max-width:250px}
   .shot .text.narrow p{font-size:17px}
 
-  .code{font-family:var(--fm);font-size:13.5px;line-height:1.7;color:var(--dim);background:rgba(13,16,25,.85);
-    border:1px solid var(--line);border-left:2px solid var(--cobre);border-radius:8px;padding:16px 18px;margin-top:20px}
+  .code{font-family:var(--fm);font-size:15px;line-height:1.75;color:var(--dim);background:rgba(13,16,25,.85);
+    border:1px solid var(--line);border-left:2px solid var(--cobre);border-radius:8px;padding:20px 22px;margin-top:22px}
   .code strong{color:var(--flash);font-weight:500}
   .code .c{color:#5c6480}
 
-  .num{font-size:156px;line-height:.9;letter-spacing:-.06em;font-weight:700;margin-top:auto;
+  .slide.big::before{opacity:.35}
+  .numrow{display:flex;align-items:baseline;gap:14px;margin-top:auto}
+  .unit{font-family:var(--fm);font-size:14px;color:var(--cobre);letter-spacing:.08em}
+  .num{font-size:156px;line-height:.9;letter-spacing:-.06em;font-weight:700;
     background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .num-sub{font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-top:8px;line-height:1.7}
   .num-sub b{color:var(--dim);font-weight:500}
 
   .turn h2{font-size:42px;margin-top:auto;max-width:11ch}
-  .turn .bolt{position:absolute;right:-120px;top:-40px;width:420px;opacity:.09;z-index:0}
+  .turn .bolt{position:absolute;right:-120px;top:-40px;width:420px;z-index:0}
+  .turn .bolt path{fill:#fb923c;fill-opacity:.06;stroke:#fb923c;stroke-opacity:.25;stroke-width:.8}
+  .turn.flip .bolt{transform:scaleX(-1);right:auto;left:-120px}
 
   .quote blockquote{margin-top:auto;font-size:27px;line-height:1.22;letter-spacing:-.02em;font-weight:500;color:var(--flash);max-width:16.5ch;text-shadow:0 2px 18px rgba(5,6,10,.95)}
   .quote blockquote::before{content:"“";color:var(--cobre);font-size:60px;line-height:0;vertical-align:-22px;margin-right:4px}
   .quote .who{font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-top:22px;line-height:1.8}
   .quote .who b{color:var(--text);font-weight:500}
-  .quote .phone{position:absolute;right:-138px;top:64px;transform:rotate(-7deg);z-index:0;opacity:.92}
+  .quote .phone{position:absolute;right:-72px;top:64px;transform:rotate(-7deg);z-index:0;opacity:.92}
 
   .list h2{margin-top:auto}
   .list ol{margin-top:18px;list-style:none;counter-reset:n}
@@ -104,7 +113,7 @@
 
   .cta h2{margin-top:auto}
   .cta .pill{margin-top:24px;display:inline-flex;align-self:flex-start;gap:10px;align-items:center;
-    background:linear-gradient(100deg,#fb923c,#b45309);color:#0b0704;font-weight:600;font-size:18px;
-    padding:14px 22px;border-radius:999px;font-family:var(--fd)}
+    background:linear-gradient(100deg,#fb923c,#b45309);color:#0b0704;font-weight:600;font-size:16px;letter-spacing:.04em;
+    padding:14px 22px;border-radius:8px;font-family:var(--fm)}
   .cta .pill svg{width:16px;height:16px}
 </style></head><body></body></html>

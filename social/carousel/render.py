@@ -130,7 +130,13 @@ def slide_html(s, i, n, outdir):
         arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>'
         body = kicker + f'<h2>{rich(s["title"])}</h2>' + (f'<p>{rich(s["text"])}</p>' if s.get("text") else "") + f'<div class="pill">{rich(s["cta"])}{arrow}</div>'
     cls = t + (" flip" if s.get("flip") else "")
-    return f'<div class="slide {cls}" style="--seam-x:{-i*W}px">{body}{foot(i, n)}</div>'
+    bg = ""
+    if s.get("bg"):
+        bguri = img_uri(s["bg"], None, outdir, 100 + i)
+        if bguri:
+            bg = f'<img class="bgimg" src="{bguri}"><div class="gen">imagem de fundo gerada</div>'
+    style = f"--seam-x:{-i*W}px" + (f';--bg-op:{s["bgop"]}' if s.get("bgop") else "")
+    return f'<div class="slide {cls}" style="{style}">{bg}{body}{foot(i, n)}</div>'
 
 
 def main(deck_path, outdir):

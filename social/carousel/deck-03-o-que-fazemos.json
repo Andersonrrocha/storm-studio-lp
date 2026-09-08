@@ -1,0 +1,146 @@
+{
+  "nome": "03 — O que sai do laboratório",
+  "serie": "O QUE FAZEMOS",
+  "versao": "rascunho",
+  "caption": "Não é só site. Quatro coisas saem do Storm Studio — e todas nascem do mesmo problema: o negócio cresceu e o improviso não acompanhou.\n\nSite que faz a empresa parecer grande. Sistema que tira o negócio da planilha. IA que faz uma tarefa chata. Agente que trabalha enquanto você dorme. Cada uma com tela real aqui dentro.\n\nEnvia pra quem ainda controla a agenda no WhatsApp.\n\nManda RAIO-X no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. De graça, sem call.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #sistemasobmedida #criacaodesites #automacao #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "storm studio · o que fazemos",
+      "title": "Não é só site. É o que tira o negócio da [planilha].",
+      "swipe": "4 coisas que saem daqui →",
+      "img": "social/out/shots/horine-mobile.png",
+      "bg": "social/assets/gen/circuito-01.png",
+      "bgop": ".5"
+    },
+    {
+      "type": "turn",
+      "kicker": "o custo",
+      "title": "O negócio cresce. O improviso não.",
+      "text": "Agenda no WhatsApp, cadastro na planilha, site de template. Funciona até o dia em que não funciona — **e esse dia chega na semana mais cheia.**"
+    },
+    {
+      "type": "shot",
+      "kicker": "01 · sites e landing pages",
+      "title": "Sites que fazem sua empresa parecer grande.",
+      "text": "Identidade, texto e desempenho de verdade — não template requentado. Para quem ainda não tem presença digital, **ou tem algo improvisado**.",
+      "frame": "browser",
+      "url": "betochaves.com.br",
+      "img": "social/out/shots/bc-desktop-hero.png",
+      "stamp": "cliente"
+    },
+    {
+      "type": "shot",
+      "kicker": "02 · sistemas sob medida",
+      "title": "Pequenos sistemas para tirar o negócio da planilha.",
+      "text": "Agenda, cadastro, reservas, painel — feitos para o seu fluxo. **Um dado, um lugar**: sem duas versões da mesma informação.",
+      "frame": "browser",
+      "url": "horine.stormstudio.dev",
+      "img": "social/out/shots/horine-desktop.png",
+      "stamp": "produto próprio"
+    },
+    {
+      "type": "shot",
+      "kicker": "03 · ferramentas de ia",
+      "title": "IA que faz uma tarefa chata — não IA que promete tudo.",
+      "text": "Categorizar transações, ler e-mail, gerar documento. Modelos de linguagem **para tarefas repetitivas de verdade**, além do hype.",
+      "frame": "browser",
+      "url": "stormstudio.dev/#lab",
+      "img": "social/out/shots/ss-lab.png",
+      "crop": [
+        0,
+        3208,
+        1036,
+        4862
+      ],
+      "imgh": "auto",
+      "stamp": "wimm"
+    },
+    {
+      "type": "shot",
+      "kicker": "04 · agentes e automação",
+      "title": "Agentes que trabalham enquanto você dorme.",
+      "text": "Fluxos autônomos com humano no loop: o agente faz, você aprova pelo Telegram. **O meu roda 24/7 numa VPS desde junho** — caça vaga, prospecta lead, vigia preço.",
+      "frame": "browser",
+      "url": "stormstudio.dev/#lab",
+      "img": "social/out/shots/ss-lab.png",
+      "crop": [
+        921,
+        3208,
+        1958,
+        4862
+      ],
+      "stamp": "hermes",
+      "imgh": "auto"
+    },
+    {
+      "type": "shot",
+      "kicker": "05 · no ar, em uso",
+      "title": "Três produtos próprios em uso real.",
+      "text": "Horine (agenda), WIMM (finanças), GymFlow (treino). **Eu uso o que construo antes de vender.** Os erros ficam no laboratório, não no seu projeto.",
+      "frame": "browser",
+      "url": "stormstudio.dev",
+      "img": "social/out/shots/ss-lab.png",
+      "crop": [
+        0,
+        0,
+        2880,
+        3208
+      ]
+    },
+    {
+      "type": "turn",
+      "kicker": "a virada",
+      "flip": true,
+      "title": "Não existe pacote. Existe o seu problema.",
+      "text": "Landing page, site, sistema pequeno, ferramenta de IA — ou **“ainda não sei, quero conversar”**. Está no meu formulário como opção, de propósito: a conversa vem antes da tabela de preço."
+    },
+    {
+      "type": "big",
+      "kicker": "os números",
+      "big": "3",
+      "unit": "produtos no ar",
+      "title": "Um cliente entregue. Três produtos em uso. Zero templates.",
+      "text": "São os números de hoje, ditos como são. **Eu prefiro o número certo ao número bonito.**",
+      "sub": "stormstudio.dev · 08/09/2026<br>1 cliente entregue · 3 produtos no lab em uso real · 0 templates"
+    },
+    {
+      "type": "list",
+      "kicker": "resumo · salva",
+      "title": "O que sai do laboratório",
+      "items": [
+        [
+          "Sites e landing pages.",
+          "Parecer grande, de verdade."
+        ],
+        [
+          "Sistemas sob medida.",
+          "Sair da planilha."
+        ],
+        [
+          "Ferramentas de IA.",
+          "Uma tarefa chata resolvida."
+        ],
+        [
+          "Agentes e automação.",
+          "Humano no loop, 24/7."
+        ],
+        [
+          "Produto próprio.",
+          "Erro fica no lab."
+        ],
+        [
+          "Ainda não sei.",
+          "Também é resposta."
+        ]
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "raio-x · grátis",
+      "title": "Qual desses é o seu problema?",
+      "text": "Comenta o ramo do seu negócio. Ou manda **RAIO-X** no direct com o link do site — ou o Instagram da empresa — e eu devolvo os 3 pontos. **De graça, sem call.**",
+      "cta": "manda RAIO-X no direct"
+    }
+  ]
+}

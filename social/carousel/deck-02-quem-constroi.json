@@ -1,0 +1,145 @@
+{
+  "nome": "02 — Você fala com quem constrói",
+  "serie": "QUEM CONSTRÓI",
+  "versao": "rascunho",
+  "caption": "Storm Studio é um estúdio de uma pessoa. Este post é sobre quem está do outro lado quando você manda mensagem.\n\nSete anos construindo frontends com peso real — sistemas para 4 milhões de usuários, plataforma em 27 países — e três produtos próprios em uso antes de vender qualquer coisa.\n\nEnvia pra quem já contratou site e nunca soube quem estava construindo.\n\nQuer saber o que está te fazendo parecer pequeno? Manda RAIO-X no direct com o link do site — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos. De graça, sem call. Respondo pessoalmente.\n\n— Anderson · Storm Studio · stormstudio.dev\n\n#sitesobmedida #criacaodesites #siteprofissional #empresalocal #pequenasempresas #esteio #canoas #saoleopoldo #riograndedosul",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "storm studio · quem constrói",
+      "title": "Você fala com quem [constrói]. Não com quem vende.",
+      "swipe": "quem está do outro lado →",
+      "img": "social/out/shots/ss-mobile-hero.png",
+      "bg": "social/assets/gen/raio-vertical-01.png",
+      "bgop": ".45"
+    },
+    {
+      "type": "turn",
+      "kicker": "o custo",
+      "title": "Na agência você conhece o vendedor. Quem constrói, você nunca vê.",
+      "text": "O briefing passa por três mãos até chegar em quem escreve o código. **Cada mão perde um pedaço** — e o pedaço que some é sempre o que importava para você."
+    },
+    {
+      "type": "shot",
+      "kicker": "01 · uma pessoa",
+      "title": "Eu atendo, eu desenho, eu escrevo o código, eu publico.",
+      "text": "Quatro etapas, a mesma pessoa. **Não tem telefone sem fio** entre o que você pediu e o que fica no ar.",
+      "frame": "browser",
+      "url": "stormstudio.dev",
+      "img": "social/out/shots/ss-processo.png"
+    },
+    {
+      "type": "shot",
+      "kicker": "02 · sete anos",
+      "title": "Sete anos, cinco empresas, uma linha contínua.",
+      "text": "Frontends com peso real: um portal para **mais de 4 milhões de usuários**, uma plataforma reconstruída para **27 países**, onboarding para **6 milhões de consultores**.",
+      "frame": "browser",
+      "url": "andersonrocha.dev",
+      "img": "social/out/shots/portfolio-desktop.png",
+      "crop": [
+        0,
+        540,
+        1584,
+        1296
+      ]
+    },
+    {
+      "type": "shot",
+      "kicker": "03 · produto próprio",
+      "title": "Antes de vender, eu construo para mim.",
+      "text": "Três produtos no laboratório, em uso real: agenda, finanças pessoais, treino. **É onde eu erro primeiro** — não no seu projeto.",
+      "frame": "browser",
+      "url": "stormstudio.dev/#lab",
+      "img": "social/out/shots/ss-lab.png",
+      "crop": [
+        0,
+        3208,
+        2880,
+        4862
+      ]
+    },
+    {
+      "type": "shot",
+      "kicker": "04 · em produção",
+      "title": "Horine: agenda para quem vive de atender.",
+      "text": "Reservas, equipe, bloqueios e uma página pública onde o cliente escolhe o horário **sem mandar mensagem**. No ar em horine.stormstudio.dev.",
+      "pos": "phone-r in",
+      "textcls": "narrow",
+      "img": "social/out/shots/horine-mobile.png"
+    },
+    {
+      "type": "shot",
+      "kicker": "05 · um cliente, entregue",
+      "title": "O primeiro cliente entregue: uma oficina de 30 anos.",
+      "text": "Site no ar, depoimento real, antes e depois no post anterior. **Um, não trinta** — prefiro dizer o número certo.",
+      "pos": "phone-r in",
+      "textcls": "narrow",
+      "img": "social/out/shots/bc-mobile-hero.png"
+    },
+    {
+      "type": "shot",
+      "kicker": "06 · feito à mão",
+      "title": "Sem template. Sem biblioteca de interface.",
+      "text": "Código escrito para o seu negócio, num arquivo que eu explico linha a linha. **Quando algo quebra, quem conserta é quem fez.**",
+      "textcls": "mid",
+      "code": [
+        "// styles.css · stormstudio.dev",
+        "--bg:    **#05060a**;   // a noite",
+        "--cyan:  **#fb923c**;   // o cobre",
+        "--flash: **#fff4e6**;   // o clarão",
+        "--fd: 'Space Grotesk';"
+      ]
+    },
+    {
+      "type": "turn",
+      "kicker": "a virada",
+      "flip": true,
+      "title": "Estúdio de uma pessoa parece pequeno. É o contrário.",
+      "text": "Quem decide e quem constrói são a mesma pessoa: resposta em horas, não em reunião de alinhamento. **É a única coisa que a agência grande não consegue copiar.**"
+    },
+    {
+      "type": "quote",
+      "kicker": "o cliente",
+      "quote": "Um layout moderno que transmite segurança, qualidade, organização e confiança aos clientes.",
+      "who": "<b>Henrique</b> · Beto Chaves · Esteio/RS<br>oficina técnica há +30 anos<br>betochaves.com.br"
+    },
+    {
+      "type": "list",
+      "kicker": "resumo · salva",
+      "title": "O que você leva",
+      "items": [
+        [
+          "Uma pessoa.",
+          "Atende, desenha, constrói, publica."
+        ],
+        [
+          "Sete anos.",
+          "Sistemas para milhões de usuários."
+        ],
+        [
+          "Produto próprio.",
+          "Três, em uso real."
+        ],
+        [
+          "Em produção.",
+          "Horine, no ar."
+        ],
+        [
+          "Número certo.",
+          "Um cliente entregue — dito assim."
+        ],
+        [
+          "Feito à mão.",
+          "Quem conserta é quem fez."
+        ]
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "raio-x · grátis",
+      "title": "Conta o que você precisa. Eu respondo pessoalmente.",
+      "text": "Manda **RAIO-X** no direct com o link do seu site — ou o Instagram da empresa. Eu abro, olho e devolvo os 3 pontos, em ordem do que mais pesa. **De graça, sem call.**",
+      "cta": "manda RAIO-X no direct"
+    }
+  ]
+}

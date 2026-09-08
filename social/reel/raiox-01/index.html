@@ -33,7 +33,7 @@
       .gen-label { position: absolute; right: 72px; top: 40px; font-family: var(--fm); font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: #8a90a8; }
 
       /* ---------- rodapé persistente ---------- */
-      .foot { position: absolute; left: 72px; right: 72px; bottom: 64px; height: 52px; border-top: 2px solid var(--line);
+      .foot { position: absolute; left: 72px; right: 72px; bottom: 64px; height: 52px; border-top: 2px solid var(--line); background: rgba(5,6,10,.92); box-shadow: 0 -30px 40px rgba(5,6,10,.9); z-index: 20;
         display: flex; align-items: flex-end; justify-content: space-between; font-family: var(--fm); font-size: 26px; letter-spacing: .06em; color: var(--faint); }
       .foot .brand { display: flex; align-items: center; gap: 14px; }
       .foot .brand img { width: 30px; height: 30px; }
@@ -54,7 +54,7 @@
       .word { display: inline-block; }
 
       /* ---------- fone ---------- */
-      .phone { position: absolute; left: 220px; top: 640px; width: 640px; height: 1200px; border-radius: 72px; border: 10px solid #1b2030;
+      .phone { position: absolute; left: 220px; top: 640px; width: 640px; height: 1120px; border-radius: 72px; border: 10px solid #1b2030;
         background: #0b0d14; box-shadow: 0 60px 120px rgba(0,0,0,.65), 0 0 0 2px rgba(140,160,220,.16), 0 0 140px rgba(251,146,60,.12); }
       .screen { position: absolute; inset: 0; border-radius: 62px; overflow: hidden; background: #fff; }
       .scroll { position: absolute; left: 0; top: 0; width: 620px; }
@@ -225,8 +225,8 @@
       tl.fromTo("#stamp-antes", { scale: 0.5, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.45, ease: "back.out(2)" }, 0.35);
       // o raio-x: linha varre a tela e deixa a área "lida" tingida
       tl.set("#scan", { opacity: 1 }, 0.35);
-      tl.fromTo("#scan", { y: 0 }, { y: 1180, duration: 2.1, ease: "power1.inOut" }, 0.4);
-      tl.fromTo("#scanned", { height: 0 }, { height: 1180, duration: 2.1, ease: "power1.inOut" }, 0.4);
+      tl.fromTo("#scan", { y: 0 }, { y: 1100, duration: 2.1, ease: "power1.inOut" }, 0.4);
+      tl.fromTo("#scanned", { height: 0 }, { height: 1100, duration: 2.1, ease: "power1.inOut" }, 0.4);
 
       // troca de texto entre beats: empurrão vertical com desfoque (velocidade casada)
       function swap(outSel, inSel, t, easeIn) {
@@ -264,7 +264,7 @@
       tl.to("#box1", { opacity: 0, duration: 0.25 }, 7.0);
       scrollTo(-560, 7.0, 0.8);
       tl.fromTo("#box2a", { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 7.7);
-      mark("#box2b", "#chip2", 1120, 7.75);
+      mark("#box2b", "#chip2", 1000, 7.75);
 
       // ---- beat 5 · problema 03 (9.6–12.0) ----
       swap("#b4", "#b5", 9.6, "back.out(1.4)");

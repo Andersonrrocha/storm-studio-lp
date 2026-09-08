@@ -25,3 +25,6 @@ Gates: avisar o Henrique (o reel mostra o site antigo dele); decidir trilha (bib
 - Copy: '3 problemas que custavam clientes'; contexto 'como qualquer loja online' (sem 'de ninguém' — origem da foto não é provável; e sem entregar o problema 02 antes da hora).
 - Marcações: carimbos ANTES/HOJE, chips 01–03 e chips de acerto ficam na moldura do fone, fora do print (só as caixas ficam sobre a tela).
 - Loop: fone final mais alto e varredura mais curta — termina visível antes do fim.
+
+## Verificação final
+- Fone 80 px mais curto (base em 1760 px, acima do rodapé em 1804); rodapé com fundo para o fone final passar por trás sem riscar o texto.

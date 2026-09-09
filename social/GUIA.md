@@ -83,6 +83,12 @@ social/.venv/bin/python social/reel/capture_lab.py                        # noss
 #   números: npx lighthouse <url> --form-factor=mobile --output=json (≥ 2 rodadas; só usar
 #   o que se repete: SEO, acessibilidade, CLS. Performance oscila 20 pontos — não usar)
 
+# 2. reel (HyperFrames) — especificação conferida em set/2026
+#   1080×1920 (9:16) · 30 fps · H.264 High · AAC 44,1 kHz · 5–8 Mbps · ≤ 90 s (ideal 15–30 s)
+#   ZONA SEGURA: a interface cobre ~250 px no topo, ~340–450 px na base e ~130 px na coluna
+#   direita (ícones). Texto e marcações entre y = 270 e y ≈ 1500; o que fica na base é decorativo.
+#   Capa: escolher frame manualmente no app; a grade recorta 1:1 no centro.
+
 # 2. deck + render
 social/.venv/bin/python social/carousel/render.py social/carousel/deck-NN-*.json social/out/carrossel-NN
 #   → slide_NN.jpg/png, _sheet.jpg (270 px), legenda.txt
@@ -144,7 +150,10 @@ Regra: imagem gerada entra como **fundo/atmosfera** (textura de raio em cobre, m
 hardware, névoa) atrás de material real, ou como abertura abstrata. Nunca: tela de site
 que não existe, pessoa, cliente, produto "de mentira", nem nada que um leitor possa
 tomar por foto real. Sempre com a paleta da marca, sem texto dentro da imagem (texto é
-nosso, em tipografia), e registrado em `_fatos.md` como "gerado".
+nosso, em tipografia), e registrado em `_fatos.md` como "gerado". **Sem rótulo na peça**
+(decisão do Anderson, 08/09/2026): a divulgação fica no registro interno. A política da
+Meta só exige aviso para conteúdo fotorrealista que possa enganar — textura abstrata de
+fundo não é o caso; se um dia entrar pessoa ou cena realista gerada, aí o aviso é obrigatório.
 
 Mecanismo: ChatGPT pela assinatura (OAuth do Codex, `~/.codex/auth.json`), mesmo caminho
 que o Hermes usa (`panel/server/src/state.ts`) — endpoint

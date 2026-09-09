@@ -28,3 +28,7 @@ Gates: avisar o Henrique (o reel mostra o site antigo dele); decidir trilha (bib
 
 ## Verificação final
 - Fone 80 px mais curto (base em 1760 px, acima do rodapé em 1804); rodapé com fundo para o fone final passar por trás sem riscar o texto.
+
+## Zona segura e rótulo (decisão do Anderson, 08/09)
+- Especificação conferida: 1080×1920 (9:16), 30 fps, H.264 High, AAC 44,1 kHz, 5–8 Mbps; interface do Instagram cobre ~250 px no topo e ~340–450 px na base, mais a coluna de ícones à direita. Texto passa a começar em 270 px; rodapé removido (marca na linha do kicker); fone entre 820 e 1820 px (a parte baixa é decorativa).
+- Rótulo 'imagem de fundo gerada' removido da peça; a divulgação fica aqui. Política da Meta exige aviso só para conteúdo fotorrealista que possa enganar — não é o caso de textura abstrata de fundo.

@@ -134,7 +134,7 @@ def slide_html(s, i, n, outdir):
     if s.get("bg"):
         bguri = img_uri(s["bg"], None, outdir, 100 + i)
         if bguri:
-            bg = f'<img class="bgimg" src="{bguri}"><div class="gen">imagem de fundo gerada</div>'
+            bg = f'<img class="bgimg" src="{bguri}">'   # divulgação do fundo gerado fica no _fatos.md, não na peça
     style = f"--seam-x:{-i*W}px" + (f';--bg-op:{s["bgop"]}' if s.get("bgop") else "")
     return f'<div class="slide {cls}" style="{style}">{bg}{body}{foot(i, n)}</div>'
 

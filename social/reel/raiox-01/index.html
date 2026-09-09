@@ -40,7 +40,9 @@
       .foot .idx { color: var(--cobre); }
 
       /* ---------- zona de texto (topo) ---------- */
-      .head { position: absolute; left: 72px; right: 72px; top: 96px; height: 520px; }
+      .head { position: absolute; left: 72px; right: 72px; top: 270px; height: 500px; }
+      .brand-top { position: absolute; right: 72px; top: 270px; display: flex; align-items: center; gap: 12px; font-family: var(--fm); font-size: 24px; letter-spacing: .06em; color: var(--faint); z-index: 3; }
+      .brand-top img { width: 26px; height: 26px; }
       .beat { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 22px; opacity: 0; }
       .beat.on { opacity: 1; }
       .kicker { font-family: var(--fm); font-size: 30px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--cobre);
@@ -54,7 +56,7 @@
       .word { display: inline-block; }
 
       /* ---------- fone ---------- */
-      .phone { position: absolute; left: 220px; top: 640px; width: 640px; height: 1120px; border-radius: 72px; border: 10px solid #1b2030;
+      .phone { position: absolute; left: 220px; top: 820px; width: 640px; height: 1000px; border-radius: 72px; border: 10px solid #1b2030;
         background: #0b0d14; box-shadow: 0 60px 120px rgba(0,0,0,.65), 0 0 0 2px rgba(140,160,220,.16), 0 0 140px rgba(251,146,60,.12); }
       .screen { position: absolute; inset: 0; border-radius: 62px; overflow: hidden; background: #fff; }
       .scroll { position: absolute; left: 0; top: 0; width: 620px; }
@@ -73,7 +75,7 @@
       .bezel-note { position: absolute; left: 0; right: 0; top: -112px; text-align: center; font-family: var(--fm); font-size: 22px; letter-spacing: .14em; color: var(--faint); text-transform: uppercase; }
 
       /* ---------- hoje ---------- */
-      #hoje .phone { top: 640px; }
+      #hoje .phone { top: 820px; }
       #hoje .shot { position: absolute; inset: 0; opacity: 0; }
       #hoje .shot img { display: block; width: 620px; }
       #hoje .hit { position: absolute; right: -14px; top: -58px; z-index: 6; font-family: var(--fm); font-size: 26px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
@@ -82,13 +84,13 @@
 
       /* ---------- saída ---------- */
       #saida { opacity: 0; }
-      #saida .head { top: 560px; height: 760px; }
+      #saida .head { top: 520px; height: 760px; }
       #saida .h { font-size: 104px; }
       .pill { display: inline-flex; align-self: flex-start; align-items: center; gap: 16px; margin-top: 18px; font-family: var(--fm); font-weight: 600; font-size: 34px; letter-spacing: .04em;
         color: #0b0704; background: linear-gradient(100deg, #fb923c, #b45309); padding: 26px 38px; border-radius: 12px; opacity: 0; }
       .pill svg { width: 30px; height: 30px; }
       .free { font-family: var(--fm); font-size: 28px; letter-spacing: .1em; color: var(--cobre); text-transform: uppercase; opacity: 0; }
-      #saida .phone { top: 1300px; left: 300px; width: 480px; height: 900px; border-radius: 60px; opacity: 0; }
+      #saida .phone { top: 1330px; left: 300px; width: 480px; height: 900px; border-radius: 60px; opacity: 0; }
       #saida .screen { border-radius: 50px; }
       #saida .scroll, #saida .scroll img, #saida .scan, #saida .scanned { width: 460px; }
     </style>
@@ -102,7 +104,6 @@
       <img class="bg-raio" id="bgraio" src="assets/bg-raio.png" alt="" />
       <div class="ghost" id="ghost" data-layout-ignore aria-hidden="true">RAIO-X</div>
       <div class="grain"></div>
-      <div class="gen-label">imagem de fundo gerada</div>
 
       <!-- ===== ANTES: o site de jan/2024 ===== -->
       <div id="antes" class="clip" data-start="0" data-duration="12.2" data-track-index="1">
@@ -198,11 +199,7 @@
 
       <div class="flash" id="flash"></div>
 
-      <!-- rodapé -->
-      <div class="foot">
-        <div class="brand"><img src="assets/storm-mark.svg" alt="" /><span>stormstudio.dev</span></div>
-        <div class="idx" id="idx">raio-x · 01</div>
-      </div>
+      <div class="brand-top"><img src="assets/storm-mark.svg" alt="" /><span>stormstudio.dev</span></div>
 
       <audio id="sfx" class="clip" data-start="0" data-duration="20" data-track-index="9" src="assets/sfx.wav" data-volume="0.8"></audio>
     </div>
@@ -225,8 +222,8 @@
       tl.fromTo("#stamp-antes", { scale: 0.5, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.45, ease: "back.out(2)" }, 0.35);
       // o raio-x: linha varre a tela e deixa a área "lida" tingida
       tl.set("#scan", { opacity: 1 }, 0.35);
-      tl.fromTo("#scan", { y: 0 }, { y: 1100, duration: 2.1, ease: "power1.inOut" }, 0.4);
-      tl.fromTo("#scanned", { height: 0 }, { height: 1100, duration: 2.1, ease: "power1.inOut" }, 0.4);
+      tl.fromTo("#scan", { y: 0 }, { y: 960, duration: 2.1, ease: "power1.inOut" }, 0.4);
+      tl.fromTo("#scanned", { height: 0 }, { height: 960, duration: 2.1, ease: "power1.inOut" }, 0.4);
 
       // troca de texto entre beats: empurrão vertical com desfoque (velocidade casada)
       function swap(outSel, inSel, t, easeIn) {
@@ -250,8 +247,8 @@
       // ---- beat 2 · contexto (2.6–4.4) ----
       swap("#b1", "#b2", 2.6);
       scrollTo(-280, 2.7, 0.9);
-      tl.to("#scan", { y: 700, duration: 0.9, ease: "power2.inOut" }, 2.7);
-      tl.to("#scanned", { height: 700, duration: 0.9, ease: "power2.inOut" }, 2.7);
+      tl.to("#scan", { y: 640, duration: 0.9, ease: "power2.inOut" }, 2.7);
+      tl.to("#scanned", { height: 640, duration: 0.9, ease: "power2.inOut" }, 2.7);
 
       // ---- beat 3 · problema 01 (4.8–7.0) ----
       swap("#b2", "#b3", 4.8);
@@ -262,9 +259,9 @@
       swap("#b3", "#b4", 7.0);
       tl.to("#chip1", { opacity: 0, duration: 0.25 }, 7.0);
       tl.to("#box1", { opacity: 0, duration: 0.25 }, 7.0);
-      scrollTo(-560, 7.0, 0.8);
+      scrollTo(-660, 7.0, 0.8);
       tl.fromTo("#box2a", { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 7.7);
-      mark("#box2b", "#chip2", 1000, 7.75);
+      mark("#box2b", "#chip2", 900, 7.75);
 
       // ---- beat 5 · problema 03 (9.6–12.0) ----
       swap("#b4", "#b5", 9.6, "back.out(1.4)");

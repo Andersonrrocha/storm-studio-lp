@@ -9,7 +9,7 @@
       "kicker": "storm studio · o que fazemos",
       "title": "Não é só site. É o que tira o negócio do [improviso].",
       "swipe": "4 coisas que saem daqui →",
-      "img": "social/out/shots/horine-mobile.png",
+      "img": "social/assets/shots/horine-mobile.png",
       "bg": "social/assets/gen/circuito-01.png",
       "bgop": ".5"
     },
@@ -27,7 +27,7 @@
       "text": "Identidade, texto e desempenho de verdade — não template requentado. Para quem ainda não tem presença digital, **ou tem algo improvisado**.",
       "frame": "browser",
       "url": "betochaves.com.br",
-      "img": "social/out/shots/bc-hero-cut.png",
+      "img": "social/assets/shots/bc-hero-cut.png",
       "stamp": "cliente",
       "imgh": "auto"
     },
@@ -38,7 +38,7 @@
       "text": "Agenda, cadastro, reservas, painel — feitos para o seu fluxo. **Um dado, um lugar**: sem duas versões da mesma informação.",
       "frame": "browser",
       "url": "horine.stormstudio.dev",
-      "img": "social/out/shots/horine-desktop.png",
+      "img": "social/assets/shots/horine-desktop.png",
       "stamp": "produto próprio"
     },
     {
@@ -48,7 +48,7 @@
       "text": "Categorizar transações, ler e-mail, gerar documento. Modelos de linguagem **para tarefas repetitivas de verdade**, além do hype.",
       "frame": "browser",
       "url": "stormstudio.dev/#lab",
-      "img": "social/out/shots/ss-lab.png",
+      "img": "social/assets/shots/ss-lab.png",
       "crop": [
         0,
         3695,
@@ -79,7 +79,7 @@
       "text": "Horine (agenda) no ar, WIMM (finanças) em produção, Hermes (agentes) em operação. GymFlow (treino), ainda em desenvolvimento. **O estúdio usa o que constrói antes de vender.**",
       "frame": "browser",
       "url": "stormstudio.dev",
-      "img": "social/out/shots/ss-lab.png",
+      "img": "social/assets/shots/ss-lab.png",
       "crop": [
         0,
         3695,

@@ -9,7 +9,7 @@
       "kicker": "storm studio · o estúdio",
       "title": "Você fala com quem [constrói]. Não com quem vende.",
       "swipe": "quem está do outro lado →",
-      "img": "social/out/shots/ss-mobile-hero.png",
+      "img": "social/assets/shots/ss-mobile-hero.png",
       "bg": "social/assets/gen/raio-vertical-01.png",
       "bgop": ".45"
     },
@@ -27,7 +27,7 @@
       "text": "Site, aplicativo, automação ou fluxo com agentes — **o que resolve, no tamanho que resolve.** O briefing começa perguntando o que você precisa, e “ainda não sei” é uma resposta válida.",
       "frame": "browser",
       "url": "stormstudio.dev/#contato",
-      "img": "social/out/shots/ss-form-desktop.png",
+      "img": "social/assets/shots/ss-form-desktop.png",
       "imgh": "auto"
     },
     {
@@ -37,7 +37,7 @@
       "text": "Projetos em diferentes segmentos — de plataforma financeira a oficina de bairro — no Brasil e no exterior. **Escala grande ensina o que não pode falhar; é isso que trazemos para o seu negócio.**",
       "frame": "browser",
       "url": "stormstudio.dev",
-      "img": "social/out/shots/ss-hero.png",
+      "img": "social/assets/shots/ss-hero.png",
       "crop": [
         0,
         0,
@@ -52,7 +52,7 @@
       "text": "Conversa antes de proposta; proposta por escrito antes de código. **Sempre em contato:** você sabe em que ponto o projeto está, sem precisar perguntar.",
       "frame": "browser",
       "url": "stormstudio.dev/#processo",
-      "img": "social/out/shots/ss-processo.png",
+      "img": "social/assets/shots/ss-processo.png",
       "imgh": "auto",
       "crop": [
         0,
@@ -68,7 +68,7 @@
       "text": "Produto próprio do estúdio, no ar em horine.stormstudio.dev: reservas, equipe, bloqueios e uma página pública onde o cliente escolhe o horário **sem mandar mensagem**.",
       "pos": "phone-r in",
       "textcls": "narrow",
-      "img": "social/out/shots/horine-mobile.png"
+      "img": "social/assets/shots/horine-mobile.png"
     },
     {
       "type": "shot",
@@ -77,7 +77,7 @@
       "text": "Site entregue, depoimento real, antes e depois no post anterior. **Tela real, não promessa.**",
       "pos": "phone-r in alt",
       "textcls": "narrow",
-      "img": "social/out/shots/bc-mobile-hero-clean.png",
+      "img": "social/assets/shots/bc-mobile-hero-clean.png",
       "crop": [
         0,
         0,

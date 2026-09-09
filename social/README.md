@@ -35,6 +35,12 @@ social/
 > teste de copy — **não** é o padrão de qualidade da conta. Peça principal se monta em
 > Figma Motion ou Cavalry, com material real dentro.
 
+## Refazer tudo
+
+```bash
+social/render-all.sh     # carrosséis (JSON → JPG) e reels (HyperFrames → MP4), a partir da fonte versionada
+```
+
 ## Rodar a camada base
 
 ```bash

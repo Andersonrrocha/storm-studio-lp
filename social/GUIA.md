@@ -162,9 +162,18 @@ Script: `social/assets/gen.py` (estado: ver `social/README.md`).
 
 ## 7. Onde está cada coisa
 
+**Fonte vs. saída.** O git guarda a *receita*: decks (JSON), template, `render.py`, projetos de
+reel (HTML + assets), capturas usadas (`social/assets/shots/`), fundos gerados
+(`social/assets/gen/`), fatos e fila. A *saída* (JPGs dos slides, `legenda.txt`, MP4) não vai
+para o git — é gerada por `social/render-all.sh` em ~2 min a partir da fonte, idêntica a cada
+execução. Publicação é manual (app/web), ver `browser/PUBLICACAO.md`.
+
+
 - `social/BENCHMARK.md` — 16 contas medidas, os cinco achados, a fórmula.
 - `social/PESQUISA-INSTAGRAM.md` — ferramentas, stack premium, plano de 30 dias.
 - `social/carousel/` — template, render, decks. `social/reel/` — capturas e montagem.
-- `social/out/carrossel-NN/` — saídas + `_fatos.md` (fora do git, exceto `_fatos.md` que
-  deve ser copiado para `social/carousel/fatos-NN.md` ao fechar a peça).
+- `social/out/carrossel-NN/` — saídas (fora do git); `_fatos.md` é copiado para
+  `social/carousel/fatos-NN.md` ao fechar a peça. `social/reel/<peça>/renders/` — MP4 (fora do git).
+- `social/assets/shots/` — capturas reais que os decks usam (versionadas, para a peça se refazer igual).
+- `social/render-all.sh` — refaz todos os carrosséis e reels a partir da fonte.
 - `social/browser/` — fila do que está pronto, fila de teardown, protocolo de publicação.

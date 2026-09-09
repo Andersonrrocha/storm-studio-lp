@@ -9,7 +9,7 @@
       "kicker": "storm studio · sob medida 01",
       "title": "Seu site faz sua empresa parecer [menor] do que ela é.",
       "swipe": "6 decisões, com a tela real →",
-      "img": "social/out/shots/bc-mobile-hero.png"
+      "img": "social/assets/shots/bc-mobile-hero.png"
     },
     {
       "type": "shot",
@@ -18,7 +18,7 @@
       "text": "Uma oficina com **30 anos de história** resumiu assim o problema: “nosso site estava desatualizado e não refletia a credibilidade da empresa.” **Era este.**",
       "pos": "phone-r old",
       "textcls": "narrow",
-      "img": "social/out/shots/bc-old-mobile.png",
+      "img": "social/assets/shots/bc-old-mobile.png",
       "note": "captura do Wayback Machine, jan/2024",
       "stamp": "antes · jan/2024"
     },
@@ -29,7 +29,7 @@
       "text": "A fachada como ela é na rua — não foto de banco de imagem. O cliente reconhece o lugar **antes de ler o nome**.",
       "frame": "browser",
       "url": "betochaves.com.br",
-      "img": "social/out/shots/bc-hero-cut.png",
+      "img": "social/assets/shots/bc-hero-cut.png",
       "stamp": "hoje",
       "imgh": "auto"
     },
@@ -54,7 +54,7 @@
       "text": "Quem está trancado fora do carro às 23h **não preenche formulário**. O botão segue a rolagem e já abre o chat com o texto pronto.",
       "pos": "phone-r in",
       "textcls": "narrow",
-      "img": "social/out/shots/bc-mobile-wa.png",
+      "img": "social/assets/shots/bc-mobile-wa.png",
       "crop": [
         0,
         114,
@@ -78,7 +78,7 @@
       "text": "Chave automotiva é o carro-chefe da oficina. Então é o primeiro bloco depois da fachada — antes do residencial, antes dos carimbos. **Template não sabe qual serviço paga as contas.**",
       "frame": "browser",
       "url": "betochaves.com.br",
-      "img": "social/out/shots/bc-desktop-services.png",
+      "img": "social/assets/shots/bc-desktop-services.png",
       "crop": [
         0,
         150,
@@ -93,7 +93,7 @@
       "text": "Nada de “clientes satisfeitos”. As avaliações do Google entram na página como estão — **4,5 estrelas em 422 avaliações**, com o nome de quem escreveu. Quem chega confere antes de ligar.",
       "pos": "phone-r in",
       "textcls": "narrow",
-      "img": "social/out/shots/bc-mobile-reviews.png",
+      "img": "social/assets/shots/bc-mobile-reviews.png",
       "crop": [
         0,
         0,

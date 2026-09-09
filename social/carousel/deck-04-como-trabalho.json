@@ -11,7 +11,7 @@
       "swipe": "as 4 etapas, com a tela real →",
       "frame": "browser",
       "url": "stormstudio.dev",
-      "img": "social/out/shots/ss-processo.png",
+      "img": "social/assets/shots/ss-processo.png",
       "bg": "social/assets/gen/tempestade-01.png",
       "bgop": ".5",
       "crop": [
@@ -35,7 +35,7 @@
       "text": "Uma conversa e um briefing de três campos: nome, o que você precisa, uma linha sobre o projeto. **Escopo claro, expectativa alinhada — por escrito.**",
       "frame": "browser",
       "url": "stormstudio.dev/#contato",
-      "img": "social/out/shots/ss-form-desktop.png",
+      "img": "social/assets/shots/ss-form-desktop.png",
       "imgh": "auto"
     },
     {
@@ -86,7 +86,7 @@
       "text": "Você recebe um plano e um valor fechado antes da primeira linha — **sem “depende”**.",
       "frame": "browser",
       "url": "stormstudio.dev",
-      "img": "social/out/shots/ss-terminal.png",
+      "img": "social/assets/shots/ss-terminal.png",
       "crop": [
         0,
         289,

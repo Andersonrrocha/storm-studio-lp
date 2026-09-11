@@ -1,0 +1,272 @@
+<!doctype html><html lang='pt-BR'><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Tokens = styles.css da landing (stormstudio.dev). Não inventar cor aqui. */
+  :root{
+    --bg:#05060a; --surface:#0d1019; --text:#e8eaf2; --dim:#9aa0b4; --faint:#868ea3;
+    --cobre:#fb923c; --cobre-deep:#b45309; --flash:#fff4e6;
+    --line:rgba(140,160,220,.12); --line-strong:rgba(140,160,220,.22);
+    --grad:linear-gradient(100deg,#fff4e6 0%,#fb923c 35%,#b45309 80%);
+    --fd:'Space Grotesk',system-ui,sans-serif; --fm:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;font-family:var(--fd);-webkit-font-smoothing:antialiased}
+  .strip{display:flex;width:max-content}
+  /* slide em 540x675 (metade de 1080x1350); export com device_scale_factor=2 */
+  .slide{
+    position:relative;width:540px;height:675px;overflow:hidden;flex:none;
+    background:
+      radial-gradient(ellipse 90% 60% at 18% 0%, rgba(180,83,9,.26), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 92% 100%, rgba(251,146,60,.12), transparent 60%),
+      var(--bg);
+    color:var(--text);padding:46px 44px 40px;display:flex;flex-direction:column;
+  }
+  /* linha elétrica contínua: a mesma imagem em todos os slides, deslocada — atravessa o corte */
+  .slide::before{content:"";position:absolute;inset:0;background-image:var(--seam);
+    background-repeat:no-repeat;background-position:var(--seam-x) 0;pointer-events:none}
+  .slide::after{ /* grão */
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='.055'/></svg>");
+  }
+  .slide>*{position:relative;z-index:1}
+
+  .kicker{font-family:var(--fm);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cobre);
+    display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:22px;height:1px;background:var(--cobre)}
+  h1{font-size:50px;line-height:1.0;letter-spacing:-.035em;font-weight:700}
+  h2{font-size:34px;line-height:1.06;letter-spacing:-.03em;font-weight:600}
+  em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{font-size:18px;line-height:1.5;color:var(--dim);margin-top:16px;max-width:42ch}
+  p strong{color:var(--text);font-weight:600}
+  .swipe{font-family:var(--fm);font-size:12.5px;color:var(--cobre);letter-spacing:.12em;margin-top:22px}
+  .foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.05em}
+  .foot .brand{display:flex;align-items:center;gap:8px}
+  .foot .brand svg{width:16px;height:16px}
+  .idx{color:var(--cobre)}
+
+  /* --- material real: molduras --- */
+  .phone{width:232px;height:474px;border-radius:34px;border:5px solid #1b2030;background:#0b0d14;overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(140,160,220,.14), 0 0 80px rgba(251,146,60,.10)}
+  .phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+  .browser{border-radius:10px;overflow:hidden;background:#0b0d14;border:1px solid var(--line-strong);
+    box-shadow:0 26px 50px rgba(0,0,0,.55), 0 0 60px rgba(251,146,60,.08)}
+  .browser .bar{height:22px;background:#12151f;display:flex;align-items:center;gap:6px;padding:0 10px;border-bottom:1px solid var(--line)}
+  .browser .bar i{width:7px;height:7px;border-radius:50%;background:#2a3042;display:block}
+  .browser .bar i:first-child{background:#b45309}
+  .browser .bar span{margin-left:8px;font-family:var(--fm);font-size:9px;color:var(--faint);letter-spacing:.06em}
+  .browser img{display:block;width:100%;object-fit:cover;object-position:top}
+
+  .stamp{position:absolute;z-index:3;font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    padding:7px 10px;border-radius:4px;background:var(--flash);color:#0b0704;font-weight:600;
+    box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  .stamp.dark{background:#0b0d14;color:var(--cobre);border:1px solid var(--cobre)}
+  .phone .stamp{top:14px;left:-10px}
+  .browser .stamp{top:34px;left:12px}
+  .phone,.browser{position:relative}
+  .shot .media.phone-r,.cover .phone,.quote .phone{position:absolute}
+
+  /* cenário gerado: atrás de tudo, mascarado para o texto continuar lendo primeiro */
+  .bgimg{position:absolute;inset:0;z-index:0;object-fit:cover;opacity:var(--bg-op,.55);
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,0) 100%);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,0) 100%)}
+  .slide .bgimg + *:not(.gen){position:relative}
+  .slide>.gen{position:absolute}
+  .gen{position:absolute;left:44px;bottom:74px;z-index:2;font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#5c6480}
+
+  /* --- tipos de slide --- */
+  .cover h1{margin-top:auto;max-width:9.5ch}
+  .cover .phone{position:absolute;right:-88px;top:120px;transform:rotate(-5deg);z-index:0;filter:brightness(.85)}
+  .cover h1 em{background:linear-gradient(100deg,#fff4e6,#fb923c 70%);-webkit-background-clip:text;background-clip:text}
+  .cover .kicker,.cover h1,.cover .swipe,.cover .foot{z-index:2}
+  .cover h1{text-shadow:0 2px 24px rgba(5,6,10,.9)}
+  .cover .browser{position:absolute;left:230px;right:-210px;bottom:60px;z-index:0;transform:rotate(-4deg)}
+  .cover .browser img{height:170px}
+  .cover h1{max-width:9.5ch}
+
+  .shot .media{margin-top:22px}
+  .shot .media.phone-r{position:absolute;right:-32px;bottom:58px;transform:rotate(-4deg);z-index:0}
+  .shot .browser img{height:250px}
+  .shot .text{margin-top:22px}
+  .shot .text.after{margin-top:auto;padding-top:22px}
+  .shot .text.mid{margin-top:auto}
+  .shot .media.phone-r.in{right:10px;bottom:62px;transform:rotate(-3deg)}
+  .shot .media.phone-r.in.alt{right:-26px;bottom:44px;transform:rotate(-7deg)}
+  .phone.old{box-shadow:0 30px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(140,160,220,.14)}
+  .shot .text.narrow{max-width:250px}
+  .shot .text.narrow p{font-size:17px}
+
+  .code{font-family:var(--fm);font-size:15px;line-height:1.75;color:var(--dim);background:rgba(13,16,25,.85);
+    border:1px solid var(--line);border-left:2px solid var(--cobre);border-radius:8px;padding:20px 22px;margin-top:22px}
+  .code strong{color:var(--flash);font-weight:500}
+  .code .c{color:#5c6480}
+
+  .slide.big::before{opacity:.35}
+  .numrow{display:flex;align-items:baseline;gap:14px;margin-top:auto}
+  .unit{font-family:var(--fm);font-size:14px;color:var(--cobre);letter-spacing:.08em}
+  .num{font-size:156px;line-height:.9;letter-spacing:-.06em;font-weight:700;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .num-sub{font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-top:8px;line-height:1.7}
+  .num-sub b{color:var(--dim);font-weight:500}
+
+  .turn h2{font-size:42px;margin-top:auto;max-width:11ch}
+  .turn .bolt{position:absolute;right:-120px;top:-40px;width:420px;z-index:0;clip-path:inset(0 0 198px 0)}
+  .turn .bolt path{fill:#fb923c;fill-opacity:.06;stroke:#fb923c;stroke-opacity:.25;stroke-width:.8}
+  .turn.flip .bolt{transform:scaleX(-1);right:auto;left:-120px}
+
+  .quote blockquote{margin-top:auto;font-size:27px;line-height:1.22;letter-spacing:-.02em;font-weight:500;color:var(--flash);max-width:16.5ch;text-shadow:0 2px 18px rgba(5,6,10,.95)}
+  .quote blockquote::before{content:"“";color:var(--cobre);font-size:60px;line-height:0;vertical-align:-22px;margin-right:4px}
+  .quote .who{max-width:300px;font-family:var(--fm);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-top:22px;line-height:1.8}
+  .quote .who b{color:var(--text);font-weight:500}
+  .quote .phone{position:absolute;right:-72px;top:64px;transform:rotate(-7deg);z-index:0;opacity:.92}
+
+  .list h2{margin-top:auto}
+  .list ol{margin-top:18px;list-style:none;counter-reset:n}
+  .list li{counter-increment:n;display:grid;grid-template-columns:34px 1fr;gap:8px;align-items:baseline;
+    padding:13px 0;border-top:1px solid var(--line);font-size:20px;letter-spacing:-.01em;line-height:1.3}
+  .list li::before{content:counter(n,decimal-leading-zero);font-family:var(--fm);font-size:12px;color:var(--cobre)}
+  .list li b{color:var(--text);font-weight:600}
+  .list li span{color:var(--dim)}
+
+  .cta h2{margin-top:auto}
+  .cta .pill{margin-top:24px;display:inline-flex;align-self:flex-start;gap:10px;align-items:center;
+    background:linear-gradient(100deg,#fb923c,#b45309);color:#0b0704;font-weight:600;font-size:16px;letter-spacing:.04em;
+    padding:14px 22px;border-radius:8px;font-family:var(--fm)}
+  .cta .pill svg{width:16px;height:16px}
+
+:root{--seam:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDgwIiBoZWlnaHQ9IjY3NSI+PGRlZnM+PGZpbHRlciBpZD0iZyI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNSIvPjwvZmlsdGVyPjwvZGVmcz48cGF0aCBkPSJNLTIwLDMwMCBMOTEsMjI4IEwxNjcsMTM2IEwyNDksMTIwIEwzODMsMTIwIEwzOTcsMTQwIEw0ODMsMTIwIEw1NjAsMjIxIEw2NTgsMjcyIEw3MzUsMzA5IEw4MTEsMjU1IEw4MzIsMjI4IEw5MzQsMTgxIEwxMDc3LDE0OSBMMTIzNCwxMjAgTDEyNTEsOTEgTDEzMTYsMTUwIEwxNDU4LDEyMCBMMTU5MSwxODQgTDE3MDEsMTkzIEwxODI5LDE3NSBMMTg0OSwxMzUgTDE5MzAsMTIwIEwyMDY3LDEzNiBMMjE5NCwxMjAgTDIyNzMsMTIwIEwyMzY0LDIwMyBMMjQ5NiwyMDAgTDI1MTQsMTU4IEwyNjM3LDIzNiBMMjc0NywyMTMgTDI4OTMsMjMwIEwzMDIxLDEzNyBMMzEyNSwxNDggTDMyMDMsMTIwIEwzMzEyLDE3NSBMMzQ2OSwyNzUgTDM1ODgsMzM2IEwzNzE3LDMxNiBMMzcyNiwzMzUgTDM4MTQsNDAyIEwzODMzLDM3MiBMMzkzNCw0MTkgTDM5NDksNDU0IEw0MDM5LDM0NCBMNDE3OSwzMDUgTDQyOTQsMzY5IEw0MzkzLDI5NyBMNDQwMywyNTggTDQ0OTIsMTkwIEw0NjM3LDEyNiBMNDY0NSw5NSBMNDc3NSwxMjAgTDQ4ODUsMTIwIEw1MDIwLDE2OCBMNTA5NiwxNzQgTDUyNTMsMjY4IEw1MzczLDI2MCBMNTUwNCwzMTIgTDU1OTgsMjE5IEw1NzI0LDE1MCBMNTc0MSwxMjkgTDU3OTQsMTg1IEw1ODAzLDIyMiBMNTg2NywxMjAgTDYwMTUsMTIwIEw2MDI3LDE1NyBMNjEzMSwxMzEgTDYxNTIsMTYzIEw2MjYyLDE0NCBMNjM1MCwxMjAgTDY0NTMsMTMyIEw2NTQzLDE1NCBMNjU1OSwxNzYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZiOTIzYyIgc3Ryb2tlLXdpZHRoPSI3IiBvcGFjaXR5PSIuMTAiIGZpbHRlcj0idXJsKCNnKSIvPjxwYXRoIGQ9Ik0tMjAsMzAwIEw5MSwyMjggTDE2NywxMzYgTDI0OSwxMjAgTDM4MywxMjAgTDM5NywxNDAgTDQ4MywxMjAgTDU2MCwyMjEgTDY1OCwyNzIgTDczNSwzMDkgTDgxMSwyNTUgTDgzMiwyMjggTDkzNCwxODEgTDEwNzcsMTQ5IEwxMjM0LDEyMCBMMTI1MSw5MSBMMTMxNiwxNTAgTDE0NTgsMTIwIEwxNTkxLDE4NCBMMTcwMSwxOTMgTDE4MjksMTc1IEwxODQ5LDEzNSBMMTkzMCwxMjAgTDIwNjcsMTM2IEwyMTk0LDEyMCBMMjI3MywxMjAgTDIzNjQsMjAzIEwyNDk2LDIwMCBMMjUxNCwxNTggTDI2MzcsMjM2IEwyNzQ3LDIxMyBMMjg5MywyMzAgTDMwMjEsMTM3IEwzMTI1LDE0OCBMMzIwMywxMjAgTDMzMTIsMTc1IEwzNDY5LDI3NSBMMzU4OCwzMzYgTDM3MTcsMzE2IEwzNzI2LDMzNSBMMzgxNCw0MDIgTDM4MzMsMzcyIEwzOTM0LDQxOSBMMzk0OSw0NTQgTDQwMzksMzQ0IEw0MTc5LDMwNSBMNDI5NCwzNjkgTDQzOTMsMjk3IEw0NDAzLDI1OCBMNDQ5MiwxOTAgTDQ2MzcsMTI2IEw0NjQ1LDk1IEw0Nzc1LDEyMCBMNDg4NSwxMjAgTDUwMjAsMTY4IEw1MDk2LDE3NCBMNTI1MywyNjggTDUzNzMsMjYwIEw1NTA0LDMxMiBMNTU5OCwyMTkgTDU3MjQsMTUwIEw1NzQxLDEyOSBMNTc5NCwxODUgTDU4MDMsMjIyIEw1ODY3LDEyMCBMNjAxNSwxMjAgTDYwMjcsMTU3IEw2MTMxLDEzMSBMNjE1MiwxNjMgTDYyNjIsMTQ0IEw2MzUwLDEyMCBMNjQ1MywxMzIgTDY1NDMsMTU0IEw2NTU5LDE3NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmI5MjNjIiBzdHJva2Utd2lkdGg9IjEuMyIgb3BhY2l0eT0iLjMyIi8+PC9zdmc+')}</style></head><body><div class='strip'><div class="slide cover" style="--seam-x:0px"><div class="phone media "><img src="file:///Users/anderson.rocha/Projects/storm-studio-lp/.claude/worktrees/instagram-session-analysis-895701/social/assets/shots/bc-mobile-hero.png"></div><div class="kicker">storm studio · sob medida 01</div><h1>Seu site faz sua empresa parecer <em>menor</em> do que ela é.</h1><div class="swipe">6 decisões, com a tela real →</div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">01 / 12</span></div></div><div class="slide shot" style="--seam-x:-540px"><div class="kicker">o custo · o site de antes</div><div class="text narrow"><h2>Quem chega julga em segundos. E vai embora antes de ligar.</h2><p>Uma oficina com <strong>30 anos de história</strong> resumiu assim o problema: “nosso site estava desatualizado e não refletia a credibilidade da empresa.” <strong>Era este.</strong></p></div><div class="phone media phone-r old"><img src="file:///Users/anderson.rocha/Projects/storm-studio-lp/.claude/worktrees/instagram-session-analysis-895701/social/assets/shots/bc-old-mobile.png"><div class="stamp ">antes · jan/2024</div></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">02 / 12</span></div></div><div class="slide shot" style="--seam-x:-1080px"><div class="kicker">01 · foto real</div><div class="text "><h2>Foto de verdade, não ícone desenhado.</h2><p>A fachada como ela é na rua — não foto de banco de imagem. O cliente reconhece o lugar <strong>antes de ler o nome</strong>.</p></div><div class="browser media"><div class="bar"><i></i><i></i><i></i><span>betochaves.com.br</span></div><img src="file:///Users/anderson.rocha/Projects/storm-studio-lp/.claude/worktrees/instagram-session-analysis-895701/social/assets/shots/bc-hero-cut.png" style="height:auto"><div class="stamp ">hoje</div></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">03 / 12</span></div></div><div class="slide shot" style="--seam-x:-1620px"><div class="kicker">02 · do zero</div><div class="text mid"><h2>Sem template. Do zero.</h2><p>Zero biblioteca de interface. O design inteiro num arquivo CSS escrito <strong>para esse negócio</strong> — não para mil.</p></div><div class="code"><span class="c">// app/globals.css · 0 bibliotecas de UI</span><br>--yellow: <strong>#F5B400</strong>;   <span class="c">// o amarelo da fachada</span><br>--black:  <strong>#1A1A1A</strong>;<br>--red:    <strong>#E63946</strong>;   <span class="c">// fita de perigo</span><br>--cream:  <strong>#F5F2EA</strong>;</div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">04 / 12</span></div></div><div class="slide shot" style="--seam-x:-2160px"><div class="kicker">03 · um toque</div><div class="text narrow"><h2>WhatsApp a um toque, com a mensagem já escrita.</h2><p>Quem está trancado fora do carro às 23h <strong>não preenche formulário</strong>. O botão segue a rolagem e já abre o chat com o texto pronto.</p></div><div class="phone media phone-r in"><img src="file:///Users/anderson.rocha/Projects/storm-studio-lp/.claude/worktrees/instagram-session-analysis-895701/social/out/carrossel-01/_src_04.png"></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">05 / 12</span></div></div><div class="slide big" style="--seam-x:-2700px"><div class="kicker">04 · medido</div><div class="numrow"><div class="num">100</div><span class="unit">/100 · seo</span></div><h2>Em SEO, no Lighthouse do Google.</h2><p>É o checklist técnico do próprio Google: título, descrição, cada serviço, leitura no celular. Não é primeiro lugar na busca — é a página <strong>pronta para o Google ler</strong>. Sem isso, ele mostra sua empresa errado — ou não mostra.</p><div class="num-sub">lighthouse mobile · 07/09/2026<br>betochaves.com.br — seo <b>100</b> · acessibilidade <b>96</b><br>stormstudio.dev — seo <b>100</b> · boas práticas <b>100</b></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">06 / 12</span></div></div><div class="slide shot" style="--seam-x:-3240px"><div class="kicker">05 · a ordem</div><div class="text "><h2>O que mais vende vem primeiro.</h2><p>Chave automotiva é o carro-chefe da oficina. Então é o primeiro bloco depois da fachada — antes do residencial, antes dos carimbos. <strong>Template não sabe qual serviço paga as contas.</strong></p></div><div class="browser media"><div class="bar"><i></i><i></i><i></i><span>betochaves.com.br</span></div><img src="file:///Users/anderson.rocha/Projects/storm-studio-lp/.claude/worktrees/instagram-session-analysis-895701/social/out/carrossel-01/_src_06.png"></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">07 / 12</span></div></div><div class="slide shot" style="--seam-x:-3780px"><div class="kicker">06 · prova, não adjetivo</div><div class="text narrow"><h2>Avaliação real, com nome e estrela, dentro da página.</h2><p>Nada de “clientes satisfeitos”. As avaliações do Google entram na página como estão — <strong>4,5 estrelas em 422 avaliações</strong>, com o nome de quem escreveu. Quem chega confere antes de ligar.</p></div><div class="phone media phone-r in"><img src="file:///Users/anderson.rocha/Projects/storm-studio-lp/.claude/worktrees/instagram-session-analysis-895701/social/out/carrossel-01/_src_07.png"></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">08 / 12</span></div></div><div class="slide turn flip" style="--seam-x:-4320px"><svg class="bolt" viewBox="0 0 100 200"><path d="M62 0 18 108h30L34 200 88 78H56z" fill="#fb923c"/></svg><div class="kicker">a virada</div><h2>Todo mundo vende “site profissional”.</h2><p>Profissional é o mínimo. O que faz o cliente ligar é a empresa <strong>parecer grande</strong> — e isso não vem de template, vem de decisão. Template custa menos. É por isso que todo mundo parece igual.</p><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">09 / 12</span></div></div><div class="slide quote" style="--seam-x:-4860px"><div class="kicker">o cliente</div><blockquote>Passamos a contar com um layout moderno que transmite segurança, um fator essencial no nosso ramo.</blockquote><div class="who"><b>Henrique</b> · Beto Chaves · Esteio/RS<br>oficina técnica há +30 anos<br>betochaves.com.br</div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">10 / 12</span></div></div><div class="slide list" style="--seam-x:-5400px"><div class="kicker">resumo · salva</div><h2>As 6 decisões</h2><ol><li><div><b>Foto real.</b> <span>A fachada como ela é na rua.</span></div></li><li><div><b>Do zero.</b> <span>Sem template, sem biblioteca.</span></div></li><li><div><b>Um toque.</b> <span>WhatsApp com a mensagem pronta.</span></div></li><li><div><b>Medido.</b> <span>SEO 100 no Lighthouse, não prometido.</span></div></li><li><div><b>Ordem.</b> <span>O carro-chefe logo depois da fachada.</span></div></li><li><div><b>Prova, não adjetivo.</b> <span>Avaliação real do Google na página.</span></div></li></ol><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">11 / 12</span></div></div><div class="slide cta" style="--seam-x:-5940px"><div class="kicker">raio-x · grátis</div><h2>Quer saber o que está te fazendo parecer pequeno?</h2><p>Manda <strong>RAIO-X</strong> no direct com o link do seu site — ou o Instagram da empresa. A gente abre, olha e devolve os 3 pontos, em ordem do que mais pesa. <strong>De graça, sem call.</strong></p><div class="pill">manda RAIO-X no direct<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div><div class="foot"><span class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="54" y2="60"><stop offset="0" stop-color="#fff4e6"></stop><stop offset=".35" stop-color="#fb923c"></stop><stop offset="1" stop-color="#b45309"></stop></linearGradient>
+    <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
+    <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>
+    <clipPath id="b2"><rect x="0" y="20" width="64" height="21"></rect></clipPath>
+    <clipPath id="b3"><rect x="0" y="41" width="64" height="23"></rect></clipPath>
+  </defs>
+  <g clip-path="url(#b1)"><g transform="translate(4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b2)"><g transform="translate(0 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+  <g clip-path="url(#b3)"><g transform="translate(-4.5 0)"><g clip-path="url(#bolt)"><path fill="url(#g)" d="M38 4 16 35h13l-3 25 22-32H35z"></path><path fill="#05060a" opacity=".3" d="M38 4 26 60 64 60 64 0z"></path></g></g></g>
+</svg>stormstudio.dev</span><span class="idx">12 / 12</span></div></div></div></body></html>

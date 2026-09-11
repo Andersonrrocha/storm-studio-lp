@@ -12,7 +12,7 @@ Público secundário: recrutadores/clientes técnicos que querem aferir a capaci
 
 ## Product Purpose
 
-Landing page da **Storm Studio**, o estúdio pessoal de Anderson Rocha (dev freelancer). Existe para **captar clientes vendendo craft e exclusividade** ("sob medida, feito à mão, sem templates") e para **provar capacidade na primeira dobra** — a própria página, com tempestade procedural em canvas e um terminal de build, já é a demonstração. Sucesso = o visitante confia e inicia um projeto (clique no CTA de e-mail/WhatsApp ou envio do briefing).
+Landing page da **Storm Code**, o estúdio pessoal de Anderson Rocha (dev freelancer). Existe para **captar clientes vendendo craft e exclusividade** ("sob medida, feito à mão, sem templates") e para **provar capacidade na primeira dobra** — a própria página, com tempestade procedural em canvas e um terminal de build, já é a demonstração. Sucesso = o visitante confia e inicia um projeto (clique no CTA de e-mail/WhatsApp ou envio do briefing).
 
 ## Brand Personality
 

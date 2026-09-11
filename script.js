@@ -1,5 +1,5 @@
 /* ============================================================
-   STORM STUDIO — handoff design × v2 motor cinematográfico
+   STORM CODE — handoff design × v2 motor cinematográfico
    storm global reativo à velocidade + GSAP/ScrollTrigger + Lenis
    ============================================================ */
 
@@ -531,7 +531,7 @@ if (form) {
     if (firstBad) { firstBad.focus(); return; }
 
     const g = (name) => (form.querySelector(`[name="${name}"]`) || {}).value || "";
-    const subject = `Projeto com a Storm Studio — ${g("tipo")}`;
+    const subject = `Projeto com a Storm Code — ${g("tipo")}`;
     const body = `Nome: ${g("nome")}\nPreciso de: ${g("tipo")}\n\n${g("msg")}`;
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 

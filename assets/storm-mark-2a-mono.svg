@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Studio">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Storm Code">
   <defs>
     <clipPath id="bolt"><path d="M38 4 16 35h13l-3 25 22-32H35z"></path></clipPath>
     <clipPath id="b1"><rect x="0" y="0" width="64" height="20"></rect></clipPath>

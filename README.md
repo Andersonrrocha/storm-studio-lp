@@ -1,8 +1,8 @@
-# ⚡ Storm Studio — Landing Page (v2)
+# ⚡ Storm Code — Landing Page (v2)
 
-Landing page do **Storm Studio**, estúdio de engenharia criativa de Anderson Rocha — sites, apps, ferramentas de IA e agents autônomos.
+Landing page do **Storm Code**, estúdio de engenharia criativa de Anderson Rocha — sites, apps, ferramentas de IA e agents autônomos.
 
-**Live:** https://andersonrrocha.github.io/storm-studio-lp/
+**Live:** https://stormcode.dev/
 
 ## Conceito da v2 — *scroll cinematográfico*
 
